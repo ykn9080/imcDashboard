@@ -4,6 +4,7 @@ import _ from "lodash";
 import { globalVariable } from "actions";
 import { Button, Popconfirm, Row, Col, Tooltip } from "antd";
 import AntFormDisplay from "imcformbuilder";
+import formdt from "Model/AntFormDisplay.json";
 import Popup from "components/Common/Popup";
 import { EditOutlined, SaveOutlined } from "@ant-design/icons";
 import IconButton from "@material-ui/core/IconButton";
@@ -386,7 +387,7 @@ const SingleTable = (props) => {
 
           <Popup {...popup}>
             <AntFormDisplay
-              formid="5f101b3289db1023b0165b1a"
+              formArray={formdt["5f101b3289db1023b0165b1a"]}
               showtitle={true}
               onFinish={onFinishColumn}
               initialValues={initCol}

@@ -24,9 +24,7 @@ import "Model/Author/react-grid-layout.css";
 import { pick } from "components/functions/LodashUtil";
 import {
   EditOutlined,
-  RollbackOutlined,
   UndoOutlined,
-  AppstoreAddOutlined,
   AppstoreOutlined,
   PlusOutlined,
 } from "@ant-design/icons";
@@ -61,24 +59,9 @@ const ModelEdit4 = (props) => {
   const [defaultlist, setDefaultlist] = useState();
 
   let tempModel = useSelector((state) => state.global.tempModel);
-  //let tempData = useSelector((state) => state.global.tempData);
   let currentStep = useSelector((state) => state.global.currentStep);
   let trigger = useSelector((state) => state.global.triggerChild);
 
-  // if (!tempData) {
-  //   dispatch(globalVariable({ currentStep: currentStep - 1 }));
-  //   message.loading({
-  //     content: "Data fetching, please wait...",
-  //     style: {
-  //       marginTop: "10vh",
-  //     },
-  //     duration: 2,
-  //   });
-
-  //   setTimeout(function () {
-  //     dispatch(globalVariable({ nextStep: currentStep }));
-  //   }, 1500);
-  // }
   useEffect(() => {
     localStorage.removeItem("tempAuthor");
   }, []);
@@ -95,11 +78,6 @@ const ModelEdit4 = (props) => {
       if (author1) author = JSON.parse(author1);
       localStorage.setItem("tempAuthor", JSON.stringify(author));
 
-      //let rAuthor = mergeDtlist();
-
-      // let lay = _.filter(rAuthor, {
-      //   checked: true,
-      // });
       let lay = _.filter(author, {
         checked: true,
       });
@@ -309,22 +287,6 @@ const ModelEdit4 = (props) => {
       }
       return null;
     });
-    // //renumbering after delete
-    // let filtered = _.filter(odr, { checked: true });
-    // filtered.sort(function (a, b) {
-    //   return parseInt(a.i) - parseInt(b.i);
-    // });
-
-    // odr.map((k, i) => {
-    //   filtered.map((a, b) => {
-    //     a.i = b.toString();
-    //     if (k.id === a.id) {
-    //       odr.splice(i, 1, a);
-    //     }
-    //     return null;
-    //   });
-    //   return null;
-    // });
   };
   const onRemoveItem = (i) => {
     let odr = tempModel.properties.resultsAuthor;
@@ -432,27 +394,6 @@ const ModelEdit4 = (props) => {
           }}
         />
       </Tooltip>
-      {/* <Tooltip title="Create New">
-        <Button
-          type="primary"
-          icon={<PlusOutlined />}
-          onClick={(e) => {
-            e.stopPropagation();
-            history.push("./author");
-            message.info("Select data for new authoring");
-          }}
-        />
-      </Tooltip> */}
-      {/* <Tooltip title="Deploy Layout">
-        <Button
-          type="primary"
-          icon={<AppstoreAddOutlined />}
-          onClick={(e) => {
-            e.stopPropagation();
-            setVisible(true);
-          }}
-        />
-      </Tooltip> */}
       <Tooltip title="Reset Layout">
         <Popconfirm
           title="Are you sure to reset layout?"
@@ -494,13 +435,6 @@ const ModelEdit4 = (props) => {
           />
         </Popover>
       </Tooltip>
-      {/* <Tooltip title="Save Layout">
-        <Button
-          type="primary"
-          icon={<i className="fas fa-save" />}
-          onClick={saveLayoutChange}
-        />
-      </Tooltip> */}
     </div>
   );
 
@@ -562,13 +496,6 @@ const ModelEdit4 = (props) => {
           Add Model Summary
         </Tooltip>
       </Menu.Item>
-
-      {/* <Menu.Item key="2" onClick={() => resetData(2)}>
-      Reset Source
-      </Menu.Item>
-      <Menu.Item key="3">
-      
-      </Menu.Item> */}
     </Menu>
   );
   const ModalContent = (

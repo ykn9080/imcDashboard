@@ -2,6 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import DenseAppBar from "components/Common/AppBar";
 import AntFormDisplay from "imcformbuilder";
+import formdt from "Model/AntFormDisplay.json";
 import IconArray1 from "components/SKD/IconArray1";
 
 const ModelSetting = () => {
@@ -31,7 +32,7 @@ const ModelSetting = () => {
       ></DenseAppBar>
       <div style={{ marginTop: 10 }}>
         <AntFormDisplay
-          formid="5f0e8d8689db1023b0165b18"
+          formArray={formdt["5f0e8d8689db1023b0165b18"]}
           // onValuesChange={onValuesChange}
           // initialValues={initialValues}
         />
