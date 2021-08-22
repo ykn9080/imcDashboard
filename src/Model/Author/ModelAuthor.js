@@ -10,10 +10,12 @@ import AntFormDisplay from "imcformbuilder";
 import formdt from "Model/AntFormDisplay.json";
 import { Button } from "antd";
 import IconArray1 from "components/SKD/IconArray1";
-import AuthorChart from "./AuthorChart";
-import AuthorGraph from "./AuthorGraph";
-import AuthorTable from "./AuthorTable";
+// import AuthorChart from "./AuthorChart";
+// import AuthorTable from "./AuthorTable";
+import AuhorTable from "Model/Author/AuhorTable";
+import EasyChart from "imceasychart";
 import AuthorHtml from "./AuthorHtml";
+import AuthorGraph from "./AuthorGraph";
 import querySearch from "stringquery";
 
 const ModelAuthor = (props) => {
@@ -186,9 +188,9 @@ const ModelAuthor = (props) => {
             case "html":
               return <AuthorHtml authObj={authObj} edit={true} title={true} />;
             case "table":
-              return <AuthorTable authObj={authObj} edit={true} title={true} />;
+              return <AuhorTable authObj={authObj} edit={true} title={true} />;
             case "chart":
-              return <AuthorChart authObj={authObj} edit={true} title={true} />;
+              return <EasyChart authObj={authObj} edit={true} title={true} />;
             case "graph":
               return <AuthorGraph authObj={authObj} edit={true} title={true} />;
 

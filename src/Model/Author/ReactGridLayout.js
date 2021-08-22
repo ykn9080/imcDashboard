@@ -3,9 +3,9 @@ import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import _ from "lodash";
 import { Responsive, WidthProvider } from "react-grid-layout";
-import AuthorChart from "Model/Author/AuthorChart";
+import EasyChart from "imceasychart";
+import EasyTable from "imceasytable";
 import AuthorGraph from "Model/Author/AuthorGraph";
-import AuthorTable from "Model/Author/AuthorTable";
 import AuthorHtml from "Model/Author/AuthorHtml";
 import AuthorMatrix from "Model/Author/AuthorMatrix";
 import { Popconfirm, Tooltip, Typography } from "antd";
@@ -247,6 +247,7 @@ export default class ShowcaseLayout extends React.Component {
   }
 
   onSortAscending(el) {
+    if (!el.setting) return;
     const data = el.dtlist;
     const value = el.setting.value[0];
 
@@ -396,11 +397,11 @@ const CreateContent = (k) => {
       case "html":
         return <AuthorHtml authObj={k} title={true} />;
       case "table":
-        return <AuthorTable authObj={k} title={true} />;
+        return <EasyTable authObj={k} title={true} />;
       case "matrix":
         return <AuthorMatrix obj={k} title={true} />;
       case "chart":
-        return <AuthorChart authObj={k} title={true} />;
+        return <EasyChart authObj={k} title={true} />;
       case "graph":
         return <AuthorGraph authObj={k} title={true} />;
       default:
