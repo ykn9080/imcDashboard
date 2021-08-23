@@ -9,7 +9,7 @@ import ColumnChart from "Model/Chart/antv/ColumnChart";
 import ScatterPlot from "Model/Chart/antv/ScatterPlot";
 import AreaChart from "Model/Chart/antv/AreaChart";
 import Options from "Model/Chart/antv/OptionArray";
-import { CleanupObj } from "Model/Author/AuthorChart";
+import { CleanupObj } from "imceasychart";
 
 const { Panel } = Collapse;
 

@@ -5,9 +5,7 @@ import _ from "lodash";
 import { Responsive, WidthProvider } from "react-grid-layout";
 import EasyChart from "imceasychart";
 import EasyTable from "imceasytable";
-import AuthorGraph from "Model/Author/AuthorGraph";
 import AuthorHtml from "Model/Author/AuthorHtml";
-import AuthorMatrix from "Model/Author/AuthorMatrix";
 import { Popconfirm, Tooltip, Typography } from "antd";
 import {
   CloseOutlined,
@@ -398,12 +396,8 @@ const CreateContent = (k) => {
         return <AuthorHtml authObj={k} title={true} />;
       case "table":
         return <EasyTable authObj={k} title={true} />;
-      case "matrix":
-        return <AuthorMatrix obj={k} title={true} />;
       case "chart":
         return <EasyChart authObj={k} title={true} />;
-      case "graph":
-        return <AuthorGraph authObj={k} title={true} />;
       default:
         return (
           <div className={classes.card}>

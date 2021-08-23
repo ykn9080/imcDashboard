@@ -6,11 +6,9 @@ import { globalVariable } from "actions";
 import DenseAppBar from "components/Common/AppBar";
 import AntBreadCrumb from "components/Common/BreadCrumb";
 import IconArray1 from "components/SKD/IconArray1";
-// import AuhorTable from "Model/Author/AuthorTable";
 import EasyTable from "imceasytable";
 import EasyChart from "imceasychart";
 import AuthorHtml from "Model/Author/AuthorHtml";
-import AuthorGraph from "Model/Author/AuthorGraph";
 
 const Author = (props) => {
   const [authObj, setAuthObj] = useState();
@@ -83,8 +81,6 @@ const Author = (props) => {
               return <AuthorHtml authObj={authObj} edit={true} />;
             case "chart":
               return <EasyChart authObj={authObj} edit={true} />;
-            case "graph":
-              return <AuthorGraph authObj={authObj} edit={true} />;
 
             default:
               return null;

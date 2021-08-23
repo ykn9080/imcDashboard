@@ -5,7 +5,6 @@ import ModelList from "Model/ModelList";
 import ModelView from "Model/ModelView";
 import ModelEdit from "Model/ModelEdit";
 import ModelSetting from "Model/ModelSetting";
-import AuthorTable from "Model/Author/AuthorTable";
 import background from "images/background.png";
 
 const Model = ({ match }) => {
@@ -81,7 +80,7 @@ const Model = ({ match }) => {
           }
         })()}
       </div>
-      {(() => {
+      {/* {(() => {
         switch (title) {
           case "authortable":
             return (
@@ -92,7 +91,7 @@ const Model = ({ match }) => {
           default:
             return null;
         }
-      })()}
+      })()} */}
     </>
   );
 };
