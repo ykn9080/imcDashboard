@@ -10,8 +10,8 @@ import AntFormDisplay from "imcformbuilder";
 import formdt from "Model/AntFormDisplay.json";
 import { Button } from "antd";
 import IconArray1 from "components/SKD/IconArray1";
-import AuhorTable from "Model/Author/AuhorTable";
 import EasyChart from "imceasychart";
+import EasyTable from "imceasytable";
 import AuthorHtml from "./AuthorHtml";
 import querySearch from "stringquery";
 
@@ -96,7 +96,7 @@ const ModelAuthor = (props) => {
         }
       : {},
   ];
-  console.log("authObj", authObj, "type", type);
+
   useEffect(() => {
     $(".MuiIconButton-root").css("padding", 0);
     $(".ant-col.ant-col-2").css("text-align", "right");
@@ -142,7 +142,12 @@ const ModelAuthor = (props) => {
       </div>
     </div>
   );
-
+  const onSaveTable = (data) => {
+    console.log(data);
+  };
+  const onSaveChart = (data) => {
+    console.log(data);
+  };
   return (
     <>
       <DenseAppBar
@@ -185,9 +190,13 @@ const ModelAuthor = (props) => {
             case "html":
               return <AuthorHtml authObj={authObj} edit={true} title={true} />;
             case "table":
-              return <AuhorTable authObj={authObj} edit={true} title={true} />;
+              return (
+                <EasyTable authObj={authObj} edit={true} save={onSaveTable} />
+              );
             case "chart":
-              return <EasyChart authObj={authObj} edit={true} title={true} />;
+              return (
+                <EasyChart authObj={authObj} edit={true} save={onSaveChart} />
+              );
 
             default:
               return null;

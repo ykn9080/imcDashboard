@@ -68,7 +68,6 @@ const ModelEdit4 = (props) => {
   useEffect(() => {
     let tempAuthor = localStorage.getItem("tempAuthor");
     let tempAuthor1 = tempModel?.properties?.resultsAuthor;
-    console.log(_.cloneDeep(tempAuthor1));
     if (tempAuthor1 && tempAuthor1.length === 0) {
       createMain(tempModel);
     }
