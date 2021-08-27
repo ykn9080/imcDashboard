@@ -1,5 +1,5 @@
 {
-  "name": "imcformbuilder",
+  "name": "imcdashboard",
   "version": "0.1.0",
   "private": false,
   "dependencies": {
@@ -38,7 +38,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "set NODE_OPTIONS=--max_old_space_size=2048 && react-scripts build",
+    "winBuild": "set \"GENERATE_SOURCEMAP=false\" && set NODE_OPTIONS= --max_old_space_size=32768 && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

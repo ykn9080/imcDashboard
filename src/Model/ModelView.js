@@ -23,12 +23,14 @@ const ModelView = (props) => {
   const [visible, setVisible] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
   let tempModel = useSelector((state) => state.global.tempModel);
-
+  let currentData = useSelector((state) => state.global.currentData);
+  if (currentData) tempModel = currentData;
   let query = querySearch(location.search);
   let linkname, nodename, linktype;
 
   useEffect(() => {
     dispatch(globalVariable({ display: "list" })); //modellist compact
+
     if (!tempModel) {
       dispatch(globalVariable({ tempModel: location.state }));
       //dispatch(globalVariable({ tempModel: Dt }));

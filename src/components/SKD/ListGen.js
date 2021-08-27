@@ -90,26 +90,26 @@ const ListGen = (props) => {
   }, []);
 
   const createHandler = () => {
-    dispatch(globalVariable({ currentData: "" }));
+    dispatch(globalVariable({ tempModel: "" }));
     dispatch(globalVariable({ selectedKey: "" }));
     history.push(`/${props.url}/edit`);
   };
 
   const editHandler = (item) => {
-    dispatch(globalVariable({ currentData: item }));
+    dispatch(globalVariable({ tempModel: item }));
     dispatch(globalVariable({ selectedKey: item._id }));
     history.push(`/${props.url}/edit`);
   };
   const selectHandler1 = (item) => {
-    dispatch(globalVariable({ currentData: item }));
+    dispatch(globalVariable({ tempModel: item }));
     dispatch(globalVariable({ selectedKey: item._id }));
-
-    history.push({
-      pathname: "/project/view",
-      search: "?_id=5ef99d0b48fbce0ff8541448",
-      state: { detail: "response.data" },
-    });
-    history.go();
+    history.push(`/${props.url}/view`);
+    // history.push({
+    //   pathname: "/project/view",
+    //   search: "?_id=5ef99d0b48fbce0ff8541448",
+    //   state: { detail: "response.data" },
+    // });
+    // history.go();
   };
   const deleteHandler = (item) => {
     let config = {

@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: imcdashboard
+    image: yknam/imcdashboard
+    volumes:
+      - ./src:/app/src
+    ports:
+      - "7000:80"
