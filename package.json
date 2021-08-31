@@ -14,8 +14,8 @@
     "draftjs-to-html": "^0.9.1",
     "fg-loadcss": "^3.1.0",
     "html-react-parser": "^1.2.8",
-    "imc-easychart": "^0.1.2",
-    "imc-easytable": "^0.1.1",
+    "imceasychart": "^1.0.0",
+    "imceasytable": "^1.0.0",
     "imcformbuilder": "^1.0.4",
     "jquery": "^3.6.0",
     "lodash": "^4.17.21",
@@ -37,7 +37,7 @@
     "use-force-update": "^1.0.7"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=7000 && react-scripts start",
     "build": "react-scripts build",
     "winBuild": "set \"GENERATE_SOURCEMAP=false\" && set NODE_OPTIONS= --max_old_space_size=32768 && react-scripts build",
     "test": "react-scripts test",
