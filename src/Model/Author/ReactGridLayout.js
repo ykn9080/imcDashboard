@@ -3,8 +3,8 @@ import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import _ from "lodash";
 import { Responsive, WidthProvider } from "react-grid-layout";
-import EasyChart from "imceasychart";
-import EasyTable from "imceasytable";
+import EasyChart from "imcchart";
+import EasyTable from "imcgridtable";
 import AuthorHtml from "Model/Author/AuthorHtml";
 import { Popconfirm, Tooltip, Typography } from "antd";
 import {

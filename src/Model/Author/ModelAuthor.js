@@ -10,8 +10,8 @@ import AntFormDisplay from "imcformbuilder";
 import formdt from "Model/AntFormDisplay.json";
 import { Button } from "antd";
 import IconArray1 from "components/SKD/IconArray1";
-import EasyChart from "imceasychart";
-import EasyTable from "imceasytable";
+import EasyChart from "imcchart";
+import EasyTable from "imcgridtable";
 import AuthorHtml from "./AuthorHtml";
 import querySearch from "stringquery";
 

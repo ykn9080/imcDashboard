@@ -6,8 +6,8 @@ import { globalVariable } from "actions";
 import DenseAppBar from "components/Common/AppBar";
 import AntBreadCrumb from "components/Common/BreadCrumb";
 import IconArray1 from "components/SKD/IconArray1";
-import EasyTable from "imceasytable";
-import EasyChart from "imceasychart";
+import EasyTable from "imcgridtable";
+import EasyChart from "imcchart";
 import AuthorHtml from "Model/Author/AuthorHtml";
 
 const Author = (props) => {
