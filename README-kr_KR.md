@@ -1,20 +1,18 @@
-<h1 align="center">imcDashboard 📌</h1>
+<h1 align="center">imcDashboard 👋</h1>
 
 ![npm](https://img.shields.io/npm/v/imcformbuilder)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/imcformbuilder?style=plastic)
 ![npm](https://img.shields.io/npm/dm/imcformbuild)
 
-> Create and deploy various objects, such as chart, table, html in a dashboard and rearrange position, change each object size.
-> You can manage multiple dashboard by subjects and load each dashboard from list.
-
-> | Display                                                                                                               | Form Edit                                                                                                           |
-> | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-> | <a href="http://imcmaster.iptime.org/form" ><img src="https://i.ibb.co/7yWH0tT/antformdisplay.png" width="400px"></a> | <a href="http://imcmaster.iptime.org:3080" ><img src="https://i.ibb.co/RNbtwWF/imcformedit.png" width="400px"> </a> |
+> 대쉬보드기능을 제공하는 오픈소스. 차트,테이블,html문서 등을 drag & drop으로 배치할 수 있다. 각 오브젝트의 레이아웃과 사이즈변경을 할수 있으며. 각각의 오브젝트를 생성, 수정, 삭제할 수 있다. 
+> 주제별로 여러개의 대쉬보드는 생성할 수 있고, 리스트로 관리할 수 있다. 
+> 
+<a href="http://imcmaster.iptime.org:7000" ><img src="https://i.ibb.co/744RYpb/imcdashboard.gif" width="800px"></a>
 
 ### 🏠 [Homepage](http://imcmaster.iptime.org:3080)
 
 ### ✨ [Demo](http://imcmaster.iptime.org:4009/form/edit)
-English | [한글](./README-kr_KR.md)
+[English](./README.md) | 한글
 ## Install
 
 ```sh
