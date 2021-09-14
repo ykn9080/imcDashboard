@@ -20,9 +20,9 @@ const ModelLayout = (props) => {
   const [tempLayout, setTempLayout] = useState();
 
   useEffect(() => {
-    if (!props?.data?.properties?.resultsAuthor) return;
-    let lay = _.filter(props?.data?.properties?.resultsAuthor, (o) => {
-      return o.checked === true && o.type !== "";
+    if (!props?.data?.resultsAuthor) return;
+    let lay = _.filter(props?.data?.resultsAuthor, (o) => {
+      return o.checked === true && o.type && o.type !== "";
     });
     lay.sort(function (a, b) {
       return parseInt(a.i) - parseInt(b.i);

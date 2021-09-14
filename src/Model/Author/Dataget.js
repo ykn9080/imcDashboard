@@ -18,7 +18,7 @@ import styled, { css } from "styled-components";
 const { Title } = Typography;
 const { TextArea } = Input;
 
-const Dataget = (props) => {
+const Dataget = ({ authObj, ...props }) => {
   const [initVal, setInitVal] = useState();
   const [result, setResult] = useState();
   const [showalert, setShowalert] = useState(false);
@@ -27,9 +27,11 @@ const Dataget = (props) => {
   useEffect(() => {
     setShowalert(false);
     setLoading(false);
-    if (props.dtsrc && Object.keys(props.dtsrc).length > 0) {
-      setInitVal(props.dtsrc.initVal);
-      setResult(JSON.stringify(props.dtsrc.result, null, 2));
+    console.log("props", authObj, props);
+    localStorage.setItem("modelchart", JSON.stringify(authObj));
+    if (authObj.dtsetting) {
+      setInitVal(authObj.dtsetting);
+      if (authObj.dtlist) setResult(JSON.stringify(authObj.dtlist, null, 2));
     } else {
       setInitVal({
         url: "",
@@ -62,6 +64,10 @@ const Dataget = (props) => {
     if (val.header) options = { ...options, header: val.header };
 
     setLoading(true);
+    let local = {},
+      local1 = localStorage.getItem("modelchart");
+    if (local1) local = JSON.parse(local1);
+    local.dtsetting = val;
     axios
       .request(options)
       .then(function (response) {
@@ -76,10 +82,12 @@ const Dataget = (props) => {
           });
         }
         setResult(JSON.stringify(rtn, null, 2));
-        localStorage.setItem(
-          "modeldtsrc",
-          JSON.stringify({ initVal: val, result: rtn })
-        );
+
+        //use localstorage to prevent state change
+
+        local.dtlist = rtn;
+        localStorage.setItem("modelchart", JSON.stringify(local));
+
         if (Array.isArray(rtn)) {
           props.onDataGet(makeStringify(rtn));
           setShowalert(false);
@@ -89,6 +97,7 @@ const Dataget = (props) => {
       .catch(function (error) {
         console.error(error);
         setLoading(false);
+        localStorage.setItem("modelchart", JSON.stringify(local));
       });
   };
 

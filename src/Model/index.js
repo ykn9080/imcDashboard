@@ -6,6 +6,7 @@ import ModelView from "Model/ModelView";
 import ModelEdit from "Model/ModelEdit";
 import ModelSetting from "Model/ModelSetting";
 import background from "images/background.png";
+import sampledata from "config/sampledata.json";
 
 const Model = ({ match }) => {
   let title = match.params.name;
@@ -24,6 +25,7 @@ const Model = ({ match }) => {
     $(window).on("resize", () => {
       $("#dvbody").css({ minHeight: window.innerHeight });
     });
+    localInit();
   }, []);
   return (
     <>
@@ -65,12 +67,7 @@ const Model = ({ match }) => {
                   <ModelSetting />
                 </>
               );
-            // case "graph":
-            //   return (
-            //     <>
-            //       <ModelGraph />
-            //     </>
-            //   );
+
             // case "author":
             //   return (
             //     <>
@@ -94,6 +91,26 @@ const Model = ({ match }) => {
       })()} */}
     </>
   );
+};
+export const localInit = () => {
+  localStorage.setItem("dashdata", JSON.stringify(sampledata));
+  const set = { datatype: "local" };
+  localStorage.setItem("dashsetting", JSON.stringify(set));
+};
+export const checkSetting = () => {
+  let setting = localStorage.getItem("dashsetting");
+  if (setting) {
+    setting = JSON.parse(setting);
+    return setting.datatype;
+  } else return "local";
+};
+
+export const localList = () => {
+  let dt = localStorage.getItem("dashdata");
+  if (dt) {
+    dt = JSON.parse(dt);
+    return dt;
+  } else return [];
 };
 
 export default Model;

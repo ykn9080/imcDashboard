@@ -1,12 +1,12 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import _ from "lodash";
 import { Responsive, WidthProvider } from "react-grid-layout";
 import EasyChart from "imcchart";
 import EasyTable from "imcgridtable";
 import AuthorHtml from "Model/Author/AuthorHtml";
-import { Popconfirm, Tooltip, Typography } from "antd";
+import { Popconfirm, Tooltip, Typography, Space } from "antd";
 import {
   CloseOutlined,
   EditOutlined,
@@ -14,6 +14,7 @@ import {
   FallOutlined,
   FullscreenOutlined,
 } from "@ant-design/icons";
+import { GoDatabase } from "react-icons/go";
 import IconArray1 from "components/SKD/IconArray1";
 import "./react-grid-layout.css";
 import DisplayMore from "components/SKD/DisplayMore";
@@ -23,7 +24,8 @@ const { Title } = Typography;
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 const useStyles = makeStyles((theme) => ({
   card: {
-    padding: "50px 10px 10px 10px",
+    padding: 10,
+    marginTop: 10,
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
@@ -32,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   cardbutton: { fontSize: 50 },
 }));
 
-export default class ShowcaseLayout extends React.Component {
+class ShowcaseLayout extends React.Component {
   static defaultProps = {
     className: "layout",
     cols: { lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 },
@@ -53,7 +55,7 @@ export default class ShowcaseLayout extends React.Component {
       remove: props.remove,
       layouts: { lg: this.props.resultsLayout },
     };
-
+    console.log(this.props.resultsLayout);
     this.onBreakpointChange = this.onBreakpointChange.bind(this);
     this.onCompactTypeChange = this.onCompactTypeChange.bind(this);
     this.onLayoutChange = this.onLayoutChange.bind(this);
@@ -64,6 +66,7 @@ export default class ShowcaseLayout extends React.Component {
     this.onSortAscending = this.onSortAscending.bind(this);
     this.onSortDescending = this.onSortDescending.bind(this);
     this.onAddItem = this.onAddItem.bind(this);
+    this.onRouteChange = this.onRouteChange.bind(this);
   }
 
   componentDidMount() {
@@ -71,7 +74,7 @@ export default class ShowcaseLayout extends React.Component {
   }
 
   generateDOM(items) {
-    console.log(items);
+    console.log("generateDom", items);
     return _.map(items, (el) => this.createElement(el));
   }
 
@@ -100,6 +103,15 @@ export default class ShowcaseLayout extends React.Component {
     this.setState({
       layouts: { lg: this.state.item },
     });
+  }
+  onRouteChange(el) {
+    delete el.edit;
+    let path = {
+      pathname: "/author/data",
+      state: { author: { ...el } },
+    };
+
+    this.props.history.push(path);
   }
   createElement(el) {
     let removeStyle = {
@@ -136,6 +148,16 @@ export default class ShowcaseLayout extends React.Component {
     let moreStyle = { ...removeStyle, right: "8px", top: "8px" };
 
     const menu = [
+      {
+        title: (
+          <Tooltip title="data edit" placement="left">
+            <GoDatabase />
+          </Tooltip>
+        ),
+        onClick: () => {
+          this.onRouteChange(el);
+        },
+      },
       {
         title: (
           <Tooltip title="ascending" placement="left">
@@ -212,7 +234,7 @@ export default class ShowcaseLayout extends React.Component {
         </span>
       </div>
     );
-    el = { ...el, edit: this.onEditItem };
+    el = { ...el, edit: this.onEditItem, onDataget: this.onDataget };
     return (
       <div key={i} data-grid={i} style={style}>
         <CreateContent {...el} />
@@ -279,6 +301,7 @@ export default class ShowcaseLayout extends React.Component {
       items: [el],
     });
   }
+
   render() {
     return (
       <div>
@@ -313,15 +336,31 @@ const CreateContent = (k) => {
     h: k.h,
     i: k.i,
     seq: k.seq,
+    dtlist: k.dtlist,
+    dtsetting: k.dtsetting,
     setting: k.setting,
     title: k.title,
-    type: "table",
     w: k.w,
     x: k.x,
     y: k.y,
   };
   localStorage.removeItem("blanki");
+
   const btnArr = [
+    {
+      tooltip: "data",
+      awesome: "database",
+      fontSize: "large",
+      color: "inherit",
+      "aria-controls": "data",
+      onClick: () => {
+        localStorage.setItem("blanki", kk.i);
+        history.push({
+          pathname: "/author/data",
+          state: { author: { ...kk } },
+        });
+      },
+    },
     {
       tooltip: "chart",
       awesome: "chart-area",
@@ -347,7 +386,12 @@ const CreateContent = (k) => {
         localStorage.setItem("blanki", kk.i);
         history.push({
           pathname: "/author/table",
-          state: { author: { ...kk, type: "table" } },
+          state: {
+            author: {
+              ...kk,
+              type: "table",
+            },
+          },
         });
       },
     },
@@ -400,8 +444,25 @@ const CreateContent = (k) => {
         return <EasyChart authObj={k} title={true} />;
       default:
         return (
-          <div className={classes.card}>
-            <IconArray1 btnArr={btnArr} />
+          <div className={classes.card} style={{ marginTop: 50 }}>
+            <Space size={"large"}>
+              <div>
+                <Title style={{ marginLeft: 22 }} level={5}>
+                  Data
+                </Title>
+                <div className={classes.card}>
+                  <IconArray1 btnArr={[btnArr.shift()]} />
+                </div>
+              </div>
+              <div>
+                <Title style={{ marginLeft: 22 }} level={5}>
+                  Layout
+                </Title>
+                <div className={classes.card}>
+                  <IconArray1 btnArr={btnArr} />
+                </div>
+              </div>
+            </Space>
           </div>
         );
     }
@@ -420,3 +481,5 @@ ShowcaseLayout.defaultProps = {
   //initialLayout: generateLayout(),
   //initialLayout: extractLayout(this.props.resultsLayout),
 };
+
+export default withRouter(ShowcaseLayout);

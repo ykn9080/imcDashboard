@@ -1,31 +1,4 @@
-const server_url = {
-  dockermachine: "http://192.168.99.100:3001/",
-  local: "http://localhost:9006/",
-  cyram_dev: "http://src.netminer.com:9006/",
-  namubuntu: "http://imcmaster.iptime.org:9006/",
-  wifiubuntu: "http://imcmaster.iptime.org:9016/",
-  smartasp: "http://node.imcmaster.co.kr/",
-  digitalocean: "http://167.71.208.218:9006/",
-};
-const current_url = server_url.wifiubuntu;
-const currentsetting = {
-  passporturl: current_url,
-  webserviceprefix: current_url,
-  googlekey: "AIzaSyBIJnp5VXSiVEAr8xPM7-OWAYRfdYtlbV0",
-};
-
-//collection of global variable for Redux store initvalue
-const persistVar = {
-  login: "",
-  token: "",
-  menu: [],
-  adminmenu: [],
-  openmenu: [],
-};
 const globalVar = {
-  googlekey: currentsetting.googlekey, //"AIzaSyBIJnp5VXSiVEAr8xPM7-OWAYRfdYtlbV0"
-  passporturl: currentsetting.passporturl, //"http://localhost:3001",
-  webserviceprefix: currentsetting.webserviceprefix, //"http://localhost:3001/",//"http://www.imcmaster.co.kr/webservice.asmx/",
   fixedStr: ["$comp", "$name", "$id", "$boss", "$division", "$position"],
   fixedPeriod: [
     "$thisYear",
@@ -120,4 +93,4 @@ const globalVar = {
   logicArr: [],
 };
 
-export { currentsetting, globalVar, persistVar };
+export { globalVar };

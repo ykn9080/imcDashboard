@@ -5,7 +5,6 @@ import { globalVariable } from "actions";
 import { useHistory } from "react-router-dom";
 
 import axios from "axios";
-import { currentsetting } from "config/index.js";
 import AntList from "components/Common/List";
 import { Tooltip, Button } from "antd";
 import PageHead from "components/Common/PageHeader";
@@ -15,6 +14,8 @@ import {
   SisternodeOutlined,
 } from "@ant-design/icons";
 import useForceUpdate from "use-force-update";
+
+const imcsvr = process.env.REACT_APP_SERVER;
 
 const ListGen = (props) => {
   let title = props.type,
@@ -31,12 +32,12 @@ const ListGen = (props) => {
   const datamapping = (k) => {
     let data = {
       _id: k._id,
-      data: k.data && k.data,
+      data: k,
       name: k.title,
       description: k.desc,
       titleHandler: true,
       href: {
-        pathname: `/${props.url}/view`,
+        pathname: `/${props.path}/view`,
         search: `?_id=${k._id}`,
         state: k,
       },
@@ -50,7 +51,7 @@ const ListGen = (props) => {
     };
     let obj = {
       href: {
-        pathname: `/${props.url}/view`,
+        pathname: `/${props.path}/view`,
         search: `?_id=${k._id}`,
         state: k,
       },
@@ -75,35 +76,33 @@ const ListGen = (props) => {
   useEffect(() => {
     setLoading(true);
 
-    axios
-      .get(`${currentsetting.webserviceprefix}${props.url}`)
-      .then((response) => {
-        let imsiData1 = [];
-        response.data.map((k, i) => {
-          return imsiData1.push(datamapping(k));
-        });
-        setListData(imsiData1);
-
-        dispatch(globalVariable({ listData: imsiData1 }));
-        setLoading(false);
+    axios.get(`${imcsvr}/${props.url}`).then((response) => {
+      let imsiData1 = [];
+      response.data.map((k, i) => {
+        return imsiData1.push(datamapping(k));
       });
+      setListData(imsiData1);
+
+      dispatch(globalVariable({ listData: imsiData1 }));
+      setLoading(false);
+    });
   }, []);
 
   const createHandler = () => {
     dispatch(globalVariable({ tempModel: "" }));
     dispatch(globalVariable({ selectedKey: "" }));
-    history.push(`/${props.url}/edit`);
+    history.push(`/edit`);
   };
 
   const editHandler = (item) => {
     dispatch(globalVariable({ tempModel: item }));
     dispatch(globalVariable({ selectedKey: item._id }));
-    history.push(`/${props.url}/edit`);
+    history.push(`/edit`);
   };
   const selectHandler1 = (item) => {
     dispatch(globalVariable({ tempModel: item }));
     dispatch(globalVariable({ selectedKey: item._id }));
-    history.push(`/${props.url}/view`);
+    history.push(`}/view`);
     // history.push({
     //   pathname: "/project/view",
     //   search: "?_id=5ef99d0b48fbce0ff8541448",
@@ -114,7 +113,7 @@ const ListGen = (props) => {
   const deleteHandler = (item) => {
     let config = {
       method: "delete",
-      url: `${currentsetting.webserviceprefix}${props.url}/${item._id}`,
+      url: `${imcsvr}/${props.url}/${item._id}`,
     };
     axios(config).then((r) => {
       _.remove(listData, function (currentObject) {
@@ -127,7 +126,7 @@ const ListGen = (props) => {
   };
   const footer = (
     <div>
-      <b>NetMiner365</b>
+      <b>IMCDashboard</b>
     </div>
   );
   let pagination = {
@@ -157,7 +156,7 @@ const ListGen = (props) => {
       <AntList
         listData={listData}
         loading={loading}
-        // editHandler={editHandler}
+        editHandler={editHandler}
         // deleteHandler={deleteHandler}
         size={"small"}
         layout={"horizontal"}

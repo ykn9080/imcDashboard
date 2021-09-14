@@ -1,4 +1,4 @@
-<h1 align="center">imcDashboard 👋</h1>
+<h1 align="center">imcDashboard 📌</h1>
 
 ![npm](https://img.shields.io/npm/v/imcformbuilder)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/imcformbuilder?style=plastic)

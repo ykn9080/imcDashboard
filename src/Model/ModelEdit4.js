@@ -7,7 +7,6 @@ import { loadCSS } from "fg-loadcss";
 import {
   Row,
   Col,
-  Typography,
   Button,
   Radio,
   Modal,
@@ -23,7 +22,6 @@ import GridLay1 from "Model/Author/ReactGridLayout";
 import "Model/Author/react-grid-layout.css";
 import { pick } from "components/functions/LodashUtil";
 import {
-  EditOutlined,
   UndoOutlined,
   AppstoreOutlined,
   PlusOutlined,
@@ -37,10 +35,7 @@ import {
   FcPieChart,
 } from "react-icons/fc";
 import { ImTable } from "react-icons/im";
-import IconArray1 from "components/SKD/IconArray1";
-import { MainMaker } from "Model/ModelRun";
 
-const { Title } = Typography;
 const { Option } = Select;
 
 const ModelEdit4 = (props) => {
@@ -67,12 +62,10 @@ const ModelEdit4 = (props) => {
   }, []);
   useEffect(() => {
     let tempAuthor = localStorage.getItem("tempAuthor");
-    let tempAuthor1 = tempModel?.properties?.resultsAuthor;
-    if (tempAuthor1 && tempAuthor1.length === 0) {
-      createMain(tempModel);
-    }
+    let tempAuthor1 = tempModel?.resultsAuthor;
+
     if (!_.isEqual(JSON.parse(tempAuthor), tempAuthor1)) {
-      const author1 = JSON.stringify(tempModel?.properties?.resultsAuthor);
+      const author1 = JSON.stringify(tempModel?.resultsAuthor);
       let author = [];
       if (author1) author = JSON.parse(author1);
       localStorage.setItem("tempAuthor", JSON.stringify(author));
@@ -123,22 +116,13 @@ const ModelEdit4 = (props) => {
       });
       setTempLayout(lay);
       let newtempModel = { ...tempModel };
-      newtempModel.properties.resultsAuthor = lay;
+      newtempModel.resultsAuthor = lay;
       dispatch(globalVariable({ tempModel: newtempModel }));
       dispatch(globalVariable({ currentStep: 3 }));
       dispatch(globalVariable({ nextStep: 4 }));
     }
   }, [colnum]);
-  const createMain = (tempModel) => {
-    if (!tempModel) return false;
-    const src = tempModel?.properties?.source;
-    const author = tempModel?.properties?.resultsAuthor;
-    if (author) {
-      const maincontent = MainMaker(src);
-      tempModel.properties.resultsAuthor.push(maincontent);
-      dispatch(globalVariable({ tempModel }));
-    }
-  };
+
   const goback = [
     {
       tooltip: "Go to Previous",
@@ -149,67 +133,7 @@ const ModelEdit4 = (props) => {
       onClick: () => setFullscreen(!fullscreen),
     },
   ];
-  let items = [];
-  let result = tempModel?.properties?.results;
-  if (!result) result = {};
-  const namelist = Object.keys(result);
-  namelist.map((k, i) => {
-    const tt = (
-      <div style={{ margin: 10 }}>
-        <Row gutter={0} justify="space-between">
-          <Col span={23}>
-            <Row>
-              <Col>
-                <Title level={4}>{k}</Title>
-              </Col>
-              <Col>
-                <Button
-                  type="link"
-                  onClick={() => {
-                    history.push("./edit/graph?name=" + k);
-                  }}
-                  size="small"
-                  icon={<EditOutlined />}
-                />
-              </Col>
-            </Row>
-          </Col>
-          <Col span={1}>
-            <div style={{ marginTop: -13, marginLeft: -30 }}>
-              <IconArray1 btnArr={goback} />
-            </div>
-          </Col>
-        </Row>
-      </div>
-    );
-    items.push({
-      title: k,
-      content: tt,
-    });
-    return null;
-  });
-  // const saveLayout = () => {
-  //   let layout = localStorage.getItem("tempLayout");
-  //   if (layout) {
-  //     layout = JSON.parse(layout);
-  //     let odr = tempModel.properties.resultsAuthor;
-  //     layout.map((k, i) => {
-  //       odr.map((a, b) => {
-  //         if (a.i === k.i) {
-  //           a.x = k.x;
-  //           a.y = k.y;
-  //           a.w = k.w;
-  //           a.h = k.h;
-  //           odr.splice(b, 1, a);
-  //           return null;
-  //         }
-  //         return null;
-  //       });
-  //     });
-  //     localStorage.removeItem("tempLayout");
-  //   }
-  //   dispatch(globalVariable({ tempModel }));
-  // };
+
   const saveTemp = (trigger) => {
     if (trigger.length > 0 && trigger[0] === "save") {
       saveLayout(tempModel);
@@ -220,13 +144,6 @@ const ModelEdit4 = (props) => {
   const onLayoutChange = (layout, layouts) => {
     localStorage.setItem("tempLayout", JSON.stringify(layout));
   };
-  // const saveLayoutChange = (e) => {
-  //   e.stopPropagation();
-  //   saveLayout(tempModel);
-  //   // message
-  //   //   .loading("Saved to temporary file..", 2)
-  //   //   .then(() => message.info('press "Save" to server ->', 4));
-  // };
 
   const resetLayout = (e) => {
     e.stopPropagation();
@@ -262,7 +179,7 @@ const ModelEdit4 = (props) => {
     };
   };
   const addItem = (j) => {
-    let odr = tempModel.properties.resultsAuthor;
+    let odr = tempModel.resultsAuthor;
     const addnew = createItem(odr);
 
     //x,y,w,h,i: w:6(half), h:6, x:(num%2*6), y:(parseInt(num/2)*6, i:num(sort and assiang index each)
@@ -275,7 +192,7 @@ const ModelEdit4 = (props) => {
     });
   };
   const removeItem = (j) => {
-    let odr = tempModel.properties.resultsAuthor;
+    let odr = tempModel.resultsAuthor;
     odr.map((k, i) => {
       if (j.indexOf(k.i) > -1) {
         // ["x", "y", "w", "h", "i", "checked"].map((a) => {
@@ -288,7 +205,7 @@ const ModelEdit4 = (props) => {
     });
   };
   const onRemoveItem = (i) => {
-    let odr = tempModel.properties.resultsAuthor;
+    let odr = tempModel.resultsAuthor;
     const obj = _.find(odr, { i });
     removeItem(obj.i);
     dispatch(globalVariable({ tempModel }));
@@ -297,7 +214,7 @@ const ModelEdit4 = (props) => {
     dispatch(globalVariable({ nextStep: currentStep }));
   };
   const onEditItem = (i) => {
-    let odr = tempModel.properties.resultsAuthor;
+    let odr = tempModel.resultsAuthor;
     const json = _.find(odr, { i });
 
     history.push({
@@ -309,7 +226,7 @@ const ModelEdit4 = (props) => {
   const addBlank = () => {
     console.log(tempModel);
     let newtempModel = { ...tempModel };
-    const author = newtempModel.properties.resultsAuthor;
+    const author = newtempModel.resultsAuthor;
 
     let newItem = createItem(author);
     console.log(author);
@@ -331,7 +248,7 @@ const ModelEdit4 = (props) => {
     setVisible(false);
     if (selectChart) {
       let newtempModel = { ...tempModel };
-      let odr = newtempModel.properties.resultsAuthor;
+      let odr = newtempModel.resultsAuthor;
       let filtered = _.filter(odr, { checked: true });
       let currArr = pick(filtered, "id");
       let removelist = [],
@@ -359,7 +276,7 @@ const ModelEdit4 = (props) => {
     let localAuthor = localStorage.getItem("tempAuthor");
     if (localAuthor) {
       localAuthor = JSON.parse(localAuthor);
-      tempModel.properties.resultsAuthor = localAuthor;
+      tempModel.resultsAuthor = localAuthor;
       dispatch(globalVariable({ tempModel }));
       dispatch(globalVariable({ currentStep: currentStep - 1 }));
       dispatch(globalVariable({ nextStep: currentStep }));
@@ -462,8 +379,8 @@ const ModelEdit4 = (props) => {
           return <FcCloseUpMode />;
       }
     };
-    if (tempModel?.properties?.resultsAuthor) {
-      tempModel.properties.resultsAuthor.map((k, i) => {
+    if (tempModel?.resultsAuthor) {
+      tempModel.resultsAuthor.map((k, i) => {
         let type = k.type,
           title = "No title";
         if (type === "chart") type = k.setting.charttype;
@@ -486,7 +403,7 @@ const ModelEdit4 = (props) => {
       <Menu.Item
         key="1"
         onClick={() => {
-          createMain(tempModel);
+          //createMain(tempModel);
           dispatch(globalVariable({ currentStep: currentStep - 1 }));
           dispatch(globalVariable({ nextStep: currentStep }));
         }}
@@ -579,7 +496,7 @@ export const saveLayout = (tempModel) => {
   let layout = localStorage.getItem("tempLayout");
   if (layout) {
     layout = JSON.parse(layout);
-    let odr = tempModel.properties.resultsAuthor;
+    let odr = tempModel.resultsAuthor;
     layout.map((k, i) => {
       odr.map((a, b) => {
         if (a.i === k.i) {

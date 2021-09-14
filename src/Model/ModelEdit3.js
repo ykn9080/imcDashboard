@@ -105,13 +105,10 @@ export const refreshModelData = (tempModel, tempData) => {
   let newtempModel = rtn.tempModel;
   //setTimeout(function () {
   //if resultsAuthor has no nodelist, copy from source
-  const newAuthor = fillNodelist(
-    newtempModel?.properties?.resultsAuthor,
-    rtn.sourceArr
-  );
+  const newAuthor = fillNodelist(newtempModel?.resultsAuthor, rtn.sourceArr);
   if (newAuthor) {
     //let newtempModel = { ...rtn.tempModel };
-    newtempModel.properties.resultsAuthor = newAuthor;
+    newtempModel.resultsAuthor = newAuthor;
 
     //dispatch(globalVariable({ tempModel: newtempModel }));
   }

@@ -22,6 +22,8 @@ const ModelList = () => {
     pagination: {
       pageSize: 20,
     },
+    path: "model",
+    url: "dashboard",
   };
   let query = querySearch(location.search);
   if (query.from) {
@@ -31,7 +33,7 @@ const ModelList = () => {
   console.log(setting);
   return (
     <div style={{ backgroundColor: "white" }}>
-      <ListGen url="model" dataformat={dataformat} {...setting} />
+      <ListGen dataformat={dataformat} {...setting} />
     </div>
   );
 };

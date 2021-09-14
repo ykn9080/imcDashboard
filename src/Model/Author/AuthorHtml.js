@@ -296,7 +296,7 @@ const AuthorHtml = ({ authObj, edit }) => {
   };
 
   const saveTemp = (trigger) => {
-    let authorlist = tempModel?.properties?.resultsAuthor;
+    let authorlist = tempModel?.resultsAuthor;
 
     if (trigger.length > 0 && trigger[0] === "save") {
       let newdata = saveHtml();
@@ -327,7 +327,7 @@ const AuthorHtml = ({ authObj, edit }) => {
         authorlist.push(newdata);
       }
       console.log(authorlist);
-      tempModel.properties.resultsAuthor = authorlist;
+      tempModel.resultsAuthor = authorlist;
 
       dispatch(globalVariable({ tempModel }));
       dispatch(globalVariable({ triggerChild: [] }));

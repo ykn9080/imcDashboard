@@ -1,0 +1,2067 @@
+[
+  {
+    "_id": "613f3aae990a4b5b34e8d781",
+    "title": "k-means",
+    "desc": "M/L>Unsupervised",
+    "resultsAuthor": [
+      {
+        "key": "ext5",
+        "title": "Partition Vector",
+        "type": "table",
+        "dtorigin": [
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 1
+          }
+        ],
+        "setting": {
+          "column": [
+            {
+              "title": "Partition",
+              "titletext": "Partition1",
+              "origin": "Partition",
+              "dataIndex": "Partition",
+              "key": "Partition",
+              "datatype": "int"
+            }
+          ],
+          "reset": false,
+          "title": "Partition Vector",
+          "size": "small"
+        },
+        "id": "210317132524",
+        "checked": true,
+        "x": 0,
+        "y": 0,
+        "w": 6,
+        "h": 8,
+        "i": "1",
+        "dtlist": [
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 2
+          },
+          {
+            "Partition": 1
+          },
+          {
+            "Partition": 2
+          }
+        ]
+      },
+      {
+        "key": "ext6",
+        "title": "Contigency Table",
+        "type": "table",
+        "setting": {
+          "colArr": ["-", "1", "2"],
+          "column": [
+            {
+              "title": "-",
+              "titletext": "-",
+              "origin": "-",
+              "dataIndex": "-",
+              "key": "-"
+            },
+            {
+              "title": "1",
+              "titletext": "1",
+              "origin": "1",
+              "dataIndex": "1",
+              "key": "1",
+              "datatype": "int"
+            },
+            {
+              "title": "2",
+              "titletext": "2",
+              "origin": "2",
+              "dataIndex": "2",
+              "key": "2",
+              "datatype": "int"
+            }
+          ],
+          "reset": false,
+          "title": "Contigency Table",
+          "size": "small"
+        },
+        "dtorigin": [
+          {
+            "1": 27,
+            "2": 42,
+            "-": "Male"
+          },
+          {
+            "1": 10,
+            "2": 21,
+            "-": "Female"
+          }
+        ],
+        "id": "210322184859",
+        "checked": true,
+        "x": 0,
+        "y": 26,
+        "w": 6,
+        "h": 7,
+        "i": "2",
+        "dtlist": [
+          {
+            "1": 27,
+            "2": 42,
+            "-": "Male"
+          },
+          {
+            "1": 10,
+            "2": 21,
+            "-": "Female"
+          }
+        ]
+      },
+      {
+        "checked": true,
+        "h": 7,
+        "i": "3",
+        "setting": {
+          "title": "new Item4"
+        },
+        "type": "html",
+        "w": 6,
+        "x": 0,
+        "y": 8,
+        "content": "Test<div>for&nbsp;</div><div><a href=\"https://images.pexels.com/photos/38554/girl-people-landscape-sun-38554.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500\">Image</a></div>"
+      },
+      {
+        "checked": true,
+        "h": 19,
+        "i": "4",
+        "setting": {
+          "title": "new Item5",
+          "charttype": "pie",
+          "xField": "Year",
+          "yField": "Population",
+          "aggregate": "sum",
+          "series": "Slug Nation",
+          "initVal": {
+            "url": "https://datausa.io/api/data?drilldowns=Nation&measures=Population",
+            "method": "get",
+            "header": "",
+            "datafield": "data"
+          },
+          "result": [
+            {
+              "ID Nation": "01000US",
+              "Nation": "United States",
+              "ID Year": 2019,
+              "Year": "2019",
+              "Population": 328239523,
+              "Slug Nation": "united-states"
+            },
+            {
+              "ID Nation": "01000US",
+              "Nation": "United States",
+              "ID Year": 2018,
+              "Year": "2018",
+              "Population": 327167439,
+              "Slug Nation": "united-states"
+            },
+            {
+              "ID Nation": "01000US",
+              "Nation": "United States",
+              "ID Year": 2017,
+              "Year": "2017",
+              "Population": 325719178,
+              "Slug Nation": "united-states"
+            },
+            {
+              "ID Nation": "01000US",
+              "Nation": "United States",
+              "ID Year": 2016,
+              "Year": "2016",
+              "Population": 323127515,
+              "Slug Nation": "united-states"
+            },
+            {
+              "ID Nation": "01000US",
+              "Nation": "United States",
+              "ID Year": 2015,
+              "Year": "2015",
+              "Population": 321418821,
+              "Slug Nation": "united-states"
+            },
+            {
+              "ID Nation": "01000US",
+              "Nation": "United States",
+              "ID Year": 2014,
+              "Year": "2014",
+              "Population": 318857056,
+              "Slug Nation": "united-states"
+            },
+            {
+              "ID Nation": "01000US",
+              "Nation": "United States",
+              "ID Year": 2013,
+              "Year": "2013",
+              "Population": 316128839,
+              "Slug Nation": "united-states"
+            }
+          ],
+          "options": {
+            "appendPadding": 10,
+            "radius": 1,
+            "startAngle": 3.141592653589793,
+            "endAngle": 4.71238898038469,
+            "label": {
+              "type": "inner",
+              "offset": "-8%",
+              "content": "{name}",
+              "style": {
+                "fontSize": 18
+              }
+            },
+            "interactions": [
+              {
+                "type": "element-active"
+              }
+            ],
+            "pieStyle": {
+              "lineWidth": 0
+            }
+          }
+        },
+        "type": "chart",
+        "w": 6,
+        "x": 0,
+        "y": 41,
+        "dtlist": [
+          {
+            "Year": "2019",
+            "Population": 328239523
+          },
+          {
+            "Year": "2018",
+            "Population": 327167439
+          },
+          {
+            "Year": "2017",
+            "Population": 325719178
+          },
+          {
+            "Year": "2016",
+            "Population": 323127515
+          },
+          {
+            "Year": "2015",
+            "Population": 321418821
+          },
+          {
+            "Year": "2014",
+            "Population": 318857056
+          },
+          {
+            "Year": "2013",
+            "Population": 316128839
+          }
+        ]
+      },
+      {
+        "checked": true,
+        "h": 11,
+        "i": "5",
+        "dtlist": [
+          {
+            "ID Nation": "01000US",
+            "Nation": "United States",
+            "ID Year": 2019,
+            "Year": "2019",
+            "Population": 328239523,
+            "Slug Nation": "united-states"
+          },
+          {
+            "ID Nation": "01000US",
+            "Nation": "United States",
+            "ID Year": 2018,
+            "Year": "2018",
+            "Population": 327167439,
+            "Slug Nation": "united-states"
+          },
+          {
+            "ID Nation": "01000US",
+            "Nation": "United States",
+            "ID Year": 2017,
+            "Year": "2017",
+            "Population": 325719178,
+            "Slug Nation": "united-states"
+          },
+          {
+            "ID Nation": "01000US",
+            "Nation": "United States",
+            "ID Year": 2016,
+            "Year": "2016",
+            "Population": 323127515,
+            "Slug Nation": "united-states"
+          },
+          {
+            "ID Nation": "01000US",
+            "Nation": "United States",
+            "ID Year": 2015,
+            "Year": "2015",
+            "Population": 321418821,
+            "Slug Nation": "united-states"
+          },
+          {
+            "ID Nation": "01000US",
+            "Nation": "United States",
+            "ID Year": 2014,
+            "Year": "2014",
+            "Population": 318857056,
+            "Slug Nation": "united-states"
+          },
+          {
+            "ID Nation": "01000US",
+            "Nation": "United States",
+            "ID Year": 2013,
+            "Year": "2013",
+            "Population": 316128839,
+            "Slug Nation": "united-states"
+          }
+        ],
+        "dtsetting": {
+          "url": "https://datausa.io/api/data?drilldowns=Nation&measures=Population",
+          "method": "get",
+          "header": "",
+          "datafield": "data"
+        },
+        "setting": {
+          "title": "new Item6",
+          "column": [
+            {
+              "title": "ID Nation",
+              "titletext": "ID Nation",
+              "origin": "ID Nation",
+              "dataIndex": "ID Nation",
+              "key": "ID Nation"
+            },
+            {
+              "title": "Nation",
+              "titletext": "Nation",
+              "origin": "Nation",
+              "dataIndex": "Nation",
+              "key": "Nation"
+            },
+            {
+              "title": "ID Year",
+              "titletext": "ID Year",
+              "origin": "ID Year",
+              "dataIndex": "ID Year",
+              "key": "ID Year"
+            },
+            {
+              "title": "Year",
+              "titletext": "Year",
+              "origin": "Year",
+              "dataIndex": "Year",
+              "key": "Year"
+            },
+            {
+              "title": "Population",
+              "titletext": "Population",
+              "origin": "Population",
+              "dataIndex": "Population",
+              "key": "Population"
+            },
+            {
+              "title": "Slug Nation",
+              "titletext": "Slug Nation",
+              "origin": "Slug Nation",
+              "dataIndex": "Slug Nation",
+              "key": "Slug Nation"
+            }
+          ],
+          "reset": false
+        },
+        "w": 6,
+        "x": 0,
+        "y": 15,
+        "type": "table"
+      },
+      {
+        "checked": true,
+        "h": 8,
+        "i": "6",
+        "setting": {
+          "title": "new Item7"
+        },
+        "w": 6,
+        "x": 0,
+        "y": 33,
+        "dtsetting": {
+          "url": "https://datausa.io/api/data?drilldowns=Nation&measures=Population",
+          "method": "get",
+          "header": "",
+          "datafield": "data"
+        },
+        "dtlist": [
+          {
+            "ID Nation": "01000US",
+            "Nation": "United States",
+            "ID Year": 2019,
+            "Year": "2019",
+            "Population": 328239523,
+            "Slug Nation": "united-states"
+          },
+          {
+            "ID Nation": "01000US",
+            "Nation": "United States",
+            "ID Year": 2018,
+            "Year": "2018",
+            "Population": 327167439,
+            "Slug Nation": "united-states"
+          },
+          {
+            "ID Nation": "01000US",
+            "Nation": "United States",
+            "ID Year": 2017,
+            "Year": "2017",
+            "Population": 325719178,
+            "Slug Nation": "united-states"
+          },
+          {
+            "ID Nation": "01000US",
+            "Nation": "United States",
+            "ID Year": 2016,
+            "Year": "2016",
+            "Population": 323127515,
+            "Slug Nation": "united-states"
+          },
+          {
+            "ID Nation": "01000US",
+            "Nation": "United States",
+            "ID Year": 2015,
+            "Year": "2015",
+            "Population": 321418821,
+            "Slug Nation": "united-states"
+          },
+          {
+            "ID Nation": "01000US",
+            "Nation": "United States",
+            "ID Year": 2014,
+            "Year": "2014",
+            "Population": 318857056,
+            "Slug Nation": "united-states"
+          },
+          {
+            "ID Nation": "01000US",
+            "Nation": "United States",
+            "ID Year": 2013,
+            "Year": "2013",
+            "Population": 316128839,
+            "Slug Nation": "united-states"
+          }
+        ]
+      }
+    ],
+    "__v": 0
+  },
+  {
+    "_id": "613f3af4990a4b5b34e8d782",
+    "title": "Symmetrize",
+    "desc": "Error",
+    "resultsAuthor": [
+      {
+        "type": "html",
+        "datas": [],
+        "setting": {
+          "title": "Summary",
+          "column": "2",
+          "format": "2"
+        },
+        "id": "210317134446",
+        "key": "210317134446"
+      },
+      {
+        "key": "ext0",
+        "title": "Symmetrized(personal friend)",
+        "type": "table",
+        "id": "210317134521",
+        "setting": {
+          "title": "Symmetrized(personal friend)",
+          "desc": "",
+          "size": "large"
+        },
+        "checked": true,
+        "x": 0,
+        "y": 0,
+        "w": 12,
+        "h": 24,
+        "i": "0"
+      },
+      {
+        "key": "ext0",
+        "title": "Symmetrized(personal friend)",
+        "type": "table",
+        "id": "210317134522"
+      },
+      {
+        "key": "ext0",
+        "title": "Symmetrized(personal friend)",
+        "type": "table",
+        "id": "210317134535"
+      }
+    ],
+    "__v": 0
+  },
+  {
+    "_id": "613f3b1c990a4b5b34e8d783",
+    "title": "Cohesion>Component",
+    "desc": "Component 분석",
+    "resultsAuthor": [
+      {
+        "checked": true,
+        "type": "html",
+        "datas": ["ext0", "ext1", "ext2"],
+        "setting": {
+          "title": "Summary",
+          "column": "3",
+          "format": "2"
+        },
+        "x": 0,
+        "y": 0,
+        "w": 12,
+        "h": 11,
+        "i": "0",
+        "id": "21031619232",
+        "key": "21031619232",
+        "dtslist": [
+          {
+            "key": "ext0",
+            "title": "[main]#OF COMPONENTS",
+            "type": {
+              "stype": "result"
+            },
+            "dtorigin": 4
+          },
+          {
+            "key": "ext1",
+            "title": "[main]MEMBERS OF COMPONENTS",
+            "dtlist": [
+              {
+                "COMPONNETS": "C1",
+                "MEMBERS": "John,David,Thomas,Anthony,Michael,Elizabeth,Susan,Ashley,Anna,Jackson,Peter,Bobby,Mary,Laura,Jennifer,Jessica,Robert,Julia,Steven",
+                "key": "0.00"
+              },
+              {
+                "COMPONNETS": "C2",
+                "MEMBERS": "Charles",
+                "key": "1.00"
+              },
+              {
+                "COMPONNETS": "C3",
+                "MEMBERS": "James",
+                "key": "2.00"
+              },
+              {
+                "COMPONNETS": "C4",
+                "MEMBERS": "Richard",
+                "key": "3.00"
+              }
+            ],
+            "type": {
+              "stype": "result"
+            },
+            "dtorigin": [
+              {
+                "COMPONNETS": "C1",
+                "MEMBERS": "John,David,Thomas,Anthony,Michael,Elizabeth,Susan,Ashley,Anna,Jackson,Peter,Bobby,Mary,Laura,Jennifer,Jessica,Robert,Julia,Steven",
+                "key": "0.00"
+              },
+              {
+                "COMPONNETS": "C2",
+                "MEMBERS": "Charles",
+                "key": "1.00"
+              },
+              {
+                "COMPONNETS": "C3",
+                "MEMBERS": "James",
+                "key": "2.00"
+              },
+              {
+                "COMPONNETS": "C4",
+                "MEMBERS": "Richard",
+                "key": "3.00"
+              }
+            ],
+            "setting": {
+              "column": [
+                {
+                  "title": "COMPONNETS",
+                  "titletext": "COMPONNETS",
+                  "origin": "COMPONNETS",
+                  "dataIndex": "COMPONNETS",
+                  "key": "COMPONNETS"
+                },
+                {
+                  "title": "MEMBERS",
+                  "titletext": "MEMBERS",
+                  "origin": "MEMBERS",
+                  "dataIndex": "MEMBERS",
+                  "key": "MEMBERS"
+                }
+              ]
+            }
+          },
+          {
+            "key": "ext2",
+            "title": "[main]SUBGROUP DETAILS",
+            "dtlist": [
+              {
+                "COMPENTS": "C1",
+                "SIZE": "19.00",
+                "PERCENT": "86.36",
+                "DENSITY": "0.22",
+                "key": 0
+              },
+              {
+                "COMPENTS": "C2",
+                "SIZE": "1.00",
+                "PERCENT": "4.55",
+                "DENSITY": "NaN",
+                "key": "1.00"
+              },
+              {
+                "COMPENTS": "C3",
+                "SIZE": "1.00",
+                "PERCENT": "4.55",
+                "DENSITY": "NaN",
+                "key": "2.00"
+              },
+              {
+                "COMPENTS": "C4",
+                "SIZE": "1.00",
+                "PERCENT": "4.55",
+                "DENSITY": "NaN",
+                "key": "3.00"
+              }
+            ],
+            "type": {
+              "stype": "result"
+            },
+            "dtorigin": [
+              {
+                "COMPENTS": "C1",
+                "SIZE": "19.00",
+                "PERCENT": "86.36363636363636%",
+                "DENSITY": "0.22",
+                "key": 0
+              },
+              {
+                "COMPENTS": "C2",
+                "SIZE": "1.00",
+                "PERCENT": "4.545454545454546%",
+                "DENSITY": "Undefined",
+                "key": "1.00"
+              },
+              {
+                "COMPENTS": "C3",
+                "SIZE": "1.00",
+                "PERCENT": "4.545454545454546%",
+                "DENSITY": "Undefined",
+                "key": "2.00"
+              },
+              {
+                "COMPENTS": "C4",
+                "SIZE": "1.00",
+                "PERCENT": "4.545454545454546%",
+                "DENSITY": "Undefined",
+                "key": "3.00"
+              }
+            ],
+            "setting": {
+              "column": [
+                {
+                  "title": "COMPENTS",
+                  "titletext": "COMPENTS",
+                  "origin": "COMPENTS",
+                  "dataIndex": "COMPENTS",
+                  "key": "COMPENTS"
+                },
+                {
+                  "title": "SIZE",
+                  "titletext": "SIZE",
+                  "origin": "SIZE",
+                  "dataIndex": "SIZE",
+                  "key": "SIZE",
+                  "datatype": "float",
+                  "decimal": "2"
+                },
+                {
+                  "title": "PERCENT",
+                  "titletext": "PERCENT",
+                  "origin": "PERCENT",
+                  "dataIndex": "PERCENT",
+                  "key": "PERCENT",
+                  "datatype": "float",
+                  "decimal": "2"
+                },
+                {
+                  "title": "DENSITY",
+                  "titletext": "DENSITY",
+                  "origin": "DENSITY",
+                  "dataIndex": "DENSITY",
+                  "key": "DENSITY",
+                  "datatype": "float",
+                  "decimal": "2"
+                }
+              ],
+              "reset": false
+            }
+          }
+        ]
+      },
+      {
+        "key": "ext3",
+        "title": "Component Partition Vector",
+        "type": "table",
+        "dtorigin": [
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 3
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 2
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 4
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          }
+        ],
+        "setting": {
+          "column": [
+            {
+              "title": "Component Partition Vector",
+              "titletext": "Component Partition Vector",
+              "origin": "Component Partition Vector",
+              "dataIndex": "Component Partition Vector",
+              "key": "Component Partition Vector",
+              "datatype": "int"
+            }
+          ],
+          "reset": false,
+          "title": "Component Partition Vector",
+          "size": "middle"
+        },
+        "id": "210316192354",
+        "checked": true,
+        "x": 0,
+        "y": 11,
+        "w": 12,
+        "h": 24,
+        "i": "1"
+      }
+    ],
+    "__v": 0
+  },
+  {
+    "_id": "613f3b1c990a4b5b34e8d785",
+    "title": "Cohesion>Community>Betweenness",
+    "desc": "error_결과안나옴",
+    "resultsAuthor": [
+      {
+        "type": "html",
+        "datas": [],
+        "setting": {
+          "title": "Summary",
+          "column": "2",
+          "format": "2"
+        },
+        "id": "210317124415",
+        "key": "210317124415"
+      },
+      {
+        "key": "ext0",
+        "title": "Community Cluster Matrix",
+        "dtlist": [
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "type": "table",
+        "dtorigin": [
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "setting": {
+          "column": [
+            {
+              "title": "0",
+              "titletext": "",
+              "origin": "0",
+              "dataIndex": "0",
+              "key": "0"
+            },
+            {
+              "title": "1",
+              "titletext": "1",
+              "origin": "1",
+              "dataIndex": "1",
+              "key": "1"
+            },
+            {
+              "title": "2",
+              "titletext": "2",
+              "origin": "2",
+              "dataIndex": "2",
+              "key": "2"
+            },
+            {
+              "title": "3",
+              "titletext": "3",
+              "origin": "3",
+              "dataIndex": "3",
+              "key": "3"
+            },
+            {
+              "title": "4",
+              "titletext": "4",
+              "origin": "4",
+              "dataIndex": "4",
+              "key": "4"
+            },
+            {
+              "title": "5",
+              "titletext": "5",
+              "origin": "5",
+              "dataIndex": "5",
+              "key": "5"
+            },
+            {
+              "title": "6",
+              "titletext": "6",
+              "origin": "6",
+              "dataIndex": "6",
+              "key": "6"
+            },
+            {
+              "title": "7",
+              "titletext": "7",
+              "origin": "7",
+              "dataIndex": "7",
+              "key": "7"
+            },
+            {
+              "title": "8",
+              "titletext": "8",
+              "origin": "8",
+              "dataIndex": "8",
+              "key": "8"
+            },
+            {
+              "title": "9",
+              "titletext": "9",
+              "origin": "9",
+              "dataIndex": "9",
+              "key": "9"
+            },
+            {
+              "title": "10",
+              "titletext": "10",
+              "origin": "10",
+              "dataIndex": "10",
+              "key": "10"
+            },
+            {
+              "title": "11",
+              "titletext": "11",
+              "origin": "11",
+              "dataIndex": "11",
+              "key": "11"
+            },
+            {
+              "title": "12",
+              "titletext": "12",
+              "origin": "12",
+              "dataIndex": "12",
+              "key": "12"
+            },
+            {
+              "title": "13",
+              "titletext": "13",
+              "origin": "13",
+              "dataIndex": "13",
+              "key": "13"
+            },
+            {
+              "title": "color.0",
+              "titletext": "color.0",
+              "origin": "color.0",
+              "dataIndex": "color.0",
+              "key": "color.0"
+            },
+            {
+              "title": "color.1",
+              "titletext": "color.1",
+              "origin": "color.1",
+              "dataIndex": "color.1",
+              "key": "color.1"
+            },
+            {
+              "title": "color.2",
+              "titletext": "color.2",
+              "origin": "color.2",
+              "dataIndex": "color.2",
+              "key": "color.2"
+            },
+            {
+              "title": "color.3",
+              "titletext": "color.3",
+              "origin": "color.3",
+              "dataIndex": "color.3",
+              "key": "color.3"
+            },
+            {
+              "title": "color.4",
+              "titletext": "color.4",
+              "origin": "color.4",
+              "dataIndex": "color.4",
+              "key": "color.4"
+            },
+            {
+              "title": "color.5",
+              "titletext": "color.5",
+              "origin": "color.5",
+              "dataIndex": "color.5",
+              "key": "color.5"
+            },
+            {
+              "title": "color.6",
+              "titletext": "color.6",
+              "origin": "color.6",
+              "dataIndex": "color.6",
+              "key": "color.6"
+            },
+            {
+              "title": "color.7",
+              "titletext": "color.7",
+              "origin": "color.7",
+              "dataIndex": "color.7",
+              "key": "color.7"
+            },
+            {
+              "title": "color.8",
+              "titletext": "color.8",
+              "origin": "color.8",
+              "dataIndex": "color.8",
+              "key": "color.8"
+            },
+            {
+              "title": "color.9",
+              "titletext": "color.9",
+              "origin": "color.9",
+              "dataIndex": "color.9",
+              "key": "color.9"
+            },
+            {
+              "title": "color.10",
+              "titletext": "color.10",
+              "origin": "color.10",
+              "dataIndex": "color.10",
+              "key": "color.10"
+            },
+            {
+              "title": "color.11",
+              "titletext": "color.11",
+              "origin": "color.11",
+              "dataIndex": "color.11",
+              "key": "color.11"
+            },
+            {
+              "title": "color.12",
+              "titletext": "color.12",
+              "origin": "color.12",
+              "dataIndex": "color.12",
+              "key": "color.12"
+            },
+            {
+              "title": "color.13",
+              "titletext": "color.13",
+              "origin": "color.13",
+              "dataIndex": "color.13",
+              "key": "color.13"
+            }
+          ],
+          "reset": false,
+          "title": "Community Cluster Matrix",
+          "size": "large"
+        },
+        "id": "210317124528",
+        "checked": true,
+        "x": 0,
+        "y": 0,
+        "w": 12,
+        "h": 24,
+        "i": "0"
+      }
+    ],
+    "__v": 0
+  },
+  {
+    "_id": "613f3b8444a47764b47df19a",
+    "title": "Cohesion>Component",
+    "desc": "Component 분석",
+    "resultsAuthor": [
+      {
+        "checked": true,
+        "type": "html",
+        "datas": ["ext0", "ext1", "ext2"],
+        "setting": {
+          "title": "Summary",
+          "column": "3",
+          "format": "2"
+        },
+        "x": 0,
+        "y": 0,
+        "w": 12,
+        "h": 11,
+        "i": "0",
+        "id": "21031619232",
+        "key": "21031619232",
+        "dtslist": [
+          {
+            "key": "ext0",
+            "title": "[main]#OF COMPONENTS",
+            "type": {
+              "stype": "result"
+            },
+            "dtorigin": 4
+          },
+          {
+            "key": "ext1",
+            "title": "[main]MEMBERS OF COMPONENTS",
+            "dtlist": [
+              {
+                "COMPONNETS": "C1",
+                "MEMBERS": "John,David,Thomas,Anthony,Michael,Elizabeth,Susan,Ashley,Anna,Jackson,Peter,Bobby,Mary,Laura,Jennifer,Jessica,Robert,Julia,Steven",
+                "key": "0.00"
+              },
+              {
+                "COMPONNETS": "C2",
+                "MEMBERS": "Charles",
+                "key": "1.00"
+              },
+              {
+                "COMPONNETS": "C3",
+                "MEMBERS": "James",
+                "key": "2.00"
+              },
+              {
+                "COMPONNETS": "C4",
+                "MEMBERS": "Richard",
+                "key": "3.00"
+              }
+            ],
+            "type": {
+              "stype": "result"
+            },
+            "dtorigin": [
+              {
+                "COMPONNETS": "C1",
+                "MEMBERS": "John,David,Thomas,Anthony,Michael,Elizabeth,Susan,Ashley,Anna,Jackson,Peter,Bobby,Mary,Laura,Jennifer,Jessica,Robert,Julia,Steven",
+                "key": "0.00"
+              },
+              {
+                "COMPONNETS": "C2",
+                "MEMBERS": "Charles",
+                "key": "1.00"
+              },
+              {
+                "COMPONNETS": "C3",
+                "MEMBERS": "James",
+                "key": "2.00"
+              },
+              {
+                "COMPONNETS": "C4",
+                "MEMBERS": "Richard",
+                "key": "3.00"
+              }
+            ],
+            "setting": {
+              "column": [
+                {
+                  "title": "COMPONNETS",
+                  "titletext": "COMPONNETS",
+                  "origin": "COMPONNETS",
+                  "dataIndex": "COMPONNETS",
+                  "key": "COMPONNETS"
+                },
+                {
+                  "title": "MEMBERS",
+                  "titletext": "MEMBERS",
+                  "origin": "MEMBERS",
+                  "dataIndex": "MEMBERS",
+                  "key": "MEMBERS"
+                }
+              ]
+            }
+          },
+          {
+            "key": "ext2",
+            "title": "[main]SUBGROUP DETAILS",
+            "dtlist": [
+              {
+                "COMPENTS": "C1",
+                "SIZE": "19.00",
+                "PERCENT": "86.36",
+                "DENSITY": "0.22",
+                "key": 0
+              },
+              {
+                "COMPENTS": "C2",
+                "SIZE": "1.00",
+                "PERCENT": "4.55",
+                "DENSITY": "NaN",
+                "key": "1.00"
+              },
+              {
+                "COMPENTS": "C3",
+                "SIZE": "1.00",
+                "PERCENT": "4.55",
+                "DENSITY": "NaN",
+                "key": "2.00"
+              },
+              {
+                "COMPENTS": "C4",
+                "SIZE": "1.00",
+                "PERCENT": "4.55",
+                "DENSITY": "NaN",
+                "key": "3.00"
+              }
+            ],
+            "type": {
+              "stype": "result"
+            },
+            "dtorigin": [
+              {
+                "COMPENTS": "C1",
+                "SIZE": "19.00",
+                "PERCENT": "86.36363636363636%",
+                "DENSITY": "0.22",
+                "key": 0
+              },
+              {
+                "COMPENTS": "C2",
+                "SIZE": "1.00",
+                "PERCENT": "4.545454545454546%",
+                "DENSITY": "Undefined",
+                "key": "1.00"
+              },
+              {
+                "COMPENTS": "C3",
+                "SIZE": "1.00",
+                "PERCENT": "4.545454545454546%",
+                "DENSITY": "Undefined",
+                "key": "2.00"
+              },
+              {
+                "COMPENTS": "C4",
+                "SIZE": "1.00",
+                "PERCENT": "4.545454545454546%",
+                "DENSITY": "Undefined",
+                "key": "3.00"
+              }
+            ],
+            "setting": {
+              "column": [
+                {
+                  "title": "COMPENTS",
+                  "titletext": "COMPENTS",
+                  "origin": "COMPENTS",
+                  "dataIndex": "COMPENTS",
+                  "key": "COMPENTS"
+                },
+                {
+                  "title": "SIZE",
+                  "titletext": "SIZE",
+                  "origin": "SIZE",
+                  "dataIndex": "SIZE",
+                  "key": "SIZE",
+                  "datatype": "float",
+                  "decimal": "2"
+                },
+                {
+                  "title": "PERCENT",
+                  "titletext": "PERCENT",
+                  "origin": "PERCENT",
+                  "dataIndex": "PERCENT",
+                  "key": "PERCENT",
+                  "datatype": "float",
+                  "decimal": "2"
+                },
+                {
+                  "title": "DENSITY",
+                  "titletext": "DENSITY",
+                  "origin": "DENSITY",
+                  "dataIndex": "DENSITY",
+                  "key": "DENSITY",
+                  "datatype": "float",
+                  "decimal": "2"
+                }
+              ],
+              "reset": false
+            }
+          }
+        ]
+      },
+      {
+        "key": "ext3",
+        "title": "Component Partition Vector",
+        "type": "table",
+        "dtorigin": [
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 3
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 2
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 4
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          }
+        ],
+        "setting": {
+          "column": [
+            {
+              "title": "Component Partition Vector",
+              "titletext": "Component Partition Vector",
+              "origin": "Component Partition Vector",
+              "dataIndex": "Component Partition Vector",
+              "key": "Component Partition Vector",
+              "datatype": "int"
+            }
+          ],
+          "reset": false,
+          "title": "Component Partition Vector",
+          "size": "middle"
+        },
+        "id": "210316192354",
+        "checked": true,
+        "x": 0,
+        "y": 11,
+        "w": 12,
+        "h": 24,
+        "i": "1"
+      }
+    ],
+    "__v": 0
+  },
+  {
+    "_id": "613f3b93e3701665b8b4a16a",
+    "title": "Cohesion>Component",
+    "desc": "Component 분석",
+    "resultsAuthor": [
+      {
+        "checked": true,
+        "type": "html",
+        "datas": ["ext0", "ext1", "ext2"],
+        "setting": {
+          "title": "Summary",
+          "column": "3",
+          "format": "2"
+        },
+        "x": 0,
+        "y": 0,
+        "w": 12,
+        "h": 11,
+        "i": "0",
+        "id": "21031619232",
+        "key": "21031619232",
+        "dtslist": [
+          {
+            "key": "ext0",
+            "title": "[main]#OF COMPONENTS",
+            "type": {
+              "stype": "result"
+            },
+            "dtorigin": 4
+          },
+          {
+            "key": "ext1",
+            "title": "[main]MEMBERS OF COMPONENTS",
+            "dtlist": [
+              {
+                "COMPONNETS": "C1",
+                "MEMBERS": "John,David,Thomas,Anthony,Michael,Elizabeth,Susan,Ashley,Anna,Jackson,Peter,Bobby,Mary,Laura,Jennifer,Jessica,Robert,Julia,Steven",
+                "key": "0.00"
+              },
+              {
+                "COMPONNETS": "C2",
+                "MEMBERS": "Charles",
+                "key": "1.00"
+              },
+              {
+                "COMPONNETS": "C3",
+                "MEMBERS": "James",
+                "key": "2.00"
+              },
+              {
+                "COMPONNETS": "C4",
+                "MEMBERS": "Richard",
+                "key": "3.00"
+              }
+            ],
+            "type": {
+              "stype": "result"
+            },
+            "dtorigin": [
+              {
+                "COMPONNETS": "C1",
+                "MEMBERS": "John,David,Thomas,Anthony,Michael,Elizabeth,Susan,Ashley,Anna,Jackson,Peter,Bobby,Mary,Laura,Jennifer,Jessica,Robert,Julia,Steven",
+                "key": "0.00"
+              },
+              {
+                "COMPONNETS": "C2",
+                "MEMBERS": "Charles",
+                "key": "1.00"
+              },
+              {
+                "COMPONNETS": "C3",
+                "MEMBERS": "James",
+                "key": "2.00"
+              },
+              {
+                "COMPONNETS": "C4",
+                "MEMBERS": "Richard",
+                "key": "3.00"
+              }
+            ],
+            "setting": {
+              "column": [
+                {
+                  "title": "COMPONNETS",
+                  "titletext": "COMPONNETS",
+                  "origin": "COMPONNETS",
+                  "dataIndex": "COMPONNETS",
+                  "key": "COMPONNETS"
+                },
+                {
+                  "title": "MEMBERS",
+                  "titletext": "MEMBERS",
+                  "origin": "MEMBERS",
+                  "dataIndex": "MEMBERS",
+                  "key": "MEMBERS"
+                }
+              ]
+            }
+          },
+          {
+            "key": "ext2",
+            "title": "[main]SUBGROUP DETAILS",
+            "dtlist": [
+              {
+                "COMPENTS": "C1",
+                "SIZE": "19.00",
+                "PERCENT": "86.36",
+                "DENSITY": "0.22",
+                "key": 0
+              },
+              {
+                "COMPENTS": "C2",
+                "SIZE": "1.00",
+                "PERCENT": "4.55",
+                "DENSITY": "NaN",
+                "key": "1.00"
+              },
+              {
+                "COMPENTS": "C3",
+                "SIZE": "1.00",
+                "PERCENT": "4.55",
+                "DENSITY": "NaN",
+                "key": "2.00"
+              },
+              {
+                "COMPENTS": "C4",
+                "SIZE": "1.00",
+                "PERCENT": "4.55",
+                "DENSITY": "NaN",
+                "key": "3.00"
+              }
+            ],
+            "type": {
+              "stype": "result"
+            },
+            "dtorigin": [
+              {
+                "COMPENTS": "C1",
+                "SIZE": "19.00",
+                "PERCENT": "86.36363636363636%",
+                "DENSITY": "0.22",
+                "key": 0
+              },
+              {
+                "COMPENTS": "C2",
+                "SIZE": "1.00",
+                "PERCENT": "4.545454545454546%",
+                "DENSITY": "Undefined",
+                "key": "1.00"
+              },
+              {
+                "COMPENTS": "C3",
+                "SIZE": "1.00",
+                "PERCENT": "4.545454545454546%",
+                "DENSITY": "Undefined",
+                "key": "2.00"
+              },
+              {
+                "COMPENTS": "C4",
+                "SIZE": "1.00",
+                "PERCENT": "4.545454545454546%",
+                "DENSITY": "Undefined",
+                "key": "3.00"
+              }
+            ],
+            "setting": {
+              "column": [
+                {
+                  "title": "COMPENTS",
+                  "titletext": "COMPENTS",
+                  "origin": "COMPENTS",
+                  "dataIndex": "COMPENTS",
+                  "key": "COMPENTS"
+                },
+                {
+                  "title": "SIZE",
+                  "titletext": "SIZE",
+                  "origin": "SIZE",
+                  "dataIndex": "SIZE",
+                  "key": "SIZE",
+                  "datatype": "float",
+                  "decimal": "2"
+                },
+                {
+                  "title": "PERCENT",
+                  "titletext": "PERCENT",
+                  "origin": "PERCENT",
+                  "dataIndex": "PERCENT",
+                  "key": "PERCENT",
+                  "datatype": "float",
+                  "decimal": "2"
+                },
+                {
+                  "title": "DENSITY",
+                  "titletext": "DENSITY",
+                  "origin": "DENSITY",
+                  "dataIndex": "DENSITY",
+                  "key": "DENSITY",
+                  "datatype": "float",
+                  "decimal": "2"
+                }
+              ],
+              "reset": false
+            }
+          }
+        ]
+      },
+      {
+        "key": "ext3",
+        "title": "Component Partition Vector",
+        "type": "table",
+        "dtorigin": [
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 3
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 2
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 4
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          },
+          {
+            "Component Partition Vector": 1
+          }
+        ],
+        "setting": {
+          "column": [
+            {
+              "title": "Component Partition Vector",
+              "titletext": "Component Partition Vector",
+              "origin": "Component Partition Vector",
+              "dataIndex": "Component Partition Vector",
+              "key": "Component Partition Vector",
+              "datatype": "int"
+            }
+          ],
+          "reset": false,
+          "title": "Component Partition Vector",
+          "size": "middle"
+        },
+        "id": "210316192354",
+        "checked": true,
+        "x": 0,
+        "y": 11,
+        "w": 12,
+        "h": 24,
+        "i": "1"
+      }
+    ],
+    "__v": 0
+  }
+]

@@ -3,7 +3,6 @@ import { message } from "antd";
 import axios from "axios";
 import DenseAppBar from "components/Common/AppBar";
 import AntBreadCrumb from "components/Common/BreadCrumb";
-import { currentsetting } from "config/index.js";
 import IconArray1 from "components/SKD/IconArray1";
 import $ from "jquery";
 import React, { useEffect } from "react";
@@ -12,6 +11,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import ModelEdit3 from "./ModelEdit3";
 import ModelEdit4, { saveLayout } from "./ModelEdit4";
+import { checkSetting } from "Model";
+
+const imcsvr = process.env.REACT_APP_SERVER;
 
 const ModelEdit = (props) => {
   const history = useHistory(); // do this inside the component
@@ -35,63 +37,58 @@ const ModelEdit = (props) => {
     }
 
     let newtempModel = { ...saveLayout(tempModel) };
-    // if (tempData && tempData.source) {
-    //   // tempData.source.map((k, i) => {
-    //   //   delete k.dtlist;
-    //   //   delete k.dtorigin;
-    //   //   tempData.source.splice(i, 1, k);
-    //   // });
-    //   newtempModel.properties.source = tempData.source;
-    // }
-    // if (newtempModel.properties) {
-    //   const prop = newtempModel.properties;
-    //   if (props.resultsAuthor)
-    //     prop.resultsAuthor.map((k, i) => {
-    //       delete k.dtlist;
-    //       prop.resultsAuthor.splice(i, 1, k);
-    //       return null;
-    //     });
-    //   if (props.source)
-    //     prop.source.map((k, i) => {
-    //       delete k.dtlist;
-    //       delete k.dtorigin;
-    //       delete k.nodelist;
-    //       prop.source.splice(i, 1, k);
-    //       return null;
-    //     });
-    //   if (prop.origindata) delete prop.origindata;
-    // }
+    switch (checkSetting()) {
+      case "local":
+      default:
+        saveTolocal(newtempModel);
+        break;
+      case "mongodb":
+        let method = "post",
+          id = "";
+        if (newtempModel.hasOwnProperty("_id")) {
+          method = "put";
+          id = newtempModel._id;
+        }
 
-    let method = "post",
-      id = "";
-    if (newtempModel.hasOwnProperty("_id")) {
-      method = "put";
-      id = newtempModel._id;
+        let config = {
+          method: method,
+          url: `${imcsvr}/dashboard/${id}`,
+          data: newtempModel,
+        };
+
+        axios(config).then((r) => {
+          if (method === "post") {
+            tempModel._id = r.data._id;
+            dispatch(globalVariable({ tempModel }));
+          }
+          message.success("File successfully saved");
+        });
+        break;
     }
-
-    let config = {
-      method: method,
-      url: `${currentsetting.webserviceprefix}model/${id}`,
-      data: newtempModel,
-    };
-
-    axios(config).then((r) => {
-      if (method === "post") {
-        tempModel._id = r.data._id;
-        dispatch(globalVariable({ tempModel }));
-      }
-      message.success("File successfully saved");
-    });
   };
+  const saveTolocal = (data) => {
+    let dashdata;
+    const dashdt = localStorage.getItem("dashdata");
 
+    if (dashdt) {
+      dashdata = JSON.parse(dashdt);
+      let notexist = true;
+      dashdata.map((k, i) => {
+        if (k._id === data._id) {
+          dashdata.splice(i, 1, data);
+          notexist = false;
+        }
+      });
+      if (notexist) dashdata.push(data);
+      localStorage.setItem("dashdata", JSON.stringify(dashdata));
+    }
+  };
   const gotoView = () => {
     dispatch(globalVariable({ selectedKey: tempModel._id }));
     //history.push(`/Model/view?_id=${tempModel._id}`);
     history.push(`/view`);
   };
   const setting = () => {
-    //dispatch(globalVariable({ currentData: item }));
-    //dispatch(globalVariable({ selectedKey: query._id }));
     history.push(`/setting`);
   };
   const btnArr = [
@@ -114,16 +111,6 @@ const ModelEdit = (props) => {
       color: "inherit",
       onClick: setting,
     },
-    // {
-    //   tooltip: "Go to previous",
-    //   awesome: "level-up-alt",
-    //   fontSize: "small",
-    //   color: "inherit",
-    //   onClick: () => {
-    //     dispatch(globalVariable({ currentStep: 0 }));
-    //     history.goBack();
-    //   },
-    // },
   ];
 
   return (
