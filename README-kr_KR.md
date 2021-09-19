@@ -1,30 +1,46 @@
 <h1 align="center">imcDashboard 👋</h1>
 
-![npm](https://img.shields.io/npm/v/imcformbuilder)
-![npm bundle size](https://img.shields.io/bundlephobia/min/imcformbuilder?style=plastic)
-![npm](https://img.shields.io/npm/dm/imcformbuild)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ykn9080/imcDashboard/LICENSE) 
+
 
 > 대쉬보드기능을 제공하는 오픈소스. 차트,테이블,html문서 등을 drag & drop으로 배치할 수 있다. 각 오브젝트의 레이아웃과 사이즈변경을 할수 있으며. 각각의 오브젝트를 생성, 수정, 삭제할 수 있다. 
 > 주제별로 여러개의 대쉬보드는 생성할 수 있고, 리스트로 관리할 수 있다. 
 > 
 <a href="http://imcmaster.iptime.org:7000" ><img src="https://i.ibb.co/744RYpb/imcdashboard.gif" width="800px"></a>
 
-### 🏠 [Homepage](http://imcmaster.iptime.org:3080)
+### ✨ [Demo](http://imcmaster.iptime.org:7000)
 
-### ✨ [Demo](http://imcmaster.iptime.org:4009/form/edit)
 [English](./README.md) | 한글
+
 ## Install
 
 ```sh
-npm install formbuilder
+# Github
+git clone https://github.com/ykn9080/imcDashboard
+npm start //local init
+docker-compose up //using docker
+
+# Docker
+docker pull yknam/imcdashboard
 ```
 
 ## Usage basic
 
-While you develop, showedit={true} will show you edit button.
-Upon complete development, change showedit to false to hide button.
+1. Create
+2. Save
+3. Layout
+4. Edit
+ a. Chart
+ b. Table
+ c. HTML
+4. Setting
+ a. Localhost
+  샘플 파일: sampledata.json
+ b. Mongdb
+5. Multiple dashboard
 
-```sh
+
+```js
  <AntFormDisplay
       showedit={true}
       formArray={formArray}
