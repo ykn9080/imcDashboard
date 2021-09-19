@@ -44,7 +44,7 @@ const IconArray = () => {
   };
   const handleClick = (event) => {
     const id = $(event.currentTarget).attr("aria-controls");
-    console.log(id, event.currentTarget);
+
     switch (id) {
       case "editMenu":
         setAnchorEl(event.currentTarget);
@@ -61,8 +61,6 @@ const IconArray = () => {
     setAnchorEl(null);
   };
   const handleClose1 = (num) => {
-    console.log(num);
-
     setLayoutIndex(num - 1);
     LayoutControl(layout[num - 1]);
     setAnchorEl1(null);
@@ -90,7 +88,7 @@ const IconArray = () => {
   let addCtr = (seq, size) => {
     //const id = new ObjectID();
     const id = parseInt(Math.random() * 100000);
-    console.log(id);
+
     return {
       _id: id,
       ctrid: "",
@@ -101,11 +99,9 @@ const IconArray = () => {
   };
   const handleAddControl = () => {
     const ctrLength = ctrList.length;
-    console.log(layoutIndex);
     const layObj = layout[layoutIndex];
     const ttl = _.sum(layObj.col) * layObj.repeat;
 
-    console.log(ctrLength, layObj, ttl);
     let seq = ctrLength;
     ctrList.push(addCtr(seq, findNthWidth(seq, layObj.col)));
     console.log(ctrList);
@@ -116,7 +112,7 @@ const IconArray = () => {
   const LayoutControl = (layObj, ctrl) => {
     if (typeof layObj === "undefined") return false;
     if (typeof ctrl != "undefined") ctrList = ctrl;
-    console.log(ctrList);
+
     // let unitwidth = 12 / _.sum(layObj.col);
     if (ctrList.length === 0) {
       //| isBlank()) {
@@ -139,7 +135,6 @@ const IconArray = () => {
         ctr.size = findNthWidth(j, layObj.col);
         return null;
       });
-      console.log(ctrList);
     }
 
     dispatch(globalVariable({ control: ctrList }));

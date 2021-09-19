@@ -75,17 +75,25 @@ const ListGen = (props) => {
   };
   useEffect(() => {
     setLoading(true);
-
-    axios.get(`${imcsvr}/${props.url}`).then((response) => {
+    if (props.listData) {
       let imsiData1 = [];
-      response.data.map((k, i) => {
+      props.listData.map((k, i) => {
         return imsiData1.push(datamapping(k));
       });
       setListData(imsiData1);
 
       dispatch(globalVariable({ listData: imsiData1 }));
-      setLoading(false);
-    });
+    } else
+      axios.get(`${imcsvr}/${props.url}`).then((response) => {
+        let imsiData1 = [];
+        response.data.map((k, i) => {
+          return imsiData1.push(datamapping(k));
+        });
+        setListData(imsiData1);
+
+        dispatch(globalVariable({ listData: imsiData1 }));
+        setLoading(false);
+      });
   }, []);
 
   const createHandler = () => {
@@ -100,9 +108,10 @@ const ListGen = (props) => {
     history.push(`/edit`);
   };
   const selectHandler1 = (item) => {
-    dispatch(globalVariable({ tempModel: item }));
-    dispatch(globalVariable({ selectedKey: item._id }));
-    history.push(`}/view`);
+    console.log(item);
+    // dispatch(globalVariable({ tempModel: item }));
+    // dispatch(globalVariable({ selectedKey: item._id }));
+    //props.onView(item);
     // history.push({
     //   pathname: "/project/view",
     //   search: "?_id=5ef99d0b48fbce0ff8541448",
@@ -147,7 +156,7 @@ const ListGen = (props) => {
   ];
   let setting = {};
   setting = { editHandler, deleteHandler };
-  if (props.return) setting = { ...setting, selectHandler: selectHandler1 };
+  //if (props.return) setting = { ...setting, selectHandler: selectHandler1 };
 
   if (title) titleUpper = title.charAt(0).toUpperCase() + title.slice(1);
   return (

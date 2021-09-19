@@ -29,7 +29,7 @@ const ModelEdit = (props) => {
     });
   }, []);
 
-  const saveToserver = () => {
+  const saveToPermernent = () => {
     // dispatch(globalVariable({ triggerChild: ["save"] }));
     if (tempModel === "") {
       message.error("Incomplete file.");
@@ -37,34 +37,38 @@ const ModelEdit = (props) => {
     }
 
     let newtempModel = { ...saveLayout(tempModel) };
-    switch (checkSetting()) {
+
+    switch (checkSetting().datatype) {
       case "local":
       default:
         saveTolocal(newtempModel);
         break;
       case "mongodb":
-        let method = "post",
-          id = "";
-        if (newtempModel.hasOwnProperty("_id")) {
-          method = "put";
-          id = newtempModel._id;
-        }
-
-        let config = {
-          method: method,
-          url: `${imcsvr}/dashboard/${id}`,
-          data: newtempModel,
-        };
-
-        axios(config).then((r) => {
-          if (method === "post") {
-            tempModel._id = r.data._id;
-            dispatch(globalVariable({ tempModel }));
-          }
-          message.success("File successfully saved");
-        });
+        saveToServer(newtempModel);
         break;
     }
+  };
+  const saveToServer = (newtempModel) => {
+    let method = "post",
+      id = "";
+    if (newtempModel.hasOwnProperty("_id")) {
+      method = "put";
+      id = newtempModel._id;
+    }
+
+    let config = {
+      method: method,
+      url: `${imcsvr}/dashboard/${id}`,
+      data: newtempModel,
+    };
+
+    axios(config).then((r) => {
+      if (method === "post") {
+        tempModel._id = r.data._id;
+        dispatch(globalVariable({ tempModel }));
+      }
+      message.success("File saved Mongodb");
+    });
   };
   const saveTolocal = (data) => {
     let dashdata;
@@ -81,6 +85,8 @@ const ModelEdit = (props) => {
       });
       if (notexist) dashdata.push(data);
       localStorage.setItem("dashdata", JSON.stringify(dashdata));
+      //dispatch({ globalVariable: { tempModel: data } });
+      message.success("File saved to localStorage");
     }
   };
   const gotoView = () => {
@@ -102,7 +108,7 @@ const ModelEdit = (props) => {
       fontSize: "small",
       color: "inherit",
       "aria-controls": "save_server",
-      onClick: saveToserver,
+      onClick: saveToPermernent,
     },
     {
       tooltip: "Setting",

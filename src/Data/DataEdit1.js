@@ -101,9 +101,7 @@ const calcMaker = (rule, row) => {
   const tryEval = (str) => {
     try {
       str = eval(str);
-    } catch (e) {
-      console.log(e);
-    }
+    } catch (e) {}
     return str;
   };
 

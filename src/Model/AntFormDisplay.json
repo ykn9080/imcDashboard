@@ -922,5 +922,32 @@
         "placeholder": "specify datalist field"
       }
     ]
+  },
+  "newdash": {
+    "list": [
+      {
+        "label": "Title",
+        "name": "title",
+        "type": "input",
+        "seq": 0
+      },
+      {
+        "label": "Desc",
+        "name": "desc",
+        "type": "input",
+        "seq": 1
+      }
+    ],
+    "setting": {
+      "formItemLayout": {
+        "labelCol": {
+          "span": 2
+        },
+        "wrapperCol": {
+          "span": 22
+        }
+      },
+      "layout": "vertical"
+    }
   }
 }

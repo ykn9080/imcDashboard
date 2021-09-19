@@ -16,10 +16,8 @@ const Model = ({ match }) => {
     title = match.params.grandchild;
 
   if (title) {
-    //titleUpper = title.charAt(0).toUpperCase() + title.slice(1);
     title = title.toLowerCase();
   }
-  //const [adminMenu, setAdminMenu] = useState([]);
 
   useEffect(() => {
     $(window).on("resize", () => {
@@ -47,7 +45,6 @@ const Model = ({ match }) => {
                 </>
               );
             case "view":
-            default:
               return (
                 <>
                   <ModelView />
@@ -67,41 +64,31 @@ const Model = ({ match }) => {
                   <ModelSetting />
                 </>
               );
-
-            // case "author":
-            //   return (
-            //     <>
-            //       <ModelAuthor />
-            //     </>
-            //   );
+            default:
+              return (
+                <>
+                  <ModelView detour="edit" />
+                </>
+              );
           }
         })()}
       </div>
-      {/* {(() => {
-        switch (title) {
-          case "authortable":
-            return (
-              <>
-                <AuthorTable />
-              </>
-            );
-          default:
-            return null;
-        }
-      })()} */}
     </>
   );
 };
 export const localInit = () => {
-  localStorage.setItem("dashdata", JSON.stringify(sampledata));
-  const set = { datatype: "local" };
-  localStorage.setItem("dashsetting", JSON.stringify(set));
+  if (!localStorage.getItem("dashdata"))
+    localStorage.setItem("dashdata", JSON.stringify(sampledata));
+  if (!localStorage.getItem("dashsetting")) {
+    const set = { datatype: "local" };
+    localStorage.setItem("dashsetting", JSON.stringify(set));
+  }
 };
 export const checkSetting = () => {
   let setting = localStorage.getItem("dashsetting");
   if (setting) {
     setting = JSON.parse(setting);
-    return setting.datatype;
+    return setting;
   } else return "local";
 };
 
@@ -110,7 +97,7 @@ export const localList = () => {
   if (dt) {
     dt = JSON.parse(dt);
     return dt;
-  } else return [];
+  } else return sampledata;
 };
 
 export default Model;

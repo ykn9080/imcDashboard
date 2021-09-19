@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import _ from "lodash";
 import { globalVariable } from "actions";
 import { loadCSS } from "fg-loadcss";
@@ -40,6 +40,7 @@ const { Option } = Select;
 
 const ModelEdit4 = (props) => {
   const history = useHistory();
+  const location = useLocation();
   const dispatch = useDispatch();
 
   const [fullscreen, setFullscreen] = useState(false);
@@ -79,6 +80,7 @@ const ModelEdit4 = (props) => {
       });
 
       dispatch(globalVariable({ tempModel }));
+
       console.log("tempLayout", lay);
       setTempLayout(lay);
 
@@ -150,7 +152,6 @@ const ModelEdit4 = (props) => {
     reverttempModel();
   };
   const createItem = (existing) => {
-    console.log(existing);
     let num = 0,
       firstrow = 0,
       ii = 0,
@@ -224,12 +225,11 @@ const ModelEdit4 = (props) => {
   };
 
   const addBlank = () => {
-    console.log(tempModel);
     let newtempModel = { ...tempModel };
     const author = newtempModel.resultsAuthor;
 
     let newItem = createItem(author);
-    console.log(author);
+
     newItem.type = "";
 
     newItem.id = parseInt(Math.random() * 100).toString();
@@ -237,11 +237,9 @@ const ModelEdit4 = (props) => {
     newItem.checked = true;
     newItem.setting = { title: `new Item${author.length + 1}` };
     author.push(newItem);
-    console.log(_.cloneDeep(newtempModel));
     dispatch(globalVariable({ tempModel: newtempModel }));
     dispatch(globalVariable({ currentStep: currentStep - 1 }));
     dispatch(globalVariable({ nextStep: currentStep }));
-    // console.log(newtempModel);
   };
   const handleOk = () => {
     setConfirmLoading(true);
@@ -455,10 +453,12 @@ const ModelEdit4 = (props) => {
       </div>
     </>
   );
-  console.log(tempLayout);
+  console.log("tempLayout", tempLayout, "tempModel", tempModel);
+
   return (
     <>
       {genExtra()}
+
       {tempLayout && (
         <GridLay1
           resultsLayout={tempLayout}

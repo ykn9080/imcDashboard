@@ -9,7 +9,7 @@ import AntBreadCrumb from "components/Common/BreadCrumb";
 import IconArray1 from "components/SKD/IconArray1";
 import EasyTable from "imcgridtable";
 import EasyChart from "imcchart";
-import Dataget from "./Dataget";
+import Data from "../../Data";
 import AuthorHtml from "Model/Author/AuthorHtml";
 
 const Author = (props) => {
@@ -38,7 +38,6 @@ const Author = (props) => {
     }
   }, []);
   const handleSave = () => {
-    console.log("imin");
     saveTemp();
     dispatch(globalVariable({ triggerChild: ["save", "list"] }));
   };
@@ -47,10 +46,17 @@ const Author = (props) => {
     let authorlist = tempModel?.resultsAuthor;
 
     const modelchart1 = localStorage.getItem("modelchart");
-    let modelchart;
+    const setting1 = localStorage.getItem("dashsetting");
+    const summary1 = localStorage.getItem("summary");
+
+    let modelchart,
+      setting = {},
+      summary = {};
     if (!modelchart1) return;
 
     modelchart = JSON.parse(modelchart1);
+    if (setting1) setting = JSON.parse(setting1);
+    if (summary1) summary = JSON.parse(summary1);
 
     let notexist = true;
     authorlist.map((k, i) => {
@@ -65,6 +71,8 @@ const Author = (props) => {
     }
     console.log(authorlist);
     tempModel.resultsAuthor = authorlist;
+    tempModel = { ...tempModel, ...summary };
+    tempModel.properties = setting;
 
     dispatch(globalVariable({ tempModel: _.cloneDeep(tempModel) }));
   };
@@ -91,7 +99,7 @@ const Author = (props) => {
   return (
     <>
       <DenseAppBar
-        title={"Author"}
+        title={"Authoring"}
         right={<IconArray1 btnArr={btnArr} />}
       ></DenseAppBar>
       <div
@@ -113,7 +121,7 @@ const Author = (props) => {
             case "chart":
               return <EasyChart authObj={authObj} edit={true} />;
             case "data":
-              return <Dataget authObj={authObj} />;
+              return <Data authObj={authObj} />;
             default:
               return null;
           }

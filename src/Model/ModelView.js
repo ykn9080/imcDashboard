@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { globalVariable } from "actions";
 import axios from "axios";
@@ -8,12 +8,10 @@ import querySearch from "stringquery";
 import DenseAppBar from "components/Common/AppBar";
 import AntBreadCrumb from "components/Common/BreadCrumb";
 import IconArray1 from "components/SKD/IconArray1";
-import { Modal } from "antd";
+import { Modal, List } from "antd";
 import ModelViewLayout from "Model/ModelViewLayout";
 import ListGen from "components/SKD/ListGen";
 import { localList, checkSetting } from "Model";
-
-const imcsvr = process.env.REACT_APP_SERVER;
 
 const ModelView = (props) => {
   const imcsvr = process.env.REACT_APP_SERVER;
@@ -28,14 +26,14 @@ const ModelView = (props) => {
   let currentData = useSelector((state) => state.global.currentData);
   if (currentData) tempModel = currentData;
   let query = querySearch(location.search);
-
+  console.log("location.state", location.state);
   useEffect(() => {
-    dispatch(globalVariable({ display: "list" })); //modellist compact
-
-    if (!tempModel) {
+    if (location.state) {
       dispatch(globalVariable({ tempModel: location.state }));
+      localStorage.setItem("modelchart", JSON.stringify(location.state));
+    } else if (!tempModel) {
       const id = "613f3aae990a4b5b34e8d781";
-      const type = checkSetting();
+      const type = checkSetting().datatype;
 
       switch (type) {
         case "local":
@@ -46,18 +44,22 @@ const ModelView = (props) => {
           dispatch(globalVariable({ tempModel: cdata }));
           break;
         case "mongodb":
+          let url = checkSetting().url;
+          if (!url) url = `${imcsvr}/dashboard`;
           let config = {
             method: "get",
-            url: `${imcsvr}/dashboard/${id}`,
+            url,
           };
 
           axios(config).then((r) => {
-            dispatch(globalVariable({ tempModel: r.data }));
+            console.log(r.data);
+            if (r.data && r.data.length > 0)
+              dispatch(globalVariable({ tempModel: r.data[0] }));
           });
           break;
       }
     }
-  }, [tempModel]);
+  }, [location.state, tempModel]);
 
   const edit = () => {
     dispatch(globalVariable({ selectedKey: query._id }));
@@ -73,7 +75,7 @@ const ModelView = (props) => {
       fontSize: "small",
       color: "inherit",
 
-      onClick: () => setVisible(true), //history.push("./model/list"),
+      onClick: () => history.push("./list"), //setVisible(true),
     },
     {
       tooltip: "Edit",
@@ -121,7 +123,7 @@ const ModelView = (props) => {
       {tempModel ? (
         <ModelViewLayout data={tempModel} errorurl={props.errorurl} />
       ) : null}
-      <Modal
+      {/* <Modal
         title="Title"
         visible={visible}
         onOk={handleOk}
@@ -129,17 +131,28 @@ const ModelView = (props) => {
         onCancel={() => setVisible(false)}
       >
         <>
-          <ListGen
-            url="dashboard"
-            path="model"
-            notitle={true}
-            nodelete
-            noedit
-            selectHandler={selectHandler}
-            dataformat={["_id", "data", "title", "desc", "type"]}
+          <List
+            size="small"
+            dataSource={localList()}
+            renderItem={(item) => (
+              <List.Item>
+                <List.Item.Meta
+                  title={
+                    <Link
+                      to={{
+                        pathname: "/view",
+                        state: item,
+                      }}
+                    >
+                      {item.title}
+                    </Link>
+                  }
+                />
+              </List.Item>
+            )}
           />
         </>
-      </Modal>
+      </Modal> */}
     </>
   );
 };

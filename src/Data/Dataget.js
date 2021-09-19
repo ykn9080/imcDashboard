@@ -102,19 +102,7 @@ const Dataget = ({ authObj, ...props }) => {
   };
 
   return (
-    <div style={{ padding: "5px 5px 10px 10px" }}>
-      <Row gutter={4}>
-        <Col flex={11}>
-          <Title level={4}>Data</Title>
-        </Col>
-        <Col flex={"auto"}>
-          <div style={{ textAlign: "right" }}>
-            <Button icon={<HiOutlineViewList />} />
-          </div>
-        </Col>
-      </Row>
-
-      <Divider style={{ marginTop: 0 }} />
+    <>
       <Row gutter={4}>
         <Col flex={6}>
           {initVal && (
@@ -142,7 +130,7 @@ const Dataget = ({ authObj, ...props }) => {
           <Spin spinning={loading} />
         </div>
       </DarkBackground>
-    </div>
+    </>
   );
 };
 export const DarkBackground = styled.div`

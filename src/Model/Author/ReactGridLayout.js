@@ -55,7 +55,7 @@ class ShowcaseLayout extends React.Component {
       remove: props.remove,
       layouts: { lg: this.props.resultsLayout },
     };
-    console.log(this.props.resultsLayout);
+
     this.onBreakpointChange = this.onBreakpointChange.bind(this);
     this.onCompactTypeChange = this.onCompactTypeChange.bind(this);
     this.onLayoutChange = this.onLayoutChange.bind(this);
@@ -74,7 +74,6 @@ class ShowcaseLayout extends React.Component {
   }
 
   generateDOM(items) {
-    console.log("generateDom", items);
     return _.map(items, (el) => this.createElement(el));
   }
 
@@ -277,7 +276,6 @@ class ShowcaseLayout extends React.Component {
   }
   onAddItem() {
     /*eslint no-console: 0*/
-    console.log("adding", "n" + this.state.newCounter);
     this.setState({
       // Add a new item. It must have a unique key!
       items: this.state.items.concat({
@@ -381,8 +379,6 @@ const CreateContent = (k) => {
       fontSize: "large",
       color: "inherit",
       onClick: () => {
-        // dispatch(globalVariable({ tempModelNew: null }));
-        // console.log(k);
         localStorage.setItem("blanki", kk.i);
         history.push({
           pathname: "/author/table",

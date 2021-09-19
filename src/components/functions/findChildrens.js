@@ -46,7 +46,6 @@ export const findChild = (data, id, sortFields, sortOrder) => {
     if (obj.pid === id) {
       res.push(obj);
       _.remove(data, (dt) => dt.id === id);
-      console.log(data);
       findChild(data, obj.id);
     }
   });
