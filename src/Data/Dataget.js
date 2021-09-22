@@ -67,6 +67,7 @@ const Dataget = ({ authObj, ...props }) => {
     let local = {},
       local1 = localStorage.getItem("modelchart");
     if (local1) local = JSON.parse(local1);
+    val.dtype = "api";
     local.dtsetting = val;
     axios
       .request(options)

@@ -39,6 +39,8 @@ const Author = (props) => {
   }, []);
   const handleSave = () => {
     saveTemp();
+    localStorage.removeItem("modelchart");
+    history.push("/edit");
     dispatch(globalVariable({ triggerChild: ["save", "list"] }));
   };
 
@@ -46,17 +48,11 @@ const Author = (props) => {
     let authorlist = tempModel?.resultsAuthor;
 
     const modelchart1 = localStorage.getItem("modelchart");
-    const setting1 = localStorage.getItem("dashsetting");
-    const summary1 = localStorage.getItem("summary");
 
-    let modelchart,
-      setting = {},
-      summary = {};
+    let modelchart;
     if (!modelchart1) return;
 
     modelchart = JSON.parse(modelchart1);
-    if (setting1) setting = JSON.parse(setting1);
-    if (summary1) summary = JSON.parse(summary1);
 
     let notexist = true;
     authorlist.map((k, i) => {
@@ -69,10 +65,8 @@ const Author = (props) => {
     if (notexist) {
       authorlist.push(modelchart);
     }
-    console.log(authorlist);
+
     tempModel.resultsAuthor = authorlist;
-    tempModel = { ...tempModel, ...summary };
-    tempModel.properties = setting;
 
     dispatch(globalVariable({ tempModel: _.cloneDeep(tempModel) }));
   };

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Dataget from "./Dataget";
+import DataPaste from "./DataPaste";
 import { SheetJSApp } from "./Excel/Sheetjs";
 import { Select, Row, Col, Typography, Button, Divider, Tooltip } from "antd";
 import { BiReset } from "react-icons/bi";
@@ -8,13 +9,13 @@ const { Option } = Select;
 const { Title } = Typography;
 
 const Index = ({ authObj }) => {
-  const [datatype, setDatatype] = useState();
+  const [dtype, setDtype] = useState();
   useEffect(() => {
-    if (authObj && authObj?.properties?.datatype)
-      setDatatype(authObj.properties.datatype);
+    console.log("authobj", authObj);
+    if (authObj && authObj?.dtsetting) setDtype(authObj.dtsetting.dtype);
   }, []);
   function handleChange(value) {
-    setDatatype(value);
+    setDtype(value);
     // let setting = localStorage.getItem("dashsetting");
     // if (setting) {
     //   setting = JSON.parse(setting);
@@ -37,7 +38,7 @@ const Index = ({ authObj }) => {
                 type="primary"
                 size="small"
                 icon={<BiReset />}
-                onClick={() => setDatatype(null)}
+                onClick={() => setDtype(null)}
               />
             </Tooltip>
           </div>
@@ -46,7 +47,7 @@ const Index = ({ authObj }) => {
 
       <Divider style={{ marginTop: 0 }} />
       {(() => {
-        switch (datatype) {
+        switch (dtype) {
           case "api":
             return (
               <div>
@@ -59,17 +60,24 @@ const Index = ({ authObj }) => {
                 <SheetJSApp authObj={authObj} />
               </>
             );
+          case "paste":
+            return (
+              <>
+                <DataPaste authObj={authObj} />
+              </>
+            );
           default:
             return (
               <div>
                 <label
-                  for="datatype"
+                  for="dtype"
                   style={{ width: 50, marginRight: 10, marginLeft: 20 }}
                 >
                   Data type:
                 </label>
                 <Select
-                  name="datatype"
+                  name="dtype"
+                  defaultValue={dtype}
                   onChange={handleChange}
                   style={{ width: 200 }}
                   placeholder="Select data type"
@@ -77,7 +85,7 @@ const Index = ({ authObj }) => {
                   <Option value=""></Option>
                   <Option value="api">API</Option>
                   <Option value="excel">Excel</Option>
-                  <Option value="input">Direct Paste</Option>
+                  <Option value="paste">Direct Paste</Option>
                 </Select>
               </div>
             );

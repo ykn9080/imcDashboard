@@ -19,10 +19,10 @@ export const SheetJSApp = ({ authObj, ...props }) => {
   useEffect(() => {
     setShowalert(false);
     if (!authObj) return;
-
+    authObj.dtsetting = { dtype: "excel" };
     localStorage.setItem("modelchart", JSON.stringify(authObj));
     setData(authObj.dtlist);
-    setColsAnt(make_cols_Ant(authObj.dtlist));
+    setColsAnt(makeCols(authObj.dtlist));
   }, []);
   const handleFile = (file /*:File*/) => {
     /* Boilerplate to set up FileReader */
@@ -42,7 +42,7 @@ export const SheetJSApp = ({ authObj, ...props }) => {
 
       /* Update state */
       setData(data);
-      setColsAnt(make_cols_Ant(data));
+      setColsAnt(makeCols(data));
       if (Array.isArray(data)) {
         //props.onDataGet(makeStringify(rtn));
         setShowalert(false);
@@ -194,7 +194,7 @@ const SheetJSFT = [
   })
   .join(",");
 
-const make_cols_Ant = (data) => {
+export const makeCols = (data) => {
   let col = [];
   if (!data) return;
   Object.keys(data[0]).map((k, i) => {
@@ -210,10 +210,11 @@ const make_cols_Ant = (data) => {
 
 const addKey = (data) => {
   let newdt = [];
-  data.map((k, i) => {
-    k.key = i;
-    newdt.push(k);
-    return null;
-  });
+  if (data)
+    data.map((k, i) => {
+      k.key = i;
+      newdt.push(k);
+      return null;
+    });
   return newdt;
 };
