@@ -1,18 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { HiOutlineViewList } from "react-icons/hi";
 import AntFormDisplay from "imcformbuilder";
 import formdt from "Model/AntFormDisplay.json";
-import {
-  Input,
-  Row,
-  Col,
-  Typography,
-  Divider,
-  Button,
-  Alert,
-  Spin,
-} from "antd";
+import { Input, Row, Col, Typography, Alert, Spin } from "antd";
 import styled, { css } from "styled-components";
 
 const { Title } = Typography;
@@ -31,6 +21,7 @@ const Dataget = ({ authObj, ...props }) => {
     localStorage.setItem("modelchart", JSON.stringify(authObj));
     if (authObj.dtsetting) {
       setInitVal(authObj.dtsetting);
+
       if (authObj.dtlist) setResult(JSON.stringify(authObj.dtlist, null, 2));
     } else {
       setInitVal({

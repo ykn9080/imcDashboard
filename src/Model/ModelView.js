@@ -30,7 +30,6 @@ const ModelView = (props) => {
   useEffect(() => {
     if (location.state) {
       dispatch(globalVariable({ tempModel: location.state }));
-      localStorage.setItem("modelchart", JSON.stringify(location.state));
     } else if (!tempModel) {
       const id = "613f3aae990a4b5b34e8d781";
       const type = checkSetting().datatype;

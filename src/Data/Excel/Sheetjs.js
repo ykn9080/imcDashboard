@@ -19,10 +19,12 @@ export const SheetJSApp = ({ authObj, ...props }) => {
   useEffect(() => {
     setShowalert(false);
     if (!authObj) return;
-    authObj.dtsetting = { dtype: "excel" };
+
     localStorage.setItem("modelchart", JSON.stringify(authObj));
-    setData(authObj.dtlist);
-    setColsAnt(makeCols(authObj.dtlist));
+    if (authObj.dtlist) {
+      setData(authObj.dtlist);
+      setColsAnt(makeCols(authObj.dtlist));
+    }
   }, []);
   const handleFile = (file /*:File*/) => {
     /* Boilerplate to set up FileReader */
@@ -50,6 +52,7 @@ export const SheetJSApp = ({ authObj, ...props }) => {
           local1 = localStorage.getItem("modelchart");
         if (local1) local = JSON.parse(local1);
         local.dtlist = data;
+        local.dtsetting = { dtype: "excel" };
         localStorage.setItem("modelchart", JSON.stringify(local));
       } else setShowalert(true);
     };

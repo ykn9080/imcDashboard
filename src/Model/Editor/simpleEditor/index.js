@@ -10,6 +10,11 @@ const SimpleEditor = (props) => {
   function onChange(e) {
     setHtml(e.target.value);
     localStorage.setItem("editcontent1", e.target.value);
+    let local = props.authObj,
+      local1 = localStorage.getItem("modelchart");
+    if (local1) local = JSON.parse(local1);
+    local.content = e.target.value;
+    localStorage.setItem("modelchart", JSON.stringify(local));
   }
 
   return (

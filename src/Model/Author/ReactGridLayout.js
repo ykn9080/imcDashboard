@@ -334,15 +334,16 @@ const CreateContent = (k) => {
     h: k.h,
     i: k.i,
     seq: k.seq,
-    dtlist: k.dtlist,
-    dtsetting: k.dtsetting,
-    setting: k.setting,
-    title: k.title,
     w: k.w,
     x: k.x,
     y: k.y,
   };
+  if (k.dtlist) kk.dtlist = k.dtlist;
+  if (k.dtsetting) kk.dtsetting = k.dtsetting;
+  if (k.setting) kk.setting = k.setting;
+  if (k.title) kk.title = k.title;
   localStorage.removeItem("blanki");
+  localStorage.removeItem("modelchart");
 
   const btnArr = [
     {
@@ -353,6 +354,7 @@ const CreateContent = (k) => {
       "aria-controls": "data",
       onClick: () => {
         localStorage.setItem("blanki", kk.i);
+        console.log(kk);
         history.push({
           pathname: "/author/data",
           state: { author: { ...kk } },

@@ -10,6 +10,7 @@ const { Title } = Typography;
 
 const Index = ({ authObj }) => {
   const [dtype, setDtype] = useState();
+
   useEffect(() => {
     console.log("authobj", authObj);
     if (authObj && authObj?.dtsetting) setDtype(authObj.dtsetting.dtype);

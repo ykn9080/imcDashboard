@@ -13,6 +13,7 @@ import {
 } from "Data/DataEdit1";
 import "components/Common/Antd_Table.css";
 import SimpleEditor from "Model/Editor/simpleEditor";
+
 import parse from "html-react-parser";
 
 const { Title, Text } = Typography;
@@ -179,18 +180,30 @@ const AuthorHtml = ({ authObj, edit }) => {
   const trigger = useSelector((state) => state.global.triggerChild);
 
   useEffect(() => {
-    dispatch(globalVariable({ helpLink: "model/edit/graph?type=html" }));
     if (authObj) {
       let dts = [],
         odr,
         st;
       let newAuth = _.cloneDeep(authObj);
+
       let src = tempModel?.properties?.source;
 
       if (newAuth.setting) st = newAuth.setting;
+
       if (st) odr = st.order;
       if (newAuth.content) {
         setEcontent1(authObj.content);
+      }
+      if (st) {
+        setInit({
+          title: st.title,
+          desc: st.desc,
+          column: st.column,
+          order: st.order,
+          format: st.format,
+        });
+        setColumn(st.column);
+        setFormat(st.format);
       }
       if (src) {
         dts = makeData(src, newAuth, odr);
@@ -206,17 +219,6 @@ const AuthorHtml = ({ authObj, edit }) => {
 
         newAuth.dtslist = dts;
 
-        if (st) {
-          setInit({
-            title: st.title,
-            desc: st.desc,
-            column: st.column,
-            order: st.order,
-            format: st.format,
-          });
-          setColumn(st.column);
-          setFormat(st.format);
-        }
         setData(newAuth);
       }
     }
@@ -266,31 +268,33 @@ const AuthorHtml = ({ authObj, edit }) => {
 
   const saveHtml = () => {
     let newdata = { ...data };
-    let mdtb = localStorage.getItem("modelhtml");
+    let mdtb = authObj,
+      local1 = localStorage.getItem("modelchart");
+    if (local1) mdtb = JSON.parse(local1);
+
     let set = {};
     set = newdata.setting;
-    if (mdtb) {
-      mdtb = JSON.parse(mdtb);
-      set = { ...set, ...mdtb };
-      // newdata = { ...newdata, ...mdtb };
-      setInit({
-        title: mdtb.title,
-        desc: mdtb.desc,
-        column: mdtb.column,
-        order: mdtb.order,
-        format: mdtb.format,
-      });
-      let src = tempModel?.properties?.source;
-      newdata.dtslist = makeData(src, newdata, mdtb.order);
-      if (!newdata.id) {
-        newdata = { ...newdata, id: idMake(), type: "html" };
-      }
 
-      newdata = {
-        ...newdata,
-        setting: set,
-      };
+    set = { ...set, ...mdtb };
+    // newdata = { ...newdata, ...mdtb };
+    setInit({
+      title: mdtb.title,
+      desc: mdtb.desc,
+      column: mdtb.column,
+      order: mdtb.order,
+      format: mdtb.format,
+    });
+    let src = tempModel?.properties?.source;
+    newdata.dtslist = makeData(src, newdata, mdtb.order);
+    if (!newdata.id) {
+      newdata = { ...newdata, id: idMake(), type: "html" };
     }
+
+    newdata = {
+      ...newdata,
+      setting: set,
+    };
+
     setData(newdata);
     return newdata;
   };
@@ -336,7 +340,11 @@ const AuthorHtml = ({ authObj, edit }) => {
   saveTemp(trigger);
 
   const onEditValuesChangeTable = (changedValues, allValues) => {
-    localStorage.setItem("modelhtml", JSON.stringify(allValues));
+    let local = authObj,
+      local1 = localStorage.getItem("modelchart");
+    if (local1) local = JSON.parse(local1);
+    local.setting = { ...local.setting, ...allValues };
+    localStorage.setItem("modelchart", JSON.stringify(local));
     if (changedValues.column) setColumn(changedValues.column);
     if (changedValues.format) setFormat(changedValues.format);
   };
@@ -346,11 +354,7 @@ const AuthorHtml = ({ authObj, edit }) => {
       {edit && (
         <Row gutter={16}>
           <Col span={16}>
-            <SimpleEditor html={econtent1} />
-            {/* <Editor
-              content={econtent}
-              onContentStateChange={onContentStateChange}
-            /> */}
+            <SimpleEditor html={econtent1} authObj={authObj} />
           </Col>
           <Col span={8}>
             <AntFormDisplay
