@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Input, Row, Col, Typography, Alert } from "antd";
-import XLSX from "xlsx";
+import { XLSX } from "xlsx";
 import { makeCols } from "./Excel/Sheetjs";
 
 const { Title } = Typography;
@@ -16,12 +16,10 @@ const DataPaste = ({ authObj }) => {
     if (authObj.dtlist) {
       userInput(authObj.dtlist);
     }
-    //setInitVal(JSON.stringify(authObj.dtlist));
   }, []);
 
   const onChange = (e) => {
     setInitVal(e.target.value);
-    console.log(e.target.value, csvToexcel(e.target.value));
     if (IsJsonString(e.target.value)) {
       userInput(JSON.parse(e.target.value));
     } else {

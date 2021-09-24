@@ -111,13 +111,6 @@ const ModelList = () => {
             </List.Item>
           )}
         />
-        <Button
-          onClick={() => {
-            console.log(tempModel);
-          }}
-        >
-          tempModel
-        </Button>
       </>
     </div>
   );

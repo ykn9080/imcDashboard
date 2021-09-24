@@ -107,18 +107,7 @@ const ListGen = (props) => {
     dispatch(globalVariable({ selectedKey: item._id }));
     history.push(`/edit`);
   };
-  const selectHandler1 = (item) => {
-    console.log(item);
-    // dispatch(globalVariable({ tempModel: item }));
-    // dispatch(globalVariable({ selectedKey: item._id }));
-    //props.onView(item);
-    // history.push({
-    //   pathname: "/project/view",
-    //   search: "?_id=5ef99d0b48fbce0ff8541448",
-    //   state: { detail: "response.data" },
-    // });
-    // history.go();
-  };
+
   const deleteHandler = (item) => {
     let config = {
       method: "delete",

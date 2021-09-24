@@ -81,7 +81,6 @@ const ModelEdit4 = (props) => {
 
       dispatch(globalVariable({ tempModel }));
 
-      console.log("tempLayout", lay);
       setTempLayout(lay);
 
       modalInit();
