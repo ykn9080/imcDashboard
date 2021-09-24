@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import XLSX from "xlsx";
+import * as XLSX from "xlsx";
 import { Row, Col, Input, Alert, Table } from "antd";
 import "./Styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";

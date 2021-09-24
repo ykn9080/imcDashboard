@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Input, Row, Col, Typography, Alert } from "antd";
-import { XLSX } from "xlsx";
+import * as XLSX from "xlsx";
 import { makeCols } from "./Excel/Sheetjs";
 
 const { Title } = Typography;
