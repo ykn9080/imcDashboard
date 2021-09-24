@@ -22,11 +22,12 @@ docker-compose up //using docker
 
 # Docker
 docker pull yknam/imcdashboard
+docker run --name imcdashboard -p 7000:80 -d yknam/imcdashboard
 ```
 
 ## Usage basic
 
-1. Create
+1. 신규로 dashboard를 생성하기 
 2. Save
 3. Layout
 4. Edit
