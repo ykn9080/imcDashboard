@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Dataget from "./Dataget";
 import DataPaste from "./DataPaste";
-import { SheetJSApp } from "./Excel/Sheetjs";
+import SheetJSApp from "./Excel/Sheetjs";
 import { Select, Row, Col, Typography, Button, Divider, Tooltip } from "antd";
 import { BiReset } from "react-icons/bi";
 

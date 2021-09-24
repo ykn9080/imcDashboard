@@ -23,7 +23,7 @@ const ModelLayout = (props) => {
   useEffect(() => {
     if (!props?.data?.resultsAuthor) return;
     let lay = _.filter(props?.data?.resultsAuthor, (o) => {
-      return o.checked === true && o.type && o.type !== "";
+      return o.type;
     });
     lay.sort(function (a, b) {
       return parseInt(a.i) - parseInt(b.i);
@@ -49,7 +49,6 @@ const ModelLayout = (props) => {
     // Do something with the error
     // E.g. log to an error logging client here
   };
-  console.log("temp", tempLayout);
   return (
     <>
       {tempLayout && tempLayout.length > 0 ? (

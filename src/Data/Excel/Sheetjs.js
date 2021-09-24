@@ -12,7 +12,7 @@ const { TextArea } = Input;
    - this script should be referenced with type="text/babel"
    - babel.js in-browser transpiler should be loaded before this script
 */
-export const SheetJSApp = ({ authObj, ...props }) => {
+const SheetJSApp = ({ authObj, ...props }) => {
   const [data, setData] = useState([]);
   const [showalert, setShowalert] = useState(false);
   const [colsAnt, setColsAnt] = useState([]);
@@ -221,3 +221,5 @@ const addKey = (data) => {
     });
   return newdt;
 };
+
+export default SheetJSApp;
