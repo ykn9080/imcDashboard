@@ -1,27 +1,46 @@
 import React, { useEffect, useState } from "react";
-import { Input, Row, Col, Typography, Alert } from "antd";
+import { useDispatch } from "react-redux";
+import { globalVariable } from "actions";
+import { Input, Row, Col, Typography, Alert, message, Spin } from "antd";
 import * as XLSX from "xlsx";
-import { makeCols } from "./Excel/Sheetjs";
+import { checkUploadSize, checkDatatype } from "Data";
 
 const { Title } = Typography;
 const { TextArea } = Input;
 
-const DataPaste = ({ authObj }) => {
+const DataPaste = ({ authObj, onDataUpdate }) => {
+  const dispatch = useDispatch();
   const [result, setResult] = useState();
   const [initVal, setInitVal] = useState();
-  const [showalert, setShowalert] = useState(false);
+  const [showalert, setShowalert] = useState();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem("modelchart", JSON.stringify(authObj));
+    switch (checkDatatype()) {
+      case "local":
+      default:
+        localStorage.setItem("modelchart", JSON.stringify(authObj));
+        break;
+      case "mongodb":
+        dispatch(globalVariable({ tempModule: authObj }));
+        break;
+    }
     if (authObj.dtlist) {
       userInput(authObj.dtlist);
     }
   }, []);
 
   const onChange = (e) => {
-    setInitVal(e.target.value);
+    setLoading(true);
     if (IsJsonString(e.target.value)) {
-      userInput(JSON.parse(e.target.value));
+      if (!checkUploadSize(JSON.parse(e.target.value))) {
+        message.info("Data cannot exceed 500 rows", 15);
+        setLoading(false);
+      } else {
+        userInput(JSON.parse(e.target.value));
+        setInitVal(e.target.value);
+        setLoading(false);
+      }
     } else {
       csvToexcel(e.target.value);
     }
@@ -41,21 +60,29 @@ const DataPaste = ({ authObj }) => {
       header: 1,
       raw: true,
     });
+    if (!checkUploadSize(js)) {
+      message.info("Data cannot exceed 500 rows", 15);
+      setLoading(false);
+    } else {
+      js.map((k, i) => {
+        k.map((s, j) => {
+          if (typeof s === "string") {
+            s = s.replace(/\s+/g, "");
+            s = s.replace(/"/g, "");
 
-    js.map((k, i) => {
-      k.map((s, j) => {
-        if (typeof s === "string") {
-          s = s.replace(/\s+/g, "");
-          s = s.replace(/"/g, "");
-
-          k.splice(j, 1, s);
-        }
+            k.splice(j, 1, s);
+          }
+          return null;
+        });
+        js.splice(i, 1, k);
+        return null;
       });
-      js.splice(i, 1, k);
-    });
-    const rtn = arrayToJson(js);
-    setResult(JSON.stringify(rtn, null, 2));
-    chkArrayNupdate(rtn);
+      const rtn = arrayToJson(js);
+      setInitVal(inputdt);
+      setResult(JSON.stringify(rtn, null, 2));
+      chkArrayNupdate(rtn);
+      setLoading(false);
+    }
   };
   const arrayToJson = (data) => {
     const head = data.shift();
@@ -64,6 +91,7 @@ const DataPaste = ({ authObj }) => {
       let obj = {};
       head.map((s, j) => {
         obj[s] = k[j];
+        return null;
       });
       rtn.push(obj);
     });
@@ -72,20 +100,11 @@ const DataPaste = ({ authObj }) => {
   const chkArrayNupdate = (inputval) => {
     if (Array.isArray(inputval)) {
       setShowalert(false);
-      successUpdate(inputval);
+      if (checkUploadSize(inputval))
+        onDataUpdate(authObj, inputval, { dtype: "paste" });
     } else setShowalert(true);
   };
-  const successUpdate = (val) => {
-    //use localstorage to prevent state change
-    let local = {},
-      local1 = localStorage.getItem("modelchart");
-    if (local1) local = JSON.parse(local1);
-    local.dtlist = val;
-    local.dtsetting = {};
-    local.dtsetting.dtype = "paste";
 
-    localStorage.setItem("modelchart", JSON.stringify(local));
-  };
   const userInput = (inputval) => {
     setResult(JSON.stringify(inputval, null, 2));
     chkArrayNupdate(inputval);
@@ -124,6 +143,8 @@ const DataPaste = ({ authObj }) => {
         <Col flex={6}>
           <TextArea
             rows={10}
+            onFocus={() => setLoading(true)}
+            onBlur={() => setLoading(false)}
             onChange={onChange}
             accept={SheetJSFT}
             value={initVal}
@@ -132,17 +153,34 @@ const DataPaste = ({ authObj }) => {
         <Col flex={6}>
           {result && <TextArea rows={10} id="code" value={result}></TextArea>}
           <div style={{ marginTop: 5 }}>
-            {showalert ? (
+            {(() => {
+              switch (showalert) {
+                case true:
+                  return (
+                    <Alert
+                      message="Not array!, Select an array datafield"
+                      type="error"
+                    />
+                  );
+                case false:
+                  return <Alert message="Good Json format!" type="success" />;
+                default:
+                  return null;
+              }
+            })()}
+
+            {/* {showalert ? (
               <Alert
                 message="Not array!, Select an array datafield"
                 type="error"
               />
             ) : (
               <Alert message="Good Json format!" type="success" />
-            )}
+            )} */}
           </div>
         </Col>
       </Row>
+      <Spin spinning={loading} />
     </>
   );
 };

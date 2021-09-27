@@ -55,6 +55,7 @@ const ModelEdit4 = (props) => {
   const [defaultlist, setDefaultlist] = useState();
 
   let tempModel = useSelector((state) => state.global.tempModel);
+  let tempModule = useSelector((state) => state.global.tempModule);
   let currentStep = useSelector((state) => state.global.currentStep);
   let trigger = useSelector((state) => state.global.triggerChild);
 
@@ -63,6 +64,7 @@ const ModelEdit4 = (props) => {
   }, []);
   useEffect(() => {
     let tempAuthor = localStorage.getItem("tempAuthor");
+
     let tempAuthor1 = tempModel?.resultsAuthor;
 
     if (!_.isEqual(JSON.parse(tempAuthor), tempAuthor1)) {
@@ -82,7 +84,7 @@ const ModelEdit4 = (props) => {
       dispatch(globalVariable({ tempModel }));
 
       setTempLayout(lay);
-
+      //setTempLayout(tempAuthor1);
       modalInit();
       const node = loadCSS(
         "https://use.fontawesome.com/releases/v5.12.0/css/all.css",
@@ -161,7 +163,7 @@ const ModelEdit4 = (props) => {
         return o.y === 0;
       }).length;
       existing.map((k, i) => {
-        if (parseInt(k.i) >= ii) ii++;
+        if (parseInt(k.i) >= ii) ii = parseInt(k.i) + 1;
         if (k.y > yy) yy = k.y;
         return null;
       });
@@ -222,7 +224,9 @@ const ModelEdit4 = (props) => {
       state: { author: json },
     });
   };
-
+  const findMaxNum = (data) => {
+    _.maxBy(data, "i");
+  };
   const addBlank = () => {
     let newtempModel = { ...tempModel };
     const author = newtempModel.resultsAuthor;
@@ -230,11 +234,13 @@ const ModelEdit4 = (props) => {
     let newItem = createItem(author);
 
     newItem.type = "";
-
+    const mnum = parseInt(_.maxBy(author, "i").i) + 1;
     newItem.id = parseInt(Math.random() * 100).toString();
     newItem.key = parseInt(Math.random() * 100000).toString();
     newItem.checked = true;
-    newItem.setting = { title: `new Item${author.length + 1}` };
+
+    newItem.setting = { title: `new Item${mnum.toString()}` };
+    console.log("newItem", newItem);
     author.push(newItem);
     dispatch(globalVariable({ tempModel: newtempModel }));
     dispatch(globalVariable({ currentStep: currentStep - 1 }));
@@ -297,7 +303,7 @@ const ModelEdit4 = (props) => {
   };
   const genExtra = () => (
     <div style={{ textAlign: "right", margin: "0 5px -5px 0" }}>
-      <Tooltip title="Create New1">
+      <Tooltip title="Create New">
         <Button
           type="primary"
           icon={<PlusOutlined />}

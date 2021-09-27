@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { globalVariable } from "actions";
 import axios from "axios";
 import AntFormDisplay from "imcformbuilder";
 import formdt from "Model/AntFormDisplay.json";
-import { Input, Row, Col, Typography, Alert, Spin } from "antd";
+import { Input, Row, Col, Alert, Spin, message } from "antd";
 import styled, { css } from "styled-components";
+import { checkUploadSize, checkDatatype } from "Data";
 
-const { Title } = Typography;
 const { TextArea } = Input;
 
-const Dataget = ({ authObj, ...props }) => {
+const Dataget = ({ authObj, onDataUpdate, ...props }) => {
+  const dispatch = useDispatch();
   const [initVal, setInitVal] = useState();
   const [result, setResult] = useState();
   const [showalert, setShowalert] = useState(false);
@@ -17,8 +20,16 @@ const Dataget = ({ authObj, ...props }) => {
   useEffect(() => {
     setShowalert(false);
     setLoading(false);
-    console.log("props", authObj, props);
-    localStorage.setItem("modelchart", JSON.stringify(authObj));
+    switch (checkDatatype()) {
+      case "local":
+      default:
+        localStorage.setItem("modelchart", JSON.stringify(authObj));
+        break;
+      case "mongodb":
+        dispatch(globalVariable({ tempModule: authObj }));
+        break;
+    }
+
     if (authObj.dtsetting) {
       setInitVal(authObj.dtsetting);
 
@@ -55,11 +66,11 @@ const Dataget = ({ authObj, ...props }) => {
     if (val.header) options = { ...options, header: val.header };
 
     setLoading(true);
-    let local = {},
-      local1 = localStorage.getItem("modelchart");
-    if (local1) local = JSON.parse(local1);
+    // let local = {},
+    //   local1 = localStorage.getItem("modelchart");
+    // if (local1) local = JSON.parse(local1);
     val.dtype = "api";
-    local.dtsetting = val;
+    //local.dtsetting = val;
     axios
       .request(options)
       .then(function (response) {
@@ -73,23 +84,30 @@ const Dataget = ({ authObj, ...props }) => {
             return null;
           });
         }
+
         setResult(JSON.stringify(rtn, null, 2));
 
         //use localstorage to prevent state change
 
-        local.dtlist = rtn;
-        localStorage.setItem("modelchart", JSON.stringify(local));
-
         if (Array.isArray(rtn)) {
-          props.onDataGet(makeStringify(rtn));
-          setShowalert(false);
+          if (!checkUploadSize(rtn)) {
+            message.info("Data cannot exceed 500 rows", 15);
+          } else {
+            val.dtype = "api";
+            onDataUpdate(authObj, rtn, val);
+            setShowalert(false);
+
+            //props.onDataGet(makeStringify(rtn));
+          }
         } else setShowalert(true);
         setLoading(false);
+        setInitVal(val);
       })
       .catch(function (error) {
         console.error(error);
         setLoading(false);
-        localStorage.setItem("modelchart", JSON.stringify(local));
+        setInitVal(val);
+        //localStorage.setItem("modelchart", JSON.stringify(local));
       });
   };
 

@@ -1,14 +1,26 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { globalVariable } from "actions";
 import Dataget from "./Dataget";
 import DataPaste from "./DataPaste";
 import SheetJSApp from "./Excel/Sheetjs";
-import { Select, Row, Col, Typography, Button, Divider, Tooltip } from "antd";
+import {
+  Select,
+  Row,
+  Col,
+  Typography,
+  Button,
+  Divider,
+  Tooltip,
+  message,
+} from "antd";
 import { BiReset } from "react-icons/bi";
 
 const { Option } = Select;
 const { Title } = Typography;
 
 const Index = ({ authObj }) => {
+  const dispatch = useDispatch();
   const [dtype, setDtype] = useState();
 
   useEffect(() => {
@@ -16,15 +28,20 @@ const Index = ({ authObj }) => {
   }, []);
   function handleChange(value) {
     setDtype(value);
-    // let setting = localStorage.getItem("dashsetting");
-    // if (setting) {
-    //   setting = JSON.parse(setting);
-    //   setting.datatype = value;
-    //   localStorage.setItem("dashsetting", JSON.stringify(setting));
-    // }
-
-    // console.log(`selected ${value}`);
   }
+  const onDataUpdate = (authObj, dtlist, dtsetting) => {
+    authObj.dtlist = dtlist;
+    authObj.dtsetting = dtsetting;
+    switch (checkDatatype()) {
+      case "local":
+      default:
+        localStorage.setItem("modelchart", JSON.stringify(authObj));
+        break;
+      case "mongodb":
+        dispatch(globalVariable({ tempModule: authObj }));
+        break;
+    }
+  };
   return (
     <div style={{ padding: "5px 5px 10px 10px" }}>
       <Row gutter={4}>
@@ -51,19 +68,19 @@ const Index = ({ authObj }) => {
           case "api":
             return (
               <div>
-                <Dataget authObj={authObj} />
+                <Dataget authObj={authObj} onDataUpdate={onDataUpdate} />
               </div>
             );
           case "excel":
             return (
               <>
-                <SheetJSApp authObj={authObj} />
+                <SheetJSApp authObj={authObj} onDataUpdate={onDataUpdate} />
               </>
             );
           case "paste":
             return (
               <>
-                <DataPaste authObj={authObj} />
+                <DataPaste authObj={authObj} onDataUpdate={onDataUpdate} />
               </>
             );
           default:
@@ -93,6 +110,20 @@ const Index = ({ authObj }) => {
       })()}
     </div>
   );
+};
+
+export const checkUploadSize = (val) => {
+  let rtn = true;
+
+  if (checkDatatype() === "local" && val.length > 500) {
+    rtn = false;
+  }
+  return rtn;
+};
+export const checkDatatype = () => {
+  let sett = localStorage.getItem("dashsetting");
+  if (sett) sett = JSON.parse(sett);
+  return sett.datatype;
 };
 
 export default Index;

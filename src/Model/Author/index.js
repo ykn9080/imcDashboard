@@ -14,13 +14,14 @@ import AuthorHtml from "Model/Author/AuthorHtml";
 
 const Author = (props) => {
   const [authObj, setAuthObj] = useState();
+  const [authObj1, setAuthObj1] = useState();
   const [title, setTitle] = useState();
 
   let tempModel = useSelector((state) => state.global.tempModel);
+  let tempModule = useSelector((state) => state.global.tempModule);
   const history = useHistory();
   const dispatch = useDispatch();
   let match = useRouteMatch("/author/:id").url.split("/");
-  //const dispatch = useDispatch();
   const location = useLocation();
   useEffect(() => {
     $(".MuiIconButton-root").css("padding", 0);
@@ -45,25 +46,34 @@ const Author = (props) => {
   };
 
   const saveTemp = () => {
+    let sett = localStorage.getItem("dashsetting");
+    if (sett) sett = JSON.parse(sett);
+    let data;
+    switch (sett?.datatype) {
+      case "local":
+      default:
+        let local = {},
+          local1 = localStorage.getItem("modelchart");
+        if (local1) local = JSON.parse(local1);
+        data = local;
+        break;
+      case "mongodb":
+        data = tempModule;
+        break;
+    }
+
     let authorlist = tempModel?.resultsAuthor;
-
-    const modelchart1 = localStorage.getItem("modelchart");
-
-    let modelchart;
-    if (!modelchart1) return;
-
-    modelchart = JSON.parse(modelchart1);
 
     let notexist = true;
     authorlist.map((k, i) => {
-      if (k.i === modelchart.i) {
-        authorlist.splice(i, 1, modelchart);
+      if (k.i === data.i) {
+        authorlist.splice(i, 1, data);
         notexist = false;
       }
       return null;
     });
     if (notexist) {
-      authorlist.push(modelchart);
+      authorlist.push(data);
     }
 
     tempModel.resultsAuthor = authorlist;
@@ -89,7 +99,9 @@ const Author = (props) => {
       },
     },
   ];
-
+  const onChange = (val) => {
+    console.log(val);
+  };
   return (
     <>
       <DenseAppBar
@@ -109,13 +121,19 @@ const Author = (props) => {
         {(() => {
           switch (title) {
             case "table":
-              return <EasyTable authObj={authObj} edit={true} />;
+              return (
+                <EasyTable authObj={authObj} onChange={onChange} edit={true} />
+              );
             case "html":
-              return <AuthorHtml authObj={authObj} edit={true} />;
+              return (
+                <AuthorHtml authObj={authObj} onChange={onChange} edit={true} />
+              );
             case "chart":
-              return <EasyChart authObj={authObj} edit={true} />;
+              return (
+                <EasyChart authObj={authObj} onChange={onChange} edit={true} />
+              );
             case "data":
-              return <Data authObj={authObj} />;
+              return <Data authObj={authObj} onChange={onChange} />;
             default:
               return null;
           }

@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { globalVariable } from "actions";
 import * as XLSX from "xlsx";
-import { Row, Col, Input, Alert, Table } from "antd";
+import { Row, Col, Input, Alert, Table, message } from "antd";
 import "./Styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { checkUploadSize, checkDatatype } from "Data";
 
 const { TextArea } = Input;
 /* xlsx.js (C) 2013-present  SheetJS -- http://sheetjs.com */
@@ -12,7 +15,8 @@ const { TextArea } = Input;
    - this script should be referenced with type="text/babel"
    - babel.js in-browser transpiler should be loaded before this script
 */
-const SheetJSApp = ({ authObj, ...props }) => {
+const SheetJSApp = ({ authObj, onDataUpdate, ...props }) => {
+  const dispatch = useDispatch();
   const [data, setData] = useState([]);
   const [showalert, setShowalert] = useState(false);
   const [colsAnt, setColsAnt] = useState([]);
@@ -20,7 +24,15 @@ const SheetJSApp = ({ authObj, ...props }) => {
     setShowalert(false);
     if (!authObj) return;
 
-    localStorage.setItem("modelchart", JSON.stringify(authObj));
+    switch (checkDatatype()) {
+      case "local":
+      default:
+        localStorage.setItem("modelchart", JSON.stringify(authObj));
+        break;
+      case "mongodb":
+        dispatch(globalVariable({ tempModule: authObj }));
+        break;
+    }
     if (authObj.dtlist) {
       setData(authObj.dtlist);
       setColsAnt(makeCols(authObj.dtlist));
@@ -43,17 +55,17 @@ const SheetJSApp = ({ authObj, ...props }) => {
       });
 
       /* Update state */
-      setData(data);
-      setColsAnt(makeCols(data));
+      if (checkUploadSize(data)) {
+        setData(data);
+        setColsAnt(makeCols(data));
+      }
       if (Array.isArray(data)) {
-        //props.onDataGet(makeStringify(rtn));
-        setShowalert(false);
-        let local = {},
-          local1 = localStorage.getItem("modelchart");
-        if (local1) local = JSON.parse(local1);
-        local.dtlist = data;
-        local.dtsetting = { dtype: "excel" };
-        localStorage.setItem("modelchart", JSON.stringify(local));
+        if (checkUploadSize(data)) {
+          setShowalert(false);
+          onDataUpdate(authObj, data, { dtype: "excel" });
+        } else {
+          message.info("Data cannot exceed 500 rows", 10);
+        }
       } else setShowalert(true);
     };
     if (rABS) reader.readAsBinaryString(file);
