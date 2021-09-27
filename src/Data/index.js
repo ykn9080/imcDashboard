@@ -19,7 +19,7 @@ import { BiReset } from "react-icons/bi";
 const { Option } = Select;
 const { Title } = Typography;
 
-const Index = ({ authObj }) => {
+const Index = ({ authObj, onChange }) => {
   const dispatch = useDispatch();
   const [dtype, setDtype] = useState();
 
@@ -41,6 +41,7 @@ const Index = ({ authObj }) => {
         dispatch(globalVariable({ tempModule: authObj }));
         break;
     }
+    onChange(authObj);
   };
   return (
     <div style={{ padding: "5px 5px 10px 10px" }}>

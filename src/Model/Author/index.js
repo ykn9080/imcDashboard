@@ -9,12 +9,12 @@ import AntBreadCrumb from "components/Common/BreadCrumb";
 import IconArray1 from "components/SKD/IconArray1";
 import EasyTable from "imcgridtable";
 import EasyChart from "imcchart";
-import Data from "../../Data";
+// import Data from "../../Data";
+import Data from "imcdata";
 import AuthorHtml from "Model/Author/AuthorHtml";
 
 const Author = (props) => {
   const [authObj, setAuthObj] = useState();
-  const [authObj1, setAuthObj1] = useState();
   const [title, setTitle] = useState();
 
   let tempModel = useSelector((state) => state.global.tempModel);
@@ -39,47 +39,47 @@ const Author = (props) => {
     }
   }, []);
   const handleSave = () => {
-    saveTemp();
+    //saveTemp();
     localStorage.removeItem("modelchart");
     history.push("/edit");
     dispatch(globalVariable({ triggerChild: ["save", "list"] }));
   };
 
-  const saveTemp = () => {
-    let sett = localStorage.getItem("dashsetting");
-    if (sett) sett = JSON.parse(sett);
-    let data;
-    switch (sett?.datatype) {
-      case "local":
-      default:
-        let local = {},
-          local1 = localStorage.getItem("modelchart");
-        if (local1) local = JSON.parse(local1);
-        data = local;
-        break;
-      case "mongodb":
-        data = tempModule;
-        break;
-    }
+  // const saveTemp = () => {
+  //   let sett = localStorage.getItem("dashsetting");
+  //   if (sett) sett = JSON.parse(sett);
+  //   let data;
+  //   switch (sett?.datatype) {
+  //     case "local":
+  //     default:
+  //       let local = {},
+  //         local1 = localStorage.getItem("modelchart");
+  //       if (local1) local = JSON.parse(local1);
+  //       data = local;
+  //       break;
+  //     case "mongodb":
+  //       data = tempModule;
+  //       break;
+  //   }
 
-    let authorlist = tempModel?.resultsAuthor;
+  //   let authorlist = tempModel?.resultsAuthor;
 
-    let notexist = true;
-    authorlist.map((k, i) => {
-      if (k.i === data.i) {
-        authorlist.splice(i, 1, data);
-        notexist = false;
-      }
-      return null;
-    });
-    if (notexist) {
-      authorlist.push(data);
-    }
+  //   let notexist = true;
+  //   authorlist.map((k, i) => {
+  //     if (k.i === data.i) {
+  //       authorlist.splice(i, 1, data);
+  //       notexist = false;
+  //     }
+  //     return null;
+  //   });
+  //   if (notexist) {
+  //     authorlist.push(data);
+  //   }
 
-    tempModel.resultsAuthor = authorlist;
+  //   tempModel.resultsAuthor = authorlist;
 
-    dispatch(globalVariable({ tempModel: _.cloneDeep(tempModel) }));
-  };
+  //   dispatch(globalVariable({ tempModel: _.cloneDeep(tempModel) }));
+  // };
   const btnArr = [
     {
       tooltip: "Save and Show Authoring List",
@@ -99,8 +99,24 @@ const Author = (props) => {
       },
     },
   ];
-  const onChange = (val) => {
-    console.log(val);
+  const onChange = (data) => {
+    let authorlist = tempModel?.resultsAuthor;
+
+    let notexist = true;
+    authorlist.map((k, i) => {
+      if (k.i === data.i) {
+        authorlist.splice(i, 1, data);
+        notexist = false;
+      }
+      return null;
+    });
+    if (notexist) {
+      authorlist.push(data);
+    }
+
+    tempModel.resultsAuthor = authorlist;
+    console.log("dashboard", data, authorlist);
+    dispatch(globalVariable({ tempModel: _.cloneDeep(tempModel) }));
   };
   return (
     <>
@@ -133,7 +149,7 @@ const Author = (props) => {
                 <EasyChart authObj={authObj} onChange={onChange} edit={true} />
               );
             case "data":
-              return <Data authObj={authObj} onChange={onChange} />;
+              return <Data data={authObj} onChange={onChange} />;
             default:
               return null;
           }

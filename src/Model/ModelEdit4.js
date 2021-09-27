@@ -458,7 +458,6 @@ const ModelEdit4 = (props) => {
       </div>
     </>
   );
-  console.log("tempLayout", tempLayout, "tempModel", tempModel);
 
   return (
     <>
