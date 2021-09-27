@@ -9,8 +9,6 @@ import AntBreadCrumb from "components/Common/BreadCrumb";
 import IconArray1 from "components/SKD/IconArray1";
 import EasyTable from "imcgridtable";
 import EasyChart from "imcchart";
-import ModelEdit from "Model/ModelEdit";
-// import Data from "../../Data";
 import Data from "imcdata";
 import AuthorHtml from "Model/Author/AuthorHtml";
 
@@ -45,41 +43,6 @@ const Author = (props) => {
     dispatch(globalVariable({ triggerChild: ["save", "list"] }));
   };
 
-  // const saveTemp = () => {
-  //   let sett = localStorage.getItem("dashsetting");
-  //   if (sett) sett = JSON.parse(sett);
-  //   let data;
-  //   switch (sett?.datatype) {
-  //     case "local":
-  //     default:
-  //       let local = {},
-  //         local1 = localStorage.getItem("modelchart");
-  //       if (local1) local = JSON.parse(local1);
-  //       data = local;
-  //       break;
-  //     case "mongodb":
-  //       data = tempModule;
-  //       break;
-  //   }
-
-  //   let authorlist = tempModel?.resultsAuthor;
-
-  //   let notexist = true;
-  //   authorlist.map((k, i) => {
-  //     if (k.i === data.i) {
-  //       authorlist.splice(i, 1, data);
-  //       notexist = false;
-  //     }
-  //     return null;
-  //   });
-  //   if (notexist) {
-  //     authorlist.push(data);
-  //   }
-
-  //   tempModel.resultsAuthor = authorlist;
-
-  //   dispatch(globalVariable({ tempModel: _.cloneDeep(tempModel) }));
-  // };
   const btnArr = [
     {
       tooltip: "Save and Show Authoring List",
@@ -151,7 +114,7 @@ const Author = (props) => {
             case "data":
               return <Data authObj={authObj} onChange={onChange} />;
             default:
-              return <ModelEdit />;
+              return null;
           }
         })()}
       </div>
