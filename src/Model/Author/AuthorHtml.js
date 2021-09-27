@@ -7,169 +7,17 @@ import { idMake } from "components/functions/dataUtil";
 import { Typography, Descriptions, Table, Row, Col, Button } from "antd";
 import AntFormDisplay from "imcformbuilder";
 import formdt from "Model/AntFormDisplay.json";
-import {
-  UpdateColnData,
-  UpdateColnDataAndApplyToDataList,
-} from "Data/DataEdit1";
+
 import "components/Common/Antd_Table.css";
 import SimpleEditor from "Model/Editor/simpleEditor";
 
 import parse from "html-react-parser";
 
 const { Title, Text } = Typography;
-export const Description = ({ dtslist, format, column }) => {
-  if (!format) format = -1;
-  if (!column) column = 1;
 
-  return (
-    <>
-      <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }]}>
-        {dtslist.map((k, i) => {
-          let title = "";
-          if (k.title) title = k.title.replace("[main]", "");
-          return k.dtlist && k.dtlist.length > 0
-            ? k.dtlist.length === 1
-              ? makeSingeRowContent(k, title, format, column)
-              : makeTableContent(k, title, format, column)
-            : makeStringContent(k, title, format, column);
-        })}
-      </Row>
-    </>
-  );
-};
-
-const makeStringContent = (k, title, format, column) => {
-  let txt = k.dtlist;
-  if (typeof txt === "undefined" || txt.length <= 0) txt = k.dtorigin;
-  if (!Number.isNaN(Number(txt)) && format !== "-1")
-    txt = Number(txt).toFixed(format);
-  return (
-    <Col span={24 / column}>
-      <Row>
-        <Col>
-          <Title level={5}>{title} : </Title>
-        </Col>
-        <Col>
-          <Text> {txt}</Text>
-        </Col>
-      </Row>
-    </Col>
-  );
-};
-
-const makeSingeRowContent = (k, title, format, column) => {
-  const dtlist = UpdateColnDataAndApplyToDataList(k);
-  if (!dtlist) return;
-  return (
-    <Col span={24 / column}>
-      <Descriptions title={title} size={"middle"} className="none">
-        {Object.keys(dtlist[0]).map((a, b) => {
-          let txt = dtlist[0][a];
-          if (!Number.isNaN(Number(txt)) && format !== "-1")
-            txt = Number(txt).toFixed(format);
-          return (
-            <Descriptions.Item label={a} key={a + b}>
-              {txt}
-            </Descriptions.Item>
-          );
-        })}
-      </Descriptions>
-    </Col>
-  );
-};
-
-const UpdateMultiColumns = (data) => {
-  if (!data) return;
-  const columns = data.column;
-  const datalist = data.dtlist;
-  if (columns.some((e) => e.key.split("_").length > 1)) {
-    console.log(
-      "This column have multi header: ",
-      columns.find((e) => e.key.split("_").length > 1).title
-    );
-  }
-
-  let topHeaders = new Map();
-  let firstSubHeaders = new Map();
-  let processedColumns = [];
-
-  columns.forEach((e) => {
-    if (e.key.split(".").length > 1) {
-      const titles = e.title.split(".", 2);
-      if (!topHeaders.has(titles[0])) {
-        topHeaders.set(titles[0], { title: titles[0], children: [] });
-        firstSubHeaders.set(titles[0], { title: e.title, size: 1 });
-      } else {
-        firstSubHeaders.get(titles[0]).size++;
-      }
-      e.title = titles[1];
-      e.titletext =
-        e.titletext.split(".").length > 1
-          ? e.titletext.split(".", 2)[1]
-          : e.titletext;
-      topHeaders.get(titles[0]).children.push(e);
-    } else {
-      processedColumns.push(e);
-    }
-  });
-
-  if (topHeaders.size > 0) {
-    topHeaders.forEach((h) => processedColumns.push(h));
-  }
-
-  datalist.forEach((e) => {
-    firstSubHeaders.forEach((v, k) => {
-      if (e.hasOwnProperty(k)) {
-        e[v.title] = e[k];
-      }
-    });
-  });
-
-  return { columns: processedColumns, datalist: datalist };
-};
-
-const makeTableContent = (k, title, format, column) => {
-  let col = [],
-    dtlist = [];
-  if (k.dtlist) {
-    const rtn = UpdateColnData(k);
-    dtlist = rtn.dtlist;
-    const multipleColumned = UpdateMultiColumns(rtn);
-    if (!multipleColumned) return;
-    col = multipleColumned.columns;
-    dtlist = multipleColumned.datalist;
-    dtlist.map((a, b) => {
-      a.key = b;
-      _.forIn(a, function (value, key) {
-        if (!Number.isNaN(Number(value)) && format !== "-1") {
-          value = Number(value).toFixed(format);
-        }
-        a[key] = value;
-      });
-      dtlist.splice(b, 1, a);
-      return null;
-    });
-  }
-
-  return (
-    <>
-      <Col span={24 / column}>
-        <Title level={5}>{title}</Title>
-        <Table
-          columns={col}
-          dataSource={dtlist}
-          size="small"
-          pagination={false}
-          className="none"
-        />
-      </Col>
-    </>
-  );
-};
-
-const AuthorHtml = ({ authObj, edit }) => {
+const AuthorHtml = ({ authObj, onChange, edit }) => {
   const dispatch = useDispatch();
-  const [data, setData] = useState();
+  const [auth, setAuth] = useState();
   const [init, setInit] = useState();
   const [column, setColumn] = useState();
   const [format, setFormat] = useState();
@@ -185,7 +33,7 @@ const AuthorHtml = ({ authObj, edit }) => {
         odr,
         st;
       let newAuth = _.cloneDeep(authObj);
-
+      setAuth(authObj);
       let src = tempModel?.properties?.source;
 
       if (newAuth.setting) st = newAuth.setting;
@@ -205,22 +53,22 @@ const AuthorHtml = ({ authObj, edit }) => {
         setColumn(st.column);
         setFormat(st.format);
       }
-      if (src) {
-        dts = makeData(src, newAuth, odr);
-        if (dts)
-          dts.map((a, b) => {
-            const rtn = UpdateColnData(a);
-            if (!rtn.dtlist) return null;
-            a.dtlist = rtn.dtlist;
+      // if (src) {
+      //   dts = makeData(src, newAuth, odr);
+      //   if (dts)
+      //     dts.map((a, b) => {
+      //       const rtn = UpdateColnData(a);
+      //       if (!rtn.dtlist) return null;
+      //       a.dtlist = rtn.dtlist;
 
-            dts.splice(b, 1, a);
-            return null;
-          });
+      //       dts.splice(b, 1, a);
+      //       return null;
+      //     });
 
-        newAuth.dtslist = dts;
+      //   newAuth.dtslist = dts;
 
-        setData(newAuth);
-      }
+      //   setData(newAuth);
+      // }
     }
     return () => {
       $('link[href="Antd_Table.css"]').remove(); //.prop("disabled", true);
@@ -240,8 +88,8 @@ const AuthorHtml = ({ authObj, edit }) => {
     let child = [],
       plist = [];
 
-    if (data && data.dtslist)
-      data.dtslist.map((k, i) => {
+    if (auth && auth.dtslist)
+      auth.dtslist.map((k, i) => {
         child.push({ text: k.title, value: k.key });
         return null;
       });
@@ -267,7 +115,7 @@ const AuthorHtml = ({ authObj, edit }) => {
   };
 
   const saveHtml = () => {
-    let newdata = { ...data };
+    let newdata = { ...auth };
     let mdtb = authObj,
       local1 = localStorage.getItem("modelchart");
     if (local1) mdtb = JSON.parse(local1);
@@ -295,7 +143,7 @@ const AuthorHtml = ({ authObj, edit }) => {
       setting: set,
     };
 
-    setData(newdata);
+    setAuth(newdata);
     return newdata;
   };
 
@@ -314,6 +162,7 @@ const AuthorHtml = ({ authObj, edit }) => {
       if (editcontent1) {
         newdata.content = editcontent1;
         setEcontent1(newdata.content);
+        if (onChange) onChange(newdata);
         localStorage.removeItem("editcontent1");
       }
       localStorage.removeItem("modelhtml");
@@ -379,10 +228,6 @@ const AuthorHtml = ({ authObj, edit }) => {
           height: "auto",
         }}
       >
-        {data && data.dtslist && (
-          <Description dtslist={data.dtslist} format={format} column={column} />
-        )}
-        {/* {econtent ? <Editor content={econtent} type="view" /> : null} */}
         {!edit && <div id="dvContent">{htmlcontent}</div>}
       </div>
     </div>

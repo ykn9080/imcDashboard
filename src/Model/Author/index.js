@@ -9,6 +9,7 @@ import AntBreadCrumb from "components/Common/BreadCrumb";
 import IconArray1 from "components/SKD/IconArray1";
 import EasyTable from "imcgridtable";
 import EasyChart from "imcchart";
+import ModelEdit from "Model/ModelEdit";
 // import Data from "../../Data";
 import Data from "imcdata";
 import AuthorHtml from "Model/Author/AuthorHtml";
@@ -18,16 +19,15 @@ const Author = (props) => {
   const [title, setTitle] = useState();
 
   let tempModel = useSelector((state) => state.global.tempModel);
-  let tempModule = useSelector((state) => state.global.tempModule);
   const history = useHistory();
   const dispatch = useDispatch();
-  let match = useRouteMatch("/author/:id").url.split("/");
+  const findmatch = useRouteMatch("/author/:id");
+  let match = findmatch?.url?.split("/");
   const location = useLocation();
   useEffect(() => {
     $(".MuiIconButton-root").css("padding", 0);
     $(".ant-col.ant-col-2").css("text-align", "right");
 
-    console.log("match id is ", match);
     let tt = match[match.length - 1];
     if (tt) {
       setTitle(tt.toLowerCase());
@@ -149,9 +149,9 @@ const Author = (props) => {
                 <EasyChart authObj={authObj} onChange={onChange} edit={true} />
               );
             case "data":
-              return <Data data={authObj} onChange={onChange} />;
+              return <Data authObj={authObj} onChange={onChange} />;
             default:
-              return null;
+              return <ModelEdit />;
           }
         })()}
       </div>
