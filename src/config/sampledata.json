@@ -8,30 +8,6 @@
         "key": "ext5",
         "title": "Partition Vector",
         "type": "table",
-        "dtorigin": [
-          { "Partition": 2 },
-          { "Partition": 1 },
-          { "Partition": 1 },
-          { "Partition": 1 },
-          { "Partition": 1 },
-          { "Partition": 1 },
-          { "Partition": 1 },
-          { "Partition": 2 },
-          { "Partition": 2 },
-          { "Partition": 1 },
-          { "Partition": 2 },
-          { "Partition": 1 },
-          { "Partition": 2 },
-          { "Partition": 1 },
-          { "Partition": 1 },
-          { "Partition": 1 },
-          { "Partition": 2 },
-          { "Partition": 2 },
-          { "Partition": 1 },
-          { "Partition": 1 },
-          { "Partition": 1 },
-          { "Partition": 1 }
-        ],
         "setting": {
           "column": [
             {
