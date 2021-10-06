@@ -168,10 +168,6 @@
           "title": "Contigency Table",
           "size": "small"
         },
-        "dtorigin": [
-          { "1": 27, "2": 42, "-": "Male" },
-          { "1": 10, "2": 21, "-": "Female" }
-        ],
         "id": "210322184859",
         "checked": true,
         "x": 6,
