@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import _ from "lodash";
 import { globalVariable } from "actions";
 import { loadCSS } from "fg-loadcss";
@@ -40,7 +40,6 @@ const { Option } = Select;
 
 const ModelEdit4 = (props) => {
   const history = useHistory();
-  const location = useLocation();
   const dispatch = useDispatch();
 
   const [fullscreen, setFullscreen] = useState(false);
@@ -55,7 +54,6 @@ const ModelEdit4 = (props) => {
   const [defaultlist, setDefaultlist] = useState();
 
   let tempModel = useSelector((state) => state.global.tempModel);
-  let tempModule = useSelector((state) => state.global.tempModule);
   let currentStep = useSelector((state) => state.global.currentStep);
   let trigger = useSelector((state) => state.global.triggerChild);
 
@@ -125,17 +123,6 @@ const ModelEdit4 = (props) => {
       dispatch(globalVariable({ nextStep: 4 }));
     }
   }, [colnum]);
-
-  const goback = [
-    {
-      tooltip: "Go to Previous",
-      awesome: "expand-arrows-alt",
-      fontSize: "small",
-      color: "inherit",
-      "aria-controls": "back",
-      onClick: () => setFullscreen(!fullscreen),
-    },
-  ];
 
   const saveTemp = (trigger) => {
     if (trigger.length > 0 && trigger[0] === "save") {
@@ -224,9 +211,7 @@ const ModelEdit4 = (props) => {
       state: { author: json },
     });
   };
-  const findMaxNum = (data) => {
-    _.maxBy(data, "i");
-  };
+
   const addBlank = () => {
     let newtempModel = { ...tempModel };
     const author = newtempModel.resultsAuthor;
@@ -487,7 +472,7 @@ const ModelEdit4 = (props) => {
       </Modal>
       <Button
         onClick={() => {
-          console.log(tempModel);
+          console.log(JSON.stringify(tempModel.resultsAuthor));
         }}
       >
         tempModel

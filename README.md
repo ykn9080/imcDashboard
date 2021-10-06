@@ -7,19 +7,24 @@
 > Create and deploy various objects, such as chart, table, html in a dashboard and rearrange position, change each object size.
 > You can manage multiple dashboard by subjects and load each dashboard from list.
 
-> | Display                                                                                                               | Form Edit                                                                                                           |
-> | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-> | <a href="http://imcmaster.iptime.org/form" ><img src="https://i.ibb.co/7yWH0tT/antformdisplay.png" width="400px"></a> | <a href="http://imcmaster.iptime.org:3080" ><img src="https://i.ibb.co/RNbtwWF/imcformedit.png" width="400px"> </a> |
 
-### 🏠 [Homepage](http://imcmaster.iptime.org:3080)
+<a href="http://imcmaster.iptime.org:7000" ><img src="https://i.ibb.co/744RYpb/imcdashboard.gif" width="800px"></a>
 
-### ✨ [Demo](http://imcmaster.iptime.org:4009/form/edit)
+### ✨ [Demo](http://imcmaster.iptime.org:7000)
 English | [한글](./README-kr_KR.md)
 ## Install
 
 ```sh
-npm install formbuilder
+# Github
+git clone https://github.com/ykn9080/imcDashboard
+npm start //local init
+docker-compose up //using docker
+
+# Docker
+docker pull yknam/imcdashboard
+docker run --name imcdashboard -p 7000:80 -d yknam/imcdashboard
 ```
+
 
 ## Usage basic
 
