@@ -9,72 +9,28 @@
         "title": "Partition Vector",
         "type": "table",
         "dtorigin": [
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 1
-          }
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 1 },
+          { "Partition": 1 },
+          { "Partition": 1 },
+          { "Partition": 1 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 1 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 1 },
+          { "Partition": 1 },
+          { "Partition": 1 }
         ],
         "setting": {
           "column": [
@@ -99,306 +55,106 @@
         "h": 8,
         "i": "1",
         "dtlist": [
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 2
-          },
-          {
-            "Partition": 1
-          },
-          {
-            "Partition": 2
-          }
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 1 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 1 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 1 },
+          { "Partition": 2 },
+          { "Partition": 2 },
+          { "Partition": 1 },
+          { "Partition": 2 }
         ]
       },
       {
@@ -437,44 +193,26 @@
           "size": "small"
         },
         "dtorigin": [
-          {
-            "1": 27,
-            "2": 42,
-            "-": "Male"
-          },
-          {
-            "1": 10,
-            "2": 21,
-            "-": "Female"
-          }
+          { "1": 27, "2": 42, "-": "Male" },
+          { "1": 10, "2": 21, "-": "Female" }
         ],
         "id": "210322184859",
         "checked": true,
-        "x": 0,
-        "y": 26,
+        "x": 6,
+        "y": 0,
         "w": 6,
         "h": 7,
         "i": "2",
         "dtlist": [
-          {
-            "1": 27,
-            "2": 42,
-            "-": "Male"
-          },
-          {
-            "1": 10,
-            "2": 21,
-            "-": "Female"
-          }
+          { "1": 27, "2": 42, "-": "Male" },
+          { "1": 10, "2": 21, "-": "Female" }
         ]
       },
       {
         "checked": true,
         "h": 7,
         "i": "3",
-        "setting": {
-          "title": "new Item4"
-        },
+        "setting": { "title": "new Item4" },
         "type": "html",
         "w": 6,
         "x": 0,
@@ -486,7 +224,7 @@
         "h": 19,
         "i": "4",
         "setting": {
-          "title": "new Item5",
+          "title": "Tesg",
           "charttype": "pie",
           "xField": "Year",
           "yField": "Population",
@@ -565,53 +303,24 @@
               "type": "inner",
               "offset": "-8%",
               "content": "{name}",
-              "style": {
-                "fontSize": 18
-              }
+              "style": { "fontSize": 18 }
             },
-            "interactions": [
-              {
-                "type": "element-active"
-              }
-            ],
-            "pieStyle": {
-              "lineWidth": 0
-            }
+            "interactions": [{ "type": "element-active" }],
+            "pieStyle": { "lineWidth": 0 }
           }
         },
         "type": "chart",
         "w": 6,
-        "x": 0,
-        "y": 41,
+        "x": 6,
+        "y": 7,
         "dtlist": [
-          {
-            "Year": "2019",
-            "Population": 328239523
-          },
-          {
-            "Year": "2018",
-            "Population": 327167439
-          },
-          {
-            "Year": "2017",
-            "Population": 325719178
-          },
-          {
-            "Year": "2016",
-            "Population": 323127515
-          },
-          {
-            "Year": "2015",
-            "Population": 321418821
-          },
-          {
-            "Year": "2014",
-            "Population": 318857056
-          },
-          {
-            "Year": "2013",
-            "Population": 316128839
-          }
+          { "Year": "2019", "Population": 328239523 },
+          { "Year": "2018", "Population": 327167439 },
+          { "Year": "2017", "Population": 325719178 },
+          { "Year": "2016", "Population": 323127515 },
+          { "Year": "2015", "Population": 321418821 },
+          { "Year": "2014", "Population": 318857056 },
+          { "Year": "2013", "Population": 316128839 }
         ]
       },
       {
@@ -739,79 +448,639 @@
         "checked": true,
         "h": 8,
         "i": "6",
-        "setting": {
-          "title": "new Item7"
-        },
         "w": 6,
-        "x": 0,
-        "y": 33,
-        "dtsetting": {
-          "url": "https://datausa.io/api/data?drilldowns=Nation&measures=Population",
-          "method": "get",
-          "header": "",
-          "datafield": "data"
-        },
+        "x": 6,
+        "y": 26,
         "dtlist": [
           {
-            "ID Nation": "01000US",
-            "Nation": "United States",
-            "ID Year": 2019,
-            "Year": "2019",
-            "Population": 328239523,
-            "Slug Nation": "united-states"
+            "OrderDate": 41883,
+            "Region": "Central",
+            "Rep": "Smith",
+            "Item": "Desk",
+            "Units": 2,
+            "Unit Cost": 125,
+            "Total": 250,
+            "Bins": 9,
+            "Frequency": 6,
+            "Intervals": "0-9",
+            "Item Type": "Pencil",
+            "Frequency_1": 13,
+            "Rel. Freq": 0.3023255813953488,
+            "% Freq.": 0.3023255813953488,
+            "key": 0
           },
           {
-            "ID Nation": "01000US",
-            "Nation": "United States",
-            "ID Year": 2018,
-            "Year": "2018",
-            "Population": 327167439,
-            "Slug Nation": "united-states"
+            "OrderDate": 42172,
+            "Region": "Central",
+            "Rep": "Kivell",
+            "Item": "Desk",
+            "Units": 5,
+            "Unit Cost": 125,
+            "Total": 625,
+            "Bins": 19,
+            "Frequency": 4,
+            "Intervals": "10-19",
+            "Item Type": "Binder",
+            "Frequency_1": 15,
+            "Rel. Freq": 0.3488372093023256,
+            "% Freq.": 0.3488372093023256,
+            "key": 1
           },
           {
-            "ID Nation": "01000US",
-            "Nation": "United States",
-            "ID Year": 2017,
-            "Year": "2017",
-            "Population": 325719178,
-            "Slug Nation": "united-states"
+            "OrderDate": 42257,
+            "Region": "Central",
+            "Rep": "Gill",
+            "Item": "Pencil",
+            "Units": 7,
+            "Unit Cost": 1.29,
+            "Total": 9.030000000000001,
+            "Bins": 29,
+            "Frequency": 4,
+            "Intervals": "20-29",
+            "Item Type": "Pen",
+            "Frequency_1": 5,
+            "Rel. Freq": 0.11627906976744186,
+            "% Freq.": 0.11627906976744186,
+            "key": 2
           },
           {
-            "ID Nation": "01000US",
-            "Nation": "United States",
-            "ID Year": 2016,
-            "Year": "2016",
-            "Population": 323127515,
-            "Slug Nation": "united-states"
+            "OrderDate": 42325,
+            "Region": "Central",
+            "Rep": "Jardine",
+            "Item": "Binder",
+            "Units": 11,
+            "Unit Cost": 4.99,
+            "Total": 54.89,
+            "Bins": 39,
+            "Frequency": 3,
+            "Intervals": "30-39",
+            "Item Type": "Pen Set",
+            "Frequency_1": 7,
+            "Rel. Freq": 0.16279069767441862,
+            "% Freq.": 0.16279069767441862,
+            "key": 3
           },
           {
-            "ID Nation": "01000US",
-            "Nation": "United States",
-            "ID Year": 2015,
-            "Year": "2015",
-            "Population": 321418821,
-            "Slug Nation": "united-states"
+            "OrderDate": 42308,
+            "Region": "Central",
+            "Rep": "Andrews",
+            "Item": "Pencil",
+            "Units": 14,
+            "Unit Cost": 1.29,
+            "Total": 18.060000000000002,
+            "Bins": 49,
+            "Frequency": 2,
+            "Intervals": "40-49",
+            "Item Type": "Desk",
+            "Frequency_1": 3,
+            "Rel. Freq": 0.06976744186046512,
+            "% Freq.": 0.06976744186046512,
+            "key": 4
           },
           {
-            "ID Nation": "01000US",
-            "Nation": "United States",
-            "ID Year": 2014,
-            "Year": "2014",
-            "Population": 318857056,
-            "Slug Nation": "united-states"
+            "OrderDate": 41696,
+            "Region": "Central",
+            "Rep": "Gill",
+            "Item": "Pen",
+            "Units": 27,
+            "Unit Cost": 19.99,
+            "Total": 539.7299999999999,
+            "Bins": 59,
+            "Frequency": 6,
+            "Intervals": "50-59",
+            "Frequency_1": 43,
+            "Rel. Freq": 1,
+            "% Freq.": 1,
+            "key": 5
           },
           {
-            "ID Nation": "01000US",
-            "Nation": "United States",
-            "ID Year": 2013,
-            "Year": "2013",
-            "Population": 316128839,
-            "Slug Nation": "united-states"
+            "OrderDate": 41917,
+            "Region": "Central",
+            "Rep": "Morgan",
+            "Item": "Binder",
+            "Units": 28,
+            "Unit Cost": 8.99,
+            "Total": 251.72,
+            "Bins": 69,
+            "Frequency": 6,
+            "Intervals": "60-69",
+            "key": 6
+          },
+          {
+            "OrderDate": 42359,
+            "Region": "Central",
+            "Rep": "Andrews",
+            "Item": "Binder",
+            "Units": 28,
+            "Unit Cost": 4.99,
+            "Total": 139.72,
+            "Bins": 79,
+            "Frequency": 3,
+            "Intervals": "70-79",
+            "key": 7
+          },
+          {
+            "OrderDate": 41679,
+            "Region": "Central",
+            "Rep": "Jardine",
+            "Item": "Pencil",
+            "Units": 36,
+            "Unit Cost": 4.99,
+            "Total": 179.64000000000001,
+            "Bins": 89,
+            "Frequency": 3,
+            "Intervals": "80-89",
+            "Item Type": "10-19",
+            "key": 8
+          },
+          {
+            "OrderDate": 42223,
+            "Region": "Central",
+            "Rep": "Kivell",
+            "Item": "Pen Set",
+            "Units": 42,
+            "Unit Cost": 23.95,
+            "Total": 1005.9,
+            "Bins": 99,
+            "Frequency": 6,
+            "Intervals": "90-99",
+            "key": 9
+          },
+          {
+            "OrderDate": 42019,
+            "Region": "Central",
+            "Rep": "Gill",
+            "Item": "Binder",
+            "Units": 46,
+            "Unit Cost": 8.99,
+            "Total": 413.54,
+            "Frequency": 0,
+            "Intervals": "100+",
+            "key": 10
+          },
+          {
+            "OrderDate": 41662,
+            "Region": "Central",
+            "Rep": "Kivell",
+            "Item": "Binder",
+            "Units": 50,
+            "Unit Cost": 19.99,
+            "Total": 999.4999999999999,
+            "key": 11
+          },
+          {
+            "OrderDate": 42087,
+            "Region": "Central",
+            "Rep": "Jardine",
+            "Item": "Pen Set",
+            "Units": 50,
+            "Unit Cost": 4.99,
+            "Total": 249.5,
+            "key": 12
+          },
+          {
+            "OrderDate": 42138,
+            "Region": "Central",
+            "Rep": "Gill",
+            "Item": "Pencil",
+            "Units": 53,
+            "Unit Cost": 1.29,
+            "Total": 68.37,
+            "key": 13
+          },
+          {
+            "OrderDate": 42206,
+            "Region": "Central",
+            "Rep": "Morgan",
+            "Item": "Pen Set",
+            "Units": 55,
+            "Unit Cost": 12.49,
+            "Total": 686.95,
+            "key": 14
+          },
+          {
+            "OrderDate": 42104,
+            "Region": "Central",
+            "Rep": "Andrews",
+            "Item": "Pencil",
+            "Units": 66,
+            "Unit Cost": 1.99,
+            "Total": 131.34,
+            "key": 15
+          },
+          {
+            "OrderDate": 41985,
+            "Region": "Central",
+            "Rep": "Smith",
+            "Item": "Pencil",
+            "Units": 67,
+            "Unit Cost": 1.29,
+            "Total": 86.43,
+            "key": 16
+          },
+          {
+            "OrderDate": 41747,
+            "Region": "Central",
+            "Rep": "Andrews",
+            "Item": "Pencil",
+            "Units": 75,
+            "Unit Cost": 1.99,
+            "Total": 149.25,
+            "key": 17
+          },
+          {
+            "OrderDate": 42155,
+            "Region": "Central",
+            "Rep": "Gill",
+            "Item": "Binder",
+            "Units": 80,
+            "Unit Cost": 8.99,
+            "Total": 719.2,
+            "key": 18
+          },
+          {
+            "OrderDate": 42036,
+            "Region": "Central",
+            "Rep": "Smith",
+            "Item": "Binder",
+            "Units": 87,
+            "Unit Cost": 15,
+            "Total": 1305,
+            "key": 19
+          },
+          {
+            "OrderDate": 41764,
+            "Region": "Central",
+            "Rep": "Jardine",
+            "Item": "Pencil",
+            "Units": 90,
+            "Unit Cost": 4.99,
+            "Total": 449.1,
+            "key": 20
+          },
+          {
+            "OrderDate": 41815,
+            "Region": "Central",
+            "Rep": "Morgan",
+            "Item": "Pencil",
+            "Units": 90,
+            "Unit Cost": 4.99,
+            "Total": 449.1,
+            "key": 21
+          },
+          {
+            "OrderDate": 42342,
+            "Region": "Central",
+            "Rep": "Jardine",
+            "Item": "Binder",
+            "Units": 94,
+            "Unit Cost": 19.99,
+            "Total": 1879.06,
+            "key": 22
+          },
+          {
+            "OrderDate": 41968,
+            "Region": "Central",
+            "Rep": "Kivell",
+            "Item": "Pen Set",
+            "Units": 96,
+            "Unit Cost": 4.99,
+            "Total": 479.04,
+            "key": 23
+          },
+          {
+            "OrderDate": 42053,
+            "Region": "East",
+            "Rep": "Jones",
+            "Item": "Binder",
+            "Units": 4,
+            "Unit Cost": 4.99,
+            "Total": 19.96,
+            "key": 24
+          },
+          {
+            "OrderDate": 41951,
+            "Region": "East",
+            "Rep": "Parent",
+            "Item": "Pen",
+            "Units": 15,
+            "Unit Cost": 19.99,
+            "Total": 299.84999999999997,
+            "key": 25
+          },
+          {
+            "OrderDate": 41900,
+            "Region": "East",
+            "Rep": "Jones",
+            "Item": "Pen Set",
+            "Units": 16,
+            "Unit Cost": 15.99,
+            "Total": 255.84,
+            "key": 26
+          },
+          {
+            "OrderDate": 41832,
+            "Region": "East",
+            "Rep": "Howard",
+            "Item": "Binder",
+            "Units": 29,
+            "Unit Cost": 1.99,
+            "Total": 57.71,
+            "key": 27
+          },
+          {
+            "OrderDate": 41866,
+            "Region": "East",
+            "Rep": "Jones",
+            "Item": "Pencil",
+            "Units": 35,
+            "Unit Cost": 4.99,
+            "Total": 174.65,
+            "key": 28
+          },
+          {
+            "OrderDate": 41730,
+            "Region": "East",
+            "Rep": "Jones",
+            "Item": "Binder",
+            "Units": 60,
+            "Unit Cost": 4.99,
+            "Total": 299.40000000000003,
+            "key": 29
+          },
+          {
+            "OrderDate": 41798,
+            "Region": "East",
+            "Rep": "Jones",
+            "Item": "Binder",
+            "Units": 60,
+            "Unit Cost": 8.99,
+            "Total": 539.4,
+            "key": 30
+          },
+          {
+            "OrderDate": 42189,
+            "Region": "East",
+            "Rep": "Jones",
+            "Item": "Pen Set",
+            "Units": 62,
+            "Unit Cost": 4.99,
+            "Total": 309.38,
+            "key": 31
+          },
+          {
+            "OrderDate": 41934,
+            "Region": "East",
+            "Rep": "Jones",
+            "Item": "Pen",
+            "Units": 64,
+            "Unit Cost": 8.99,
+            "Total": 575.36,
+            "key": 32
+          },
+          {
+            "OrderDate": 42002,
+            "Region": "East",
+            "Rep": "Parent",
+            "Item": "Pen Set",
+            "Units": 74,
+            "Unit Cost": 15.99,
+            "Total": 1183.26,
+            "key": 33
+          },
+          {
+            "OrderDate": 41849,
+            "Region": "East",
+            "Rep": "Parent",
+            "Item": "Binder",
+            "Units": 81,
+            "Unit Cost": 19.99,
+            "Total": 1619.1899999999998,
+            "key": 34
+          },
+          {
+            "OrderDate": 41645,
+            "Region": "East",
+            "Rep": "Jones",
+            "Item": "Pencil",
+            "Units": 95,
+            "Unit Cost": 1.99,
+            "Total": 189.05,
+            "key": 35
+          },
+          {
+            "OrderDate": 42121,
+            "Region": "East",
+            "Rep": "Howard",
+            "Item": "Pen",
+            "Units": 96,
+            "Unit Cost": 4.99,
+            "Total": 479.04,
+            "key": 36
+          },
+          {
+            "OrderDate": 42240,
+            "Region": "West",
+            "Rep": "Sorvino",
+            "Item": "Desk",
+            "Units": 3,
+            "Unit Cost": 275,
+            "Total": 825,
+            "key": 37
+          },
+          {
+            "OrderDate": 42070,
+            "Region": "West",
+            "Rep": "Sorvino",
+            "Item": "Binder",
+            "Units": 7,
+            "Unit Cost": 19.99,
+            "Total": 139.92999999999998,
+            "key": 38
+          },
+          {
+            "OrderDate": 41781,
+            "Region": "West",
+            "Rep": "Thompson",
+            "Item": "Pencil",
+            "Units": 32,
+            "Unit Cost": 1.99,
+            "Total": 63.68,
+            "key": 39
+          },
+          {
+            "OrderDate": 41713,
+            "Region": "West",
+            "Rep": "Sorvino",
+            "Item": "Pencil",
+            "Units": 56,
+            "Unit Cost": 2.99,
+            "Total": 167.44,
+            "key": 40
+          },
+          {
+            "OrderDate": 42291,
+            "Region": "West",
+            "Rep": "Thompson",
+            "Item": "Binder",
+            "Units": 57,
+            "Unit Cost": 19.99,
+            "Total": 1139.4299999999998,
+            "key": 41
+          },
+          {
+            "OrderDate": 42274,
+            "Region": "West",
+            "Rep": "Sorvino",
+            "Item": "Pen",
+            "Units": 76,
+            "Unit Cost": 1.99,
+            "Total": 151.24,
+            "key": 42
+          },
+          {
+            "Rep": "Mean",
+            "Units": 49.325581395348834,
+            "Unit Cost": 20.3086046511628,
+            "Total": 456.4623255813953,
+            "key": 43
+          },
+          {
+            "Rep": "Median",
+            "Units": 53,
+            "Unit Cost": 4.99,
+            "Total": 299.40000000000003,
+            "key": 44
+          },
+          {
+            "Rep": "Mode",
+            "Units": 7,
+            "Unit Cost": 4.99,
+            "Total": 449.1,
+            "key": 45
           }
-        ]
+        ],
+        "dtsetting": { "dtype": "excel" },
+        "setting": {
+          "title": "Order",
+          "column": [
+            {
+              "title": "OrderDate",
+              "titletext": "OrderDate",
+              "origin": "OrderDate",
+              "dataIndex": "OrderDate",
+              "key": "OrderDate"
+            },
+            {
+              "title": "Region",
+              "titletext": "Region",
+              "origin": "Region",
+              "dataIndex": "Region",
+              "key": "Region"
+            },
+            {
+              "title": "Rep",
+              "titletext": "Rep",
+              "origin": "Rep",
+              "dataIndex": "Rep",
+              "key": "Rep"
+            },
+            {
+              "title": "Item",
+              "titletext": "Item",
+              "origin": "Item",
+              "dataIndex": "Item",
+              "key": "Item"
+            },
+            {
+              "title": "Units",
+              "titletext": "Units",
+              "origin": "Units",
+              "dataIndex": "Units",
+              "key": "Units"
+            },
+            {
+              "title": "Unit Cost",
+              "titletext": "Unit Cost",
+              "origin": "Unit Cost",
+              "dataIndex": "Unit Cost",
+              "key": "Unit Cost"
+            },
+            {
+              "title": "Total",
+              "titletext": "Total",
+              "origin": "Total",
+              "dataIndex": "Total",
+              "key": "Total"
+            },
+            {
+              "title": "Bins",
+              "titletext": "Bins",
+              "origin": "Bins",
+              "dataIndex": "Bins",
+              "key": "Bins"
+            },
+            {
+              "title": "Frequency",
+              "titletext": "Frequency",
+              "origin": "Frequency",
+              "dataIndex": "Frequency",
+              "key": "Frequency"
+            },
+            {
+              "title": "Intervals",
+              "titletext": "Intervals",
+              "origin": "Intervals",
+              "dataIndex": "Intervals",
+              "key": "Intervals"
+            },
+            {
+              "title": "Item Type",
+              "titletext": "Item Type",
+              "origin": "Item Type",
+              "dataIndex": "Item Type",
+              "key": "Item Type"
+            },
+            {
+              "title": "Frequency_1",
+              "titletext": "Frequency_1",
+              "origin": "Frequency_1",
+              "dataIndex": "Frequency_1",
+              "key": "Frequency_1"
+            },
+            {
+              "title": "Rel. Freq",
+              "titletext": "Rel. Freq",
+              "origin": "Rel. Freq",
+              "dataIndex": "Rel. Freq",
+              "key": "Rel. Freq"
+            },
+            {
+              "title": "% Freq.",
+              "titletext": "% Freq.",
+              "origin": "% Freq.",
+              "dataIndex": "% Freq.",
+              "key": "% Freq."
+            },
+            {
+              "title": "key",
+              "titletext": "key",
+              "origin": "key",
+              "dataIndex": "key",
+              "key": "key"
+            }
+          ],
+          "reset": false,
+          "size": "small"
+        },
+        "type": "table"
       }
     ],
-    "__v": 0
+    "__v": 0,
+    "properties": {
+      "datatype": "mongodb",
+      "apiurl": "http://imcmaster.iptime.org:9006/dashboard"
+    }
   },
   {
     "_id": "613f3af4990a4b5b34e8d782",
@@ -821,11 +1090,7 @@
       {
         "type": "html",
         "datas": [],
-        "setting": {
-          "title": "Summary",
-          "column": "2",
-          "format": "2"
-        },
+        "setting": { "title": "Summary", "column": "2", "format": "2" },
         "id": "210317134446",
         "key": "210317134446"
       },
@@ -870,11 +1135,7 @@
         "checked": true,
         "type": "html",
         "datas": ["ext0", "ext1", "ext2"],
-        "setting": {
-          "title": "Summary",
-          "column": "3",
-          "format": "2"
-        },
+        "setting": { "title": "Summary", "column": "3", "format": "2" },
         "x": 0,
         "y": 0,
         "w": 12,
@@ -886,9 +1147,7 @@
           {
             "key": "ext0",
             "title": "[main]#OF COMPONENTS",
-            "type": {
-              "stype": "result"
-            },
+            "type": { "stype": "result" },
             "dtorigin": 4
           },
           {
@@ -900,46 +1159,20 @@
                 "MEMBERS": "John,David,Thomas,Anthony,Michael,Elizabeth,Susan,Ashley,Anna,Jackson,Peter,Bobby,Mary,Laura,Jennifer,Jessica,Robert,Julia,Steven",
                 "key": "0.00"
               },
-              {
-                "COMPONNETS": "C2",
-                "MEMBERS": "Charles",
-                "key": "1.00"
-              },
-              {
-                "COMPONNETS": "C3",
-                "MEMBERS": "James",
-                "key": "2.00"
-              },
-              {
-                "COMPONNETS": "C4",
-                "MEMBERS": "Richard",
-                "key": "3.00"
-              }
+              { "COMPONNETS": "C2", "MEMBERS": "Charles", "key": "1.00" },
+              { "COMPONNETS": "C3", "MEMBERS": "James", "key": "2.00" },
+              { "COMPONNETS": "C4", "MEMBERS": "Richard", "key": "3.00" }
             ],
-            "type": {
-              "stype": "result"
-            },
+            "type": { "stype": "result" },
             "dtorigin": [
               {
                 "COMPONNETS": "C1",
                 "MEMBERS": "John,David,Thomas,Anthony,Michael,Elizabeth,Susan,Ashley,Anna,Jackson,Peter,Bobby,Mary,Laura,Jennifer,Jessica,Robert,Julia,Steven",
                 "key": "0.00"
               },
-              {
-                "COMPONNETS": "C2",
-                "MEMBERS": "Charles",
-                "key": "1.00"
-              },
-              {
-                "COMPONNETS": "C3",
-                "MEMBERS": "James",
-                "key": "2.00"
-              },
-              {
-                "COMPONNETS": "C4",
-                "MEMBERS": "Richard",
-                "key": "3.00"
-              }
+              { "COMPONNETS": "C2", "MEMBERS": "Charles", "key": "1.00" },
+              { "COMPONNETS": "C3", "MEMBERS": "James", "key": "2.00" },
+              { "COMPONNETS": "C4", "MEMBERS": "Richard", "key": "3.00" }
             ],
             "setting": {
               "column": [
@@ -993,9 +1226,7 @@
                 "key": "3.00"
               }
             ],
-            "type": {
-              "stype": "result"
-            },
+            "type": { "stype": "result" },
             "dtorigin": [
               {
                 "COMPENTS": "C1",
@@ -1073,72 +1304,28 @@
         "title": "Component Partition Vector",
         "type": "table",
         "dtorigin": [
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 3
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 2
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 4
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          }
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 3 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 2 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 4 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 }
         ],
         "setting": {
           "column": [
@@ -1174,11 +1361,7 @@
       {
         "type": "html",
         "datas": [],
-        "setting": {
-          "title": "Summary",
-          "column": "2",
-          "format": "2"
-        },
+        "setting": { "title": "Summary", "column": "2", "format": "2" },
         "id": "210317124415",
         "key": "210317124415"
       },
@@ -1463,11 +1646,7 @@
         "checked": true,
         "type": "html",
         "datas": ["ext0", "ext1", "ext2"],
-        "setting": {
-          "title": "Summary",
-          "column": "3",
-          "format": "2"
-        },
+        "setting": { "title": "Summary", "column": "3", "format": "2" },
         "x": 0,
         "y": 0,
         "w": 12,
@@ -1479,9 +1658,7 @@
           {
             "key": "ext0",
             "title": "[main]#OF COMPONENTS",
-            "type": {
-              "stype": "result"
-            },
+            "type": { "stype": "result" },
             "dtorigin": 4
           },
           {
@@ -1493,46 +1670,20 @@
                 "MEMBERS": "John,David,Thomas,Anthony,Michael,Elizabeth,Susan,Ashley,Anna,Jackson,Peter,Bobby,Mary,Laura,Jennifer,Jessica,Robert,Julia,Steven",
                 "key": "0.00"
               },
-              {
-                "COMPONNETS": "C2",
-                "MEMBERS": "Charles",
-                "key": "1.00"
-              },
-              {
-                "COMPONNETS": "C3",
-                "MEMBERS": "James",
-                "key": "2.00"
-              },
-              {
-                "COMPONNETS": "C4",
-                "MEMBERS": "Richard",
-                "key": "3.00"
-              }
+              { "COMPONNETS": "C2", "MEMBERS": "Charles", "key": "1.00" },
+              { "COMPONNETS": "C3", "MEMBERS": "James", "key": "2.00" },
+              { "COMPONNETS": "C4", "MEMBERS": "Richard", "key": "3.00" }
             ],
-            "type": {
-              "stype": "result"
-            },
+            "type": { "stype": "result" },
             "dtorigin": [
               {
                 "COMPONNETS": "C1",
                 "MEMBERS": "John,David,Thomas,Anthony,Michael,Elizabeth,Susan,Ashley,Anna,Jackson,Peter,Bobby,Mary,Laura,Jennifer,Jessica,Robert,Julia,Steven",
                 "key": "0.00"
               },
-              {
-                "COMPONNETS": "C2",
-                "MEMBERS": "Charles",
-                "key": "1.00"
-              },
-              {
-                "COMPONNETS": "C3",
-                "MEMBERS": "James",
-                "key": "2.00"
-              },
-              {
-                "COMPONNETS": "C4",
-                "MEMBERS": "Richard",
-                "key": "3.00"
-              }
+              { "COMPONNETS": "C2", "MEMBERS": "Charles", "key": "1.00" },
+              { "COMPONNETS": "C3", "MEMBERS": "James", "key": "2.00" },
+              { "COMPONNETS": "C4", "MEMBERS": "Richard", "key": "3.00" }
             ],
             "setting": {
               "column": [
@@ -1586,9 +1737,7 @@
                 "key": "3.00"
               }
             ],
-            "type": {
-              "stype": "result"
-            },
+            "type": { "stype": "result" },
             "dtorigin": [
               {
                 "COMPENTS": "C1",
@@ -1666,72 +1815,28 @@
         "title": "Component Partition Vector",
         "type": "table",
         "dtorigin": [
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 3
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 2
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 4
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          }
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 3 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 2 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 4 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 },
+          { "Component Partition Vector": 1 }
         ],
         "setting": {
           "column": [
@@ -1759,309 +1864,5 @@
     ],
     "__v": 0
   },
-  {
-    "_id": "613f3b93e3701665b8b4a16a",
-    "title": "Cohesion>Component",
-    "desc": "Component 분석",
-    "resultsAuthor": [
-      {
-        "checked": true,
-        "type": "html",
-        "datas": ["ext0", "ext1", "ext2"],
-        "setting": {
-          "title": "Summary",
-          "column": "3",
-          "format": "2"
-        },
-        "x": 0,
-        "y": 0,
-        "w": 12,
-        "h": 11,
-        "i": "0",
-        "id": "21031619232",
-        "key": "21031619232",
-        "dtslist": [
-          {
-            "key": "ext0",
-            "title": "[main]#OF COMPONENTS",
-            "type": {
-              "stype": "result"
-            },
-            "dtorigin": 4
-          },
-          {
-            "key": "ext1",
-            "title": "[main]MEMBERS OF COMPONENTS",
-            "dtlist": [
-              {
-                "COMPONNETS": "C1",
-                "MEMBERS": "John,David,Thomas,Anthony,Michael,Elizabeth,Susan,Ashley,Anna,Jackson,Peter,Bobby,Mary,Laura,Jennifer,Jessica,Robert,Julia,Steven",
-                "key": "0.00"
-              },
-              {
-                "COMPONNETS": "C2",
-                "MEMBERS": "Charles",
-                "key": "1.00"
-              },
-              {
-                "COMPONNETS": "C3",
-                "MEMBERS": "James",
-                "key": "2.00"
-              },
-              {
-                "COMPONNETS": "C4",
-                "MEMBERS": "Richard",
-                "key": "3.00"
-              }
-            ],
-            "type": {
-              "stype": "result"
-            },
-            "dtorigin": [
-              {
-                "COMPONNETS": "C1",
-                "MEMBERS": "John,David,Thomas,Anthony,Michael,Elizabeth,Susan,Ashley,Anna,Jackson,Peter,Bobby,Mary,Laura,Jennifer,Jessica,Robert,Julia,Steven",
-                "key": "0.00"
-              },
-              {
-                "COMPONNETS": "C2",
-                "MEMBERS": "Charles",
-                "key": "1.00"
-              },
-              {
-                "COMPONNETS": "C3",
-                "MEMBERS": "James",
-                "key": "2.00"
-              },
-              {
-                "COMPONNETS": "C4",
-                "MEMBERS": "Richard",
-                "key": "3.00"
-              }
-            ],
-            "setting": {
-              "column": [
-                {
-                  "title": "COMPONNETS",
-                  "titletext": "COMPONNETS",
-                  "origin": "COMPONNETS",
-                  "dataIndex": "COMPONNETS",
-                  "key": "COMPONNETS"
-                },
-                {
-                  "title": "MEMBERS",
-                  "titletext": "MEMBERS",
-                  "origin": "MEMBERS",
-                  "dataIndex": "MEMBERS",
-                  "key": "MEMBERS"
-                }
-              ]
-            }
-          },
-          {
-            "key": "ext2",
-            "title": "[main]SUBGROUP DETAILS",
-            "dtlist": [
-              {
-                "COMPENTS": "C1",
-                "SIZE": "19.00",
-                "PERCENT": "86.36",
-                "DENSITY": "0.22",
-                "key": 0
-              },
-              {
-                "COMPENTS": "C2",
-                "SIZE": "1.00",
-                "PERCENT": "4.55",
-                "DENSITY": "NaN",
-                "key": "1.00"
-              },
-              {
-                "COMPENTS": "C3",
-                "SIZE": "1.00",
-                "PERCENT": "4.55",
-                "DENSITY": "NaN",
-                "key": "2.00"
-              },
-              {
-                "COMPENTS": "C4",
-                "SIZE": "1.00",
-                "PERCENT": "4.55",
-                "DENSITY": "NaN",
-                "key": "3.00"
-              }
-            ],
-            "type": {
-              "stype": "result"
-            },
-            "dtorigin": [
-              {
-                "COMPENTS": "C1",
-                "SIZE": "19.00",
-                "PERCENT": "86.36363636363636%",
-                "DENSITY": "0.22",
-                "key": 0
-              },
-              {
-                "COMPENTS": "C2",
-                "SIZE": "1.00",
-                "PERCENT": "4.545454545454546%",
-                "DENSITY": "Undefined",
-                "key": "1.00"
-              },
-              {
-                "COMPENTS": "C3",
-                "SIZE": "1.00",
-                "PERCENT": "4.545454545454546%",
-                "DENSITY": "Undefined",
-                "key": "2.00"
-              },
-              {
-                "COMPENTS": "C4",
-                "SIZE": "1.00",
-                "PERCENT": "4.545454545454546%",
-                "DENSITY": "Undefined",
-                "key": "3.00"
-              }
-            ],
-            "setting": {
-              "column": [
-                {
-                  "title": "COMPENTS",
-                  "titletext": "COMPENTS",
-                  "origin": "COMPENTS",
-                  "dataIndex": "COMPENTS",
-                  "key": "COMPENTS"
-                },
-                {
-                  "title": "SIZE",
-                  "titletext": "SIZE",
-                  "origin": "SIZE",
-                  "dataIndex": "SIZE",
-                  "key": "SIZE",
-                  "datatype": "float",
-                  "decimal": "2"
-                },
-                {
-                  "title": "PERCENT",
-                  "titletext": "PERCENT",
-                  "origin": "PERCENT",
-                  "dataIndex": "PERCENT",
-                  "key": "PERCENT",
-                  "datatype": "float",
-                  "decimal": "2"
-                },
-                {
-                  "title": "DENSITY",
-                  "titletext": "DENSITY",
-                  "origin": "DENSITY",
-                  "dataIndex": "DENSITY",
-                  "key": "DENSITY",
-                  "datatype": "float",
-                  "decimal": "2"
-                }
-              ],
-              "reset": false
-            }
-          }
-        ]
-      },
-      {
-        "key": "ext3",
-        "title": "Component Partition Vector",
-        "type": "table",
-        "dtorigin": [
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 3
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 2
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 4
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          },
-          {
-            "Component Partition Vector": 1
-          }
-        ],
-        "setting": {
-          "column": [
-            {
-              "title": "Component Partition Vector",
-              "titletext": "Component Partition Vector",
-              "origin": "Component Partition Vector",
-              "dataIndex": "Component Partition Vector",
-              "key": "Component Partition Vector",
-              "datatype": "int"
-            }
-          ],
-          "reset": false,
-          "title": "Component Partition Vector",
-          "size": "middle"
-        },
-        "id": "210316192354",
-        "checked": true,
-        "x": 0,
-        "y": 11,
-        "w": 12,
-        "h": 24,
-        "i": "1"
-      }
-    ],
-    "__v": 0
-  }
+  {}
 ]

@@ -83,7 +83,7 @@ const ModelSetting = () => {
   let tempModel = useSelector((state) => state.global.tempModel);
 
   useEffect(() => {
-    const sum = { title: tempModel.title, desc: tempModel.desc };
+    const sum = { title: tempModel?.title, desc: tempModel?.desc };
     setSummaryInit(sum);
     localStorage.setItem("summary", JSON.stringify(sum));
     makeSetting();

@@ -437,9 +437,9 @@ const CreateContent = (k) => {
       case "html":
         return <AuthorHtml authObj={k} title={true} />;
       case "table":
-        return <EasyTable authObj={k} title={true} />;
+        return <EasyTable authObj={k} title={true} showmenu={false} />;
       case "chart":
-        return <EasyChart authObj={k} title={true} />;
+        return <EasyChart authObj={k} title={true} showmenu={false} />;
       default:
         return (
           <div className={classes.card} style={{ marginTop: 50 }}>

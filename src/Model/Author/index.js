@@ -37,10 +37,16 @@ const Author = (props) => {
     }
   }, []);
   const handleSave = () => {
-    //saveTemp();
+    let local,
+      local1 = localStorage.getItem("modelchart");
+    if (local1) {
+      local = JSON.parse(local1);
+      onChange(local);
+    }
+
     localStorage.removeItem("modelchart");
     history.push("/edit");
-    dispatch(globalVariable({ triggerChild: ["save", "list"] }));
+    //dispatch(globalVariable({ triggerChild: ["save", "list"] }));
   };
 
   const btnArr = [
@@ -101,7 +107,12 @@ const Author = (props) => {
           switch (title) {
             case "table":
               return (
-                <EasyTable authObj={authObj} onChange={onChange} edit={true} />
+                <EasyTable
+                  authObj={authObj}
+                  onChange={onChange}
+                  showmenu={false}
+                  edit={true}
+                />
               );
             case "html":
               return (
@@ -109,7 +120,12 @@ const Author = (props) => {
               );
             case "chart":
               return (
-                <EasyChart authObj={authObj} onChange={onChange} edit={true} />
+                <EasyChart
+                  authObj={authObj}
+                  onChange={onChange}
+                  showmenu={false}
+                  edit={true}
+                />
               );
             case "data":
               return <Data authObj={authObj} onChange={onChange} />;
