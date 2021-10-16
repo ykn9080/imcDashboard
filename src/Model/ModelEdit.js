@@ -82,6 +82,7 @@ const ModelEdit = (props) => {
           dashdata.splice(i, 1, data);
           notexist = false;
         }
+        return false;
       });
       if (notexist) dashdata.push(data);
       localStorage.setItem("dashdata", JSON.stringify(dashdata));

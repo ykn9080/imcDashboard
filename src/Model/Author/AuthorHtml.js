@@ -4,23 +4,17 @@ import _ from "lodash";
 import $ from "jquery";
 import { globalVariable } from "actions";
 import { idMake } from "components/functions/dataUtil";
-import { Typography, Descriptions, Table, Row, Col, Button } from "antd";
+import { Row, Col, Button } from "antd";
 import AntFormDisplay from "imcformbuilder";
 import formdt from "Model/AntFormDisplay.json";
-
 import "components/Common/Antd_Table.css";
 import SimpleEditor from "Model/Editor/simpleEditor";
-
 import parse from "html-react-parser";
-
-const { Title, Text } = Typography;
 
 const AuthorHtml = ({ authObj, onChange, edit }) => {
   const dispatch = useDispatch();
   const [auth, setAuth] = useState();
   const [init, setInit] = useState();
-  const [column, setColumn] = useState();
-  const [format, setFormat] = useState();
   const [econtent1, setEcontent1] = useState(); //simple
   const [htmlcontent, setHtmlcontent] = useState();
 
@@ -29,16 +23,12 @@ const AuthorHtml = ({ authObj, onChange, edit }) => {
 
   useEffect(() => {
     if (authObj) {
-      let dts = [],
-        odr,
-        st;
+      let st;
       let newAuth = _.cloneDeep(authObj);
       setAuth(authObj);
-      let src = tempModel?.properties?.source;
 
       if (newAuth.setting) st = newAuth.setting;
 
-      if (st) odr = st.order;
       if (newAuth.content) {
         setEcontent1(authObj.content);
       }
@@ -50,25 +40,7 @@ const AuthorHtml = ({ authObj, onChange, edit }) => {
           order: st.order,
           format: st.format,
         });
-        setColumn(st.column);
-        setFormat(st.format);
       }
-      // if (src) {
-      //   dts = makeData(src, newAuth, odr);
-      //   if (dts)
-      //     dts.map((a, b) => {
-      //       const rtn = UpdateColnData(a);
-      //       if (!rtn.dtlist) return null;
-      //       a.dtlist = rtn.dtlist;
-
-      //       dts.splice(b, 1, a);
-      //       return null;
-      //     });
-
-      //   newAuth.dtslist = dts;
-
-      //   setData(newAuth);
-      // }
     }
     return () => {
       $('link[href="Antd_Table.css"]').remove(); //.prop("disabled", true);
@@ -194,8 +166,6 @@ const AuthorHtml = ({ authObj, onChange, edit }) => {
     if (local1) local = JSON.parse(local1);
     local.setting = { ...local.setting, ...allValues };
     localStorage.setItem("modelchart", JSON.stringify(local));
-    if (changedValues.column) setColumn(changedValues.column);
-    if (changedValues.format) setFormat(changedValues.format);
   };
 
   return (

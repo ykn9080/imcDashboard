@@ -100,7 +100,6 @@ const IconArray = () => {
   const handleAddControl = () => {
     const ctrLength = ctrList.length;
     const layObj = layout[layoutIndex];
-    const ttl = _.sum(layObj.col) * layObj.repeat;
 
     let seq = ctrLength;
     ctrList.push(addCtr(seq, findNthWidth(seq, layObj.col)));
@@ -121,9 +120,8 @@ const IconArray = () => {
       for (let i = 0; i < layObj.repeat; i++) {
         layObj.col.map((v, i) => {
           for (let j = 0; j < v; j++) {
-            return (
-              ctrList.push(addCtr(seq, findNthWidth(seq, layObj.col))), seq++
-            );
+            ctrList.push(addCtr(seq, findNthWidth(seq, layObj.col)));
+            seq++;
           }
           return null;
         });

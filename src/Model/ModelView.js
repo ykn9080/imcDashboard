@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useHistory, useLocation, Link } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { globalVariable } from "actions";
 import axios from "axios";

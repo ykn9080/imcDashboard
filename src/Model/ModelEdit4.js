@@ -42,7 +42,6 @@ const ModelEdit4 = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const [fullscreen, setFullscreen] = useState(false);
   const [visible, setVisible] = useState(false);
   const [popvisible, setPopvisible] = useState(false);
   const [colnum, setColnum] = useState();
