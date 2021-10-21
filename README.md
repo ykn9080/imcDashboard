@@ -8,7 +8,7 @@
 > You can manage multiple dashboard by subjects and load each dashboard from list.
 
 
-<a href="http://imcmaster.iptime.org:7000" ><img src="https://i.ibb.co/744RYpb/imcdashboard.gif" width="800px"></a>
+<a href="http://imcmaster.iptime.org:7000" ><img src="https://i.ibb.co/744RYpb/imcdashboard.gif" width="800px" /></a>
 
 ### ✨ [Demo](http://imcmaster.iptime.org:7000)
 English | [한글](./README-kr_KR.md)
