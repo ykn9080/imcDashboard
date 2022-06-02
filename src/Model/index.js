@@ -116,7 +116,6 @@ export const localInit = async (type) => {
 
       const r = await axios(config);
 
-      //.then(async (r) => {
       if (r.data) {
         let data = [];
         if (r.data.data && r.data.data.length > 0)
@@ -131,8 +130,6 @@ export const localInit = async (type) => {
         return data;
       }
       return null;
-      //});
-      break;
     case "mongodb":
       url = checkSetting().url;
       if (!url) url = `${mongosvr}/dashboard`;
@@ -142,14 +139,10 @@ export const localInit = async (type) => {
       };
 
       const mongortn = await axios(config);
-      //.then((r) => {
       if (mongortn.data && mongortn.data.length > 0) {
         return mongortn.data[0];
       }
       return null;
-    //dispatch(globalVariable({ tempModel: r.data[0] }));
-    // });
-    // break;
   }
 };
 export async function loopRealtime(arr) {
