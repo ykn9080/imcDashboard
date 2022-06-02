@@ -103,6 +103,7 @@ const ListGen = (props) => {
   };
 
   const editHandler = (item) => {
+    console.log(item)
     dispatch(globalVariable({ tempModel: item }));
     dispatch(globalVariable({ selectedKey: item._id }));
     history.push(`/edit`);

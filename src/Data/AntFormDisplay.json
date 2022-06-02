@@ -970,51 +970,5 @@
       },
       "layout": "vertical"
     }
-  },
-  "newdashInput": {
-    "list": [
-      {
-        "label": "Title",
-        "name": "title",
-        "type": "input",
-        "seq": 0,
-        "placeholder": "dashboard title",
-        "rules": [{ "required": false }],
-        "requiredmsg": "",
-        "initialValues": {}
-      },
-      {
-        "label": "Desc",
-        "name": "desc",
-        "type": "input",
-        "seq": 1,
-        "placeholder": "",
-        "initialValues": {}
-      },
-      {
-        "label": "Save",
-        "name": "",
-        "type": "button",
-        "seq": 2,
-        "action": "submit",
-        "btnStyle": "primary",
-        "btnColor": "primary",
-        "align": "right"
-      }
-    ],
-    "setting": {
-      "editable": false,
-      "name": "antform",
-      "layout": "vertical",
-      "formColumn": 1,
-      "formItemLayout": null,
-      "tailLayout": null,
-      "initial": {},
-      "size": "middle",
-      "title": "",
-      "desc": "",
-      "onFinish": "{values => {console.log(values);};}",
-      "initialValues": {}
-    }
   }
 }

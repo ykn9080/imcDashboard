@@ -9,7 +9,7 @@ import AntBreadCrumb from "components/Common/BreadCrumb";
 import IconArray1 from "components/SKD/IconArray1";
 import EasyTable from "imcgridtable";
 import EasyChart from "imcchart";
-import Data from "imcdata";
+import Data from "../../Data";
 import AuthorHtml from "Model/Author/AuthorHtml";
 
 const Author = (props) => {
@@ -17,6 +17,7 @@ const Author = (props) => {
   const [title, setTitle] = useState();
 
   let tempModel = useSelector((state) => state.global.tempModel);
+  let tempModelList = useSelector((state) => state.global.tempModelList);
   const history = useHistory();
   const dispatch = useDispatch();
   const findmatch = useRouteMatch("/author/:id");
@@ -84,7 +85,14 @@ const Author = (props) => {
     }
 
     tempModel.resultsAuthor = authorlist;
-    console.log("dashboard", data, authorlist);
+
+    tempModelList.map((k, i) => {
+      if (k.id === tempModel.id) {
+        tempModelList.splice(i, 1, tempModel);
+      }
+    });
+    console.log("dashboard", tempModel);
+    dispatch(globalVariable({ tempModelList: _.cloneDeep(tempModelList) }));
     dispatch(globalVariable({ tempModel: _.cloneDeep(tempModel) }));
   };
   return (

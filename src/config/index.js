@@ -52,6 +52,7 @@ const globalVar = {
   tempMenu: [],
   tempData: null,
   tempModel: null,
+  reloadModel: false,
   tempModule: null,
   author: null,
   tempModelList: null,

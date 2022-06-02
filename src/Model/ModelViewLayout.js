@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { globalVariable } from "actions";
 import _ from "lodash";
 import { Spin, Alert } from "antd";
 import { loadCSS } from "fg-loadcss";
@@ -18,11 +20,12 @@ function ErrorFallback({ error, resetErrorBoundary }) {
 }
 
 const ModelLayout = (props) => {
+  let tempModel = useSelector((state) => state.global.tempModel);
   const [tempLayout, setTempLayout] = useState();
 
-  useEffect(() => {
-    if (!props?.data?.resultsAuthor) return;
-    let lay = _.filter(props?.data?.resultsAuthor, (o) => {
+  useEffect(async () => {
+    if (!tempModel?.resultsAuthor) return;
+    let lay = _.filter(tempModel.resultsAuthor, (o) => {
       return o.type;
     });
     lay.sort(function (a, b) {
@@ -39,7 +42,7 @@ const ModelLayout = (props) => {
     return () => {
       node.parentNode.removeChild(node);
     };
-  }, [props]);
+  }, [tempModel]);
 
   let items = [];
   const myErrorHandler = (error, info) => {
@@ -49,6 +52,7 @@ const ModelLayout = (props) => {
     // Do something with the error
     // E.g. log to an error logging client here
   };
+
   return (
     <>
       {tempLayout && tempLayout.length > 0 ? (

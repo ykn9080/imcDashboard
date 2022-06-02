@@ -117,6 +117,7 @@ const ModelEdit4 = (props) => {
       setTempLayout(lay);
       let newtempModel = { ...tempModel };
       newtempModel.resultsAuthor = lay;
+      console.log(newtempModel);
       dispatch(globalVariable({ tempModel: newtempModel }));
       dispatch(globalVariable({ currentStep: 3 }));
       dispatch(globalVariable({ nextStep: 4 }));
@@ -213,18 +214,22 @@ const ModelEdit4 = (props) => {
 
   const addBlank = () => {
     let newtempModel = { ...tempModel };
-    const author = newtempModel.resultsAuthor;
+    console.log("newtempModel", newtempModel);
+    let author = newtempModel.resultsAuthor;
+    if (!author) author = [];
 
     let newItem = createItem(author);
 
     newItem.type = "";
-    const mnum = parseInt(_.maxBy(author, "i").i) + 1;
+    let cnt = 0;
+    if (author.length > 0) cnt = parseInt(_.maxBy(author, "i").i);
+    const mnum = cnt + 1;
     newItem.id = parseInt(Math.random() * 100).toString();
     newItem.key = parseInt(Math.random() * 100000).toString();
     newItem.checked = true;
 
     newItem.setting = { title: `new Item${mnum.toString()}` };
-    console.log("newItem", newItem);
+    console.log("newItem", newtempModel);
     author.push(newItem);
     dispatch(globalVariable({ tempModel: newtempModel }));
     dispatch(globalVariable({ currentStep: currentStep - 1 }));
@@ -250,6 +255,7 @@ const ModelEdit4 = (props) => {
       });
       addItem(addedlist);
       removeItem(removelist);
+      console.log(newtempModel);
       dispatch(globalVariable({ tempModel: newtempModel }));
       //편법!!, force reload by go back and forth
       dispatch(globalVariable({ currentStep: currentStep - 1 }));
@@ -293,6 +299,7 @@ const ModelEdit4 = (props) => {
           icon={<PlusOutlined />}
           onClick={(e) => {
             e.stopPropagation();
+            console.log("clicked");
             addBlank();
           }}
         />

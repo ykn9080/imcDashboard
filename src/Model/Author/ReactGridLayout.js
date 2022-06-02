@@ -95,6 +95,8 @@ class ShowcaseLayout extends React.Component {
   }
 
   onLayoutChange(layout) {
+    console.log(layout);
+    localStorage.setItem("tempLayout", JSON.stringify(layout));
     this.props.onLayoutChange(layout);
   }
 

@@ -26,6 +26,14 @@ const formArray = {
           value: "mongodb",
           text: "mongodb",
         },
+        {
+          value: "mysql",
+          text: "mysql",
+        },
+        {
+          value: "s3",
+          text: "aws s3",
+        },
       ],
       formColumn: 1,
       layout: "horizontal",
@@ -55,7 +63,7 @@ const formArray = {
       },
       shouldupdate: true,
       shouldfield: "datatype",
-      shouldvalue: "mongodb",
+      shouldvalue: "mongodb,mysql,s3",
     },
   ],
   setting: {
