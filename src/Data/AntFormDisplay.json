@@ -920,16 +920,24 @@
         "placeholder": "param1=aa&param2=bb"
       },
       {
+        "label": "ParamMapping",
+        "name": "parammapping",
+        "type": "input",
+        "seq": 4,
+        "placeholder": "[{fieldname: parametername},...]",
+        "msglow": "현table의 필드와 외부입력parameter간의 mapping"
+      },
+      {
         "label": "Header",
         "name": "header",
         "type": "input",
-        "seq": 4
+        "seq": 5
       },
       {
         "label": "Fetch",
         "name": "fetch",
         "type": "button",
-        "seq": 5,
+        "seq": 6,
         "btnStyle": "primary",
         "btnColor": "primary",
         "align": "right",
@@ -939,7 +947,7 @@
         "label": "Datafield",
         "name": "datafield",
         "type": "input",
-        "seq": 6,
+        "seq": 7,
         "placeholder": "specify datalist field"
       }
     ]

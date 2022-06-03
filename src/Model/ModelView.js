@@ -101,7 +101,9 @@ const ModelView = (props) => {
 
     dispatch(globalVariable({ currentStep: 4 }));
   };
-
+  const applyParam=(param)=>{
+    console.log(param);
+  }
   const btnArr = [
     {
       tooltip: "List",
@@ -148,7 +150,7 @@ const ModelView = (props) => {
       )}
       {tempModel ? (
         <>
-        <ParamMenu />
+        <ParamMenu applyParam={applyParam}/>
         <ModelViewLayout data={tempModel} errorurl={props.errorurl} />
         </>
       ) : null}

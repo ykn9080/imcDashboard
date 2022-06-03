@@ -1,7 +1,14 @@
 import React from "react";
 
-import { DownOutlined, UpOutlined } from "@ant-design/icons";
-import { DatePicker, Space, Button, Select, TreeSelect,Typography  } from "antd";
+import { DownOutlined, UpOutlined, CloseOutlined } from "@ant-design/icons";
+import {
+  DatePicker,
+  Space,
+  Button,
+  Select,
+  TreeSelect,
+  Typography,
+} from "antd";
 const { RangePicker } = DatePicker;
 const { TreeNode } = TreeSelect;
 const { Title } = Typography;
@@ -10,27 +17,63 @@ export default function ParamMenu(props) {
   const [show, setShow] = React.useState(false);
   const [param, setParam] = React.useState({});
 
-
   const handleClick = (event) => {
-    setShow(!show);
+    props.applyParam(param);
+    // setShow(!show);
   };
-  const onChange = (date, dateString) => {
+  const onDateChange = (date, dateString) => {
     console.log(dateString);
-    setParam({ ...param, date: dateString });
+    let param1 = {};
+    if (param) param1 = { ...param };
+    setParam({ ...param1, date: dateString });
   };
   const onRadioChange = (value) => {
     console.log("radio checked", value);
-    setParam({ ...param, usertype: value });
+    let param1 = {};
+    if (param) param1 = { ...param };
+    setParam({ ...param1, usertype: value });
   };
   const onTreeChange = (newValue) => {
     console.log(newValue);
-    setParam({ ...param, country: newValue });
+    let param1 = {};
+    if (param) param1 = { ...param };
+    setParam({ ...param1, country: newValue });
   };
+  const paramText = param ? (
+    <div style={{ marginLeft: 18 }}>
+      <Space>
+        {param?.usertype && (
+          <>
+            <Title level={5}>User:</Title>
+            <div style={{ marginTop: -8 }}>{param.usertype}</div>
+          </>
+        )}
+        {param?.date && (
+          <>
+            <Title level={5}>Date</Title>
+            <div style={{ marginTop: -8 }}>
+              {param.date[0]} ~ {param.date[1]}
+            </div>
+          </>
+        )}
+        {param?.country && (
+          <>
+            <Title level={5}>Country: </Title>
+            <div style={{ marginTop: -8 }}>{param.country.toString()}</div>
+          </>
+        )}
+        {/* {Object.keys(param).length > 0 && (
+          <div style={{ marginTop: -8 }}>
+            <Button icon={CloseOutlined} />
+          </div>
+        )} */}
+      </Space>
+    </div>
+  ) : null;
   const paramBox = (
     <div className="space-align-container">
       <div className="space-align-block">
         <Space>
-        <Title level={5}>h5. Ant Design</Title>
           <Select
             placeholder="User type"
             onChange={onRadioChange}
@@ -50,7 +93,7 @@ export default function ParamMenu(props) {
             allowClear
             multiple
             treeDefaultExpandAll
-            onChange={onChange}
+            onChange={onTreeChange}
           >
             <TreeNode value="all" title="All">
               <TreeNode value="asia" title="Asia">
@@ -70,10 +113,11 @@ export default function ParamMenu(props) {
               <TreeNode value="others" title="Others"></TreeNode>
             </TreeNode>
           </TreeSelect>
-          <RangePicker onChange={onTreeChange} style={{ width: "150px" }} />
+          <RangePicker onChange={onDateChange} style={{ width: "150px" }} />
           <Button type="primary" onClick={handleClick}>
             Submit
           </Button>
+          <Button onClick={() => setParam()}>Clear</Button>
         </Space>
       </div>
     </div>
@@ -82,12 +126,12 @@ export default function ParamMenu(props) {
     <div>
       <div style={{ textAlign: "right", marginRight: 20, cursor: "pointer" }}>
         {show === false ? (
-          <DownOutlined onClick={handleClick} />
+          <DownOutlined onClick={() => setShow(!show)} />
         ) : (
-          <UpOutlined onClick={handleClick} />
+          <UpOutlined onClick={() => setShow(!show)} />
         )}
       </div>
-      <div>{show && paramBox}</div>
+      <div>{show ? paramBox : paramText}</div>
     </div>
   );
 }

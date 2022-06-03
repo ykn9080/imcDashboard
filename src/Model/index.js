@@ -95,7 +95,7 @@ export const findInitDash = (data) => {
   if (!data) return;
   return data[0];
 };
-export const localInit = async (type) => {
+export const localInit = async (type,param) => {
   let url;
   switch (type) {
     case "local":
@@ -120,7 +120,7 @@ export const localInit = async (type) => {
         let data = [];
         if (r.data.data && r.data.data.length > 0)
           data = JSON.parse(r.data.data);
-        data = await loopRealtime(data);
+        data = await loopRealtime(data,param);
 
         localStorage.setItem("dashdata", JSON.stringify(data));
         localStorage.setItem(
@@ -145,18 +145,21 @@ export const localInit = async (type) => {
       return null;
   }
 };
-export async function loopRealtime(arr) {
+export async function loopRealtime(arr,param) {
   return await Promise.all(
     arr.map(async (k, i) => {
       if (k.resultsAuthor) {
-        const updatedt = await replaceRealtime(k.resultsAuthor);
+        const updatedt = await replaceRealtime(k.resultsAuthor,param);
         k.resultsAuthor = updatedt;
         return k;
       } else return k;
     })
   );
 }
-export async function replaceRealtime(lay) {
+const makeParam = (param) => {
+  param={usertype: 'doctor', date: Array(1), country: ["korea"]};
+}
+export async function replaceRealtime(lay,param) {
   return await Promise.all(
     lay.map(async (k) => {
       if (k?.dtsetting?.dtype === "api") {
@@ -166,6 +169,15 @@ export async function replaceRealtime(lay) {
           method: k.dtsetting.method,
           url: k.dtsetting.url,
         };
+        if(param){
+          let parammap=k.dtsetting.parammapping
+          if(parammap){
+            const keylist=Object.keys(JSON.parse(parammap));
+            keylist.map((key,i)=>{
+
+            })
+          }
+        }
         switch (k.dtsetting.method) {
           case "post":
             if (k.dtsetting.body) config.data = k.dtsetting.body;
