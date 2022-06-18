@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as XLSX from "xlsx";
-import { Row, Col, Input, Alert, Table, message } from "antd";
+import { Row, Col, Input, Alert, Table } from "antd";
 import "./Styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -54,14 +54,14 @@ const SheetJSApp = ({ authObj, onDataUpdate, ...props }) => {
     if (rABS) reader.readAsBinaryString(file);
     else reader.readAsArrayBuffer(file);
   };
-  const exportFile = () => {
-    /* convert state to workbook */
-    const ws = XLSX.utils.aoa_to_sheet(data);
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "SheetJS");
-    /* generate XLSX file and send to client */
-    XLSX.writeFile(wb, "sheetjs.xlsx");
-  };
+  // const exportFile = () => {
+  //   /* convert state to workbook */
+  //   const ws = XLSX.utils.aoa_to_sheet(data);
+  //   const wb = XLSX.utils.book_new();
+  //   XLSX.utils.book_append_sheet(wb, ws, "SheetJS");
+  //   /* generate XLSX file and send to client */
+  //   XLSX.writeFile(wb, "sheetjs.xlsx");
+  // };
 
   return (
     <DragDropFile handleFile={handleFile}>

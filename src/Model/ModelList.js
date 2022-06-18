@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import _ from "lodash";
-import axios from "axios";
 import AntFormDisplay from "imcformbuilder";
 import formdt from "./AntFormDisplay.json";
 import { useDispatch, useSelector } from "react-redux";
 import { globalVariable } from "actions";
-import { checkSetting, localList } from "Model";
-import { List, Tooltip, Button, Popover } from "antd";
-import { PlusOutlined, CheckOutlined } from "@ant-design/icons";
+import { checkSetting } from "Model";
+import { List, Tooltip, Button, Popover, Popconfirm, Checkbox } from "antd";
+import { PlusOutlined } from "@ant-design/icons";
 import PageHead from "components/Common/PageHeader";
 import { saveToPermernent } from "./ModelEdit";
+import { localInit } from "Model";
 
 const ModelList = () => {
   const history = useHistory();
@@ -20,23 +20,20 @@ const ModelList = () => {
   dispatch(globalVariable({ currentData: null }));
   const [list, setList] = useState();
   const [visible, setVisible] = useState(false);
-  const hide = () => {
-    setVisible(false);
-  };
 
   const handleVisibleChange = () => {
     setVisible(!visible);
   };
   useEffect(() => {
     const chk = checkSetting();
-    let config, url;
     switch (chk.datatype) {
       case "local":
       default:
         //setList(localList());
         if (!tempModelList) setList([]);
-        else setList(_.uniq(tempModelList));
-        //console.log(localList());
+        else {
+          setList(_.uniq(tempModelList));
+        }
         break;
       // case "mongodb":
       //   config = {
@@ -66,11 +63,18 @@ const ModelList = () => {
       //   break;
     }
   }, []);
-
-  const editHandler = (item) => {
-
-    dispatch(globalVariable({ tempModel: item }));
-    history.push(`/edit`);
+  const reloadTemp = async (item) => {
+    const rtn = await localInit("mysql", null, item.id);
+    let index = _.findIndex(rtn.data, (o) => {
+      return o.id === item.id;
+    });
+    return rtn.data[index];
+  };
+  const editHandler = async (item) => {
+    const tmp = await reloadTemp(item);
+    dispatch(globalVariable({ tempModel: tmp }));
+    dispatch(globalVariable({ selectedKey: item.id }));
+    history.push(`/view?detour=edit`);
   };
   const deleteHandler = (item, index) => {
     tempModelList.splice(index, 1);
@@ -78,15 +82,17 @@ const ModelList = () => {
 
     dispatch(globalVariable({ tempModelList: _.cloneDeep(tempModelList) }));
   };
-  const viewHandler = (item) => {
-    dispatch(globalVariable({ tempModel: item }));
+  const viewHandler = async (item) => {
+    const tmp = await reloadTemp(item);
+    dispatch(globalVariable({ tempModel: tmp }));
+    dispatch(globalVariable({ selectedKey: item.id }));
     history.push(`/view`);
   };
   const selectHandler = (item, index) => {
-
     tempModelList.map((itm, idx) => {
       delete itm.selected;
       tempModelList.splice(idx, 1, itm);
+      return null;
     });
     item.selected = true;
     tempModelList.splice(index, 1, item);
@@ -94,9 +100,21 @@ const ModelList = () => {
 
     dispatch(globalVariable({ tempModelList: tempModelList }));
   };
+  const onParamChange = (e, item, index) => {
+    console.log(e.target.checked);
 
+    if (e.target.checked) {
+      item.parameters = true;
+    } else {
+      delete item.parameters;
+    }
+    tempModelList.splice(index, 1, item);
+
+    setList(tempModelList);
+
+    dispatch(globalVariable({ tempModelList: tempModelList }));
+  };
   const onFinish = (values) => {
-
     const newModel = {
       id: parseInt(Math.random() * 1000000),
       title: values.title,
@@ -104,7 +122,7 @@ const ModelList = () => {
       resultsAuthor: [],
     };
 
-    const list = saveToPermernent(newModel, tempModelList);
+    const list = saveToPermernent(newModel, tempModelList, "default");
 
     setList(list);
 
@@ -133,19 +151,6 @@ const ModelList = () => {
         onVisibleChange={handleVisibleChange}
       >
         <Button shape="circle" icon={<PlusOutlined />} />
-        {/* <Link
-        to={{
-          pathname: "/view",
-          state: {
-            id: parseInt(Math.random() * 1000000),
-            title: "noname",
-            desc: "",
-            resultsAuthor: [],
-          },
-        }}
-      >
-        
-      </Link> */}
       </Popover>
     </Tooltip>,
   ];
@@ -160,31 +165,34 @@ const ModelList = () => {
           renderItem={(item, index) => (
             <List.Item
               actions={[
-                <a href="#" onClick={() => viewHandler(item)}>
+                <Button type="link" onClick={() => viewHandler(item)}>
                   view
-                </a>,
-                <a href="#" onClick={() => editHandler(item)}>
+                </Button>,
+                <Button type="link" onClick={() => editHandler(item)}>
                   edit
-                </a>,
-                <a href="#" onClick={() => deleteHandler(item, index)}>
-                  delete
-                </a>,
-                <a href="#" onClick={() => selectHandler(item, index)}>
-                  select
-                </a>,
+                </Button>,
+                <Popconfirm
+                  title="Are you sure to delete this task?"
+                  onConfirm={() => deleteHandler(item, index)}
+                  okText="Yes"
+                  cancelText="No"
+                >
+                  <Button type="link">delete</Button>
+                </Popconfirm>,
+                <Button type="link" onClick={() => selectHandler(item, index)}>
+                  default
+                </Button>,
+                <Checkbox
+                  checked={item.parameters && true}
+                  onChange={(e) => onParamChange(e, item, index)}
+                >
+                  Parameter
+                </Checkbox>,
               ]}
             >
               <List.Item.Meta
-                title={
-                  <Link
-                    to={{
-                      pathname: "/view",
-                      state: item,
-                    }}
-                  >
-                    {item.selected === true ? "★ " + item.title : item.title}
-                  </Link>
-                }
+                title={item.selected === true ? "▶ " + item.title : item.title}
+                description={item.desc}
               />
             </List.Item>
           )}

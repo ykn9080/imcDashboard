@@ -30,10 +30,6 @@ const formArray = {
           value: "mysql",
           text: "mysql",
         },
-        {
-          value: "s3",
-          text: "aws s3",
-        },
       ],
       formColumn: 1,
       layout: "horizontal",
@@ -64,6 +60,13 @@ const formArray = {
       shouldupdate: true,
       shouldfield: "datatype",
       shouldvalue: "mongodb,mysql,s3",
+    },
+    {
+      label: "Hide Edit",
+      name: "hideedit",
+      type: "checkbox",
+      seq: 5,
+      msgright: "hide edit button",
     },
   ],
   setting: {

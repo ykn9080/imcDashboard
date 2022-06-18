@@ -5,6 +5,14 @@ import {
 import _ from "lodash";
 import $ from "jquery";
 
+export const isJSON = (str) => {
+  if ((str === "undefined") | (str === "")) return true;
+  try {
+    return JSON.parse(str) && !!str;
+  } catch (e) {
+    return false;
+  }
+};
 // var a = [
 //   {id: 4, name: 'Greg',position: '7'},
 //   {id: 1, name: 'David'},

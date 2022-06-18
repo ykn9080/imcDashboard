@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Input, Row, Col, Typography, Alert, message, Spin } from "antd";
+import { Input, Row, Col, Alert, Spin } from "antd";
 import * as XLSX from "xlsx";
 
-const { Title } = Typography;
 const { TextArea } = Input;
 
 const DataPaste = ({ authObj, onDataUpdate }) => {
@@ -64,16 +63,15 @@ const DataPaste = ({ authObj, onDataUpdate }) => {
   };
   const arrayToJson = (data) => {
     const head = data.shift();
-    let rtn = [];
-    data.map((k, i) => {
+
+    return data.map((k, i) => {
       let obj = {};
       head.map((s, j) => {
         obj[s] = k[j];
         return null;
       });
-      rtn.push(obj);
+      return obj;
     });
-    return rtn;
   };
   const chkArrayNupdate = (inputval) => {
     if (Array.isArray(inputval)) {

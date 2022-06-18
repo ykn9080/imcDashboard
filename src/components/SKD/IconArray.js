@@ -103,7 +103,6 @@ const IconArray = () => {
 
     let seq = ctrLength;
     ctrList.push(addCtr(seq, findNthWidth(seq, layObj.col)));
-    console.log(ctrList);
     dispatch(globalVariable({ control: ctrList }));
     LayoutControl(layObj, ctrList);
   };

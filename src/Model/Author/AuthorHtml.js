@@ -142,7 +142,6 @@ const AuthorHtml = ({ authObj, onChange, edit }) => {
       let notexist = true;
       authorlist.map((k, i) => {
         if (k.i === newdata.i) {
-          console.log("her");
           authorlist.splice(i, 1, newdata);
           notexist = false;
         }
@@ -151,7 +150,6 @@ const AuthorHtml = ({ authObj, onChange, edit }) => {
       if (notexist) {
         authorlist.push(newdata);
       }
-      console.log(authorlist);
       tempModel.resultsAuthor = authorlist;
 
       dispatch(globalVariable({ tempModel }));

@@ -28,7 +28,6 @@ const Reditor = (props) => {
   const [htmlcontent, setHtmlcontent] = useState();
 
   useEffect(() => {
-    console.log(props);
     if (props.content) {
       const simplecontent = { entityMap: {}, blocks: props.content.blocks };
       const contentstate = convertFromRaw(simplecontent);

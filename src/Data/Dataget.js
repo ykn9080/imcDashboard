@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AntFormDisplay from "imcformbuilder";
 import formdt from "./AntFormDisplay.json";
-import { Input, Row, Col, Alert, Spin, message } from "antd";
+import { Input, Row, Col, Alert, Spin } from "antd";
 import styled, { css } from "styled-components";
 
 const { TextArea } = Input;
@@ -20,7 +20,9 @@ const Dataget = ({ authObj, onDataUpdate, ...props }) => {
     if (authObj && authObj.dtsetting) {
       setInitVal(authObj.dtsetting);
 
-      if (authObj.dtlist) setResult(JSON.stringify(authObj.dtlist, null, 2));
+      //if (authObj.dtlist) setResult(JSON.stringify(authObj.dtlist, null, 2));
+      if (authObj.originlist)
+        setResult(JSON.stringify(authObj.originlist, null, 2));
     } else {
       setInitVal({
         url: "",
@@ -47,7 +49,6 @@ const Dataget = ({ authObj, onDataUpdate, ...props }) => {
     if (val.refresh) {
       options = { ...options, refresh: val.refresh };
     }
-    console.log(options);
     setLoading(true);
     val.dtype = "api";
     axios
@@ -65,7 +66,6 @@ const Dataget = ({ authObj, onDataUpdate, ...props }) => {
         }
 
         setResult(JSON.stringify(rtn, null, 2));
-
         if (Array.isArray(rtn)) {
           val.dtype = "api";
           onDataUpdate(authObj, rtn, val);

@@ -1,4 +1,3 @@
-import { globalVariable } from "actions";
 import { message } from "antd";
 import _ from "lodash";
 import axios from "axios";
@@ -8,46 +7,59 @@ import IconArray1 from "components/SKD/IconArray1";
 import $ from "jquery";
 import React, { useEffect } from "react";
 import { GoDeviceDesktop } from "react-icons/go";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useHistory, useLocation } from "react-router-dom";
 import ModelEdit3 from "./ModelEdit3";
 import ModelEdit4, { saveLayout } from "./ModelEdit4";
 import { checkSetting } from "Model";
 
-const imcsvr = process.env.REACT_APP_SERVER;
-const dios3 = process.env.REACT_S3_SERVER;
-const diobucket = process.env.REACT_S3_BUCKETNAME;
+require("dotenv").config();
+const sqlsvr = process.env.REACT_APP_SERVER;
 
 const ModelEdit = (props) => {
   const history = useHistory(); // do this inside the component
-  const dispatch = useDispatch();
+  const location = useLocation();
 
   let currentStep = useSelector((state) => state.global.currentStep);
   let tempModel = useSelector((state) => state.global.tempModel);
   let tempModelList = useSelector((state) => state.global.tempModelList);
+  let selectedKey1 = useSelector((state) => state.global.selectedKey1);
 
   useEffect(() => {
     $(".ant-col.ant-col-6").css({
       "text-align": "right",
       "padding-right": "30px",
     });
+    const detour = location?.state?.detour;
+    const keepopen = location?.state?.keepopen;
+    const param = location?.state?.param;
+    if (detour === "view") gotoView(param, keepopen);
   }, []);
 
-  const gotoView = () => {
-    if (tempModel) dispatch(globalVariable({ selectedKey: tempModel?._id }));
+  const gotoView = (param, keepopen) => {
+    //if (tempModel) dispatch(globalVariable({ selectedKey: tempModel?._id }));
     //history.push(`/Model/view?_id=${tempModel._id}`);
-    history.push(`/view`);
+    let pushcontent = {
+      pathname: "/view",
+    };
+    if (param) {
+      pushcontent.state = { from: "edit", param, keepopen };
+    }
+
+    history.push(pushcontent);
   };
   const setting = () => {
     history.push(`/setting`);
   };
   const saveToPermernent1 = () => {
-    saveToPermernent(tempModel, tempModelList);
+    saveToPermernent(tempModel, tempModelList, selectedKey1);
   };
   const btnArr = [
     {
       tooltip: "View",
-      icon: <GoDeviceDesktop color="white" onClick={gotoView} />,
+      icon: (
+        <GoDeviceDesktop color="white" onClick={() => history.push("/view")} />
+      ),
     },
     {
       tooltip: "Save to Server",
@@ -101,13 +113,13 @@ const ModelEdit = (props) => {
     </>
   );
 };
-export const saveToPermernent = (tempModel, tempModelList) => {
+export const saveToPermernent = (tempModel, tempModelList, selectedKey1) => {
   // dispatch(globalVariable({ triggerChild: ["save"] }));
   if (tempModel === "") {
     message.error("Incomplete file.");
     return false;
   }
-  console.log(tempModelList, tempModel);
+  if (!tempModelList) tempModelList = [];
   let newtempModel = { ...saveLayout(tempModel) };
 
   let isexist = false;
@@ -125,7 +137,6 @@ export const saveToPermernent = (tempModel, tempModelList) => {
   // if (index) {
   //   tempModelList.splice(index, 1, newtempModel);
   // } else tempModelList.push(newtempModel);
-  console.log(tempModelList);
   switch (checkSetting().datatype) {
     case "local":
     default:
@@ -135,10 +146,7 @@ export const saveToPermernent = (tempModel, tempModelList) => {
       saveToServer(tempModelList);
       break;
     case "mysql":
-      saveToMysql(tempModelList);
-      break;
-    case "s3":
-      saveToAwsS3(tempModelList);
+      saveToMysql(tempModelList, selectedKey1);
       break;
   }
   return tempModelList;
@@ -162,41 +170,6 @@ const saveToServer = (newtempModel) => {
   //   }
   //   message.success("File saved Mongodb");
   // });
-};
-const saveToAwsS3 = (newtempModel) => {
-  let method = "post",
-    id = "";
-  // if (newtempModel.hasOwnProperty("_id")) {
-  //   method = "post";
-  //   id = newtempModel._id;
-  // }
-  const fileData = JSON.stringify(newtempModel);
-  const blob = new Blob([fileData], { type: "text/json" });
-
-  var files = new File([blob], "dashboard.json");
-  const formData = new FormData();
-  formData.append("bucketname", "diodashboar");
-  formData.append("file1", files);
-
-  console.log(files);
-  // const url = URL.createObjectURL(blob);
-  // const link = document.createElement("a");
-  // link.download = "dashboard.json";
-  // link.href = url;
-  // link.click();
-
-  let config = {
-    method: method,
-    url: `http://localhost:8989/multiupload`,
-    body: formData,
-  };
-  axios(config).then((r) => {
-    // if (method === "post") {
-    //   tempModel._id = r.data._id;
-    //   dispatch(globalVariable({ tempModel }));
-    // }
-    message.success("File saved s3");
-  });
 };
 
 const saveTolocal = (data) => {
@@ -223,33 +196,37 @@ const removeDatalist = (list) => {
   return list.map((k, i) => {
     if (k.resultsAuthor) {
       k.resultsAuthor.map((l, j) => {
-        if (l.dtsetting.dtype === "api") {
+        if (l.dtsetting?.dtype === "api") {
           delete l.dtlist;
+          delete l.originlist;
           k.resultsAuthor.splice(j, 1, l);
         }
+        return null;
       });
       return k;
     }
     return k;
   });
 };
-export const saveToMysql = (newtempModelList) => {
-  console.log("saveToMysql", newtempModelList);
-  let method = "put",
-    id = "1";
-  // if (newtempModel.hasOwnProperty("id")) {
-  //   method = "put";
-  //   id = newtempModel.id;
-  // }
 
-  const newList = removeDatalist([...newtempModelList]);
+export const saveToMysql = (newtempModelList, selectedKey1) => {
+  let method = "post";
+  let url = `${sqlsvr}/api/dashboard`;
+  if (!selectedKey1) {
+    selectedKey1 = "default";
+  } else {
+    method = "put";
+    url = url + `/any?user=${selectedKey1}`;
+  }
+  let cloneList = _.cloneDeep(newtempModelList);
+  const newList = removeDatalist(cloneList);
 
-  console.log(newtempModelList, newList);
   let config = {
     method: method,
-    url: `https://orm.ezdentone.com/api/dashboard/${id}`,
-    data: { user: "default", data: JSON.stringify(newList) },
+    url: url,
+    data: { user: selectedKey1, data: JSON.stringify(newList) },
   };
+
   axios(config)
     .then((r) => {
       message.success("File saved mysql");

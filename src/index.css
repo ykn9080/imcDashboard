@@ -38,9 +38,35 @@ code {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
+  margin-left:2px;
 }
 .space-align-block {
   flex: none;
   margin: 4px;
   padding: 4px;
 }
+.point{
+  cursor:pointer;
+}
+
+.fullscreen-modal.modal-dialog {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+   background-color: papayawhip; 
+
+}
+
+.fullscreen-modal .modal-content {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+
+
+

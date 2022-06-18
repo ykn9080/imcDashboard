@@ -105,7 +105,7 @@ const ModelEdit4 = (props) => {
         reverttempModel();
         return false;
       }
-      let cnum = 12 / colnum;
+      let cnum = parseInt(12 / colnum);
       lay.map((k, i) => {
         k.w = cnum;
         //k.h = cnum * 3;
@@ -287,12 +287,15 @@ const ModelEdit4 = (props) => {
           <Radio.Button value="1">1</Radio.Button>
           <Radio.Button value="2">2</Radio.Button>
           <Radio.Button value="3">3</Radio.Button>
+          <Radio.Button value="4">4</Radio.Button>
+          <Radio.Button value="5">5</Radio.Button>
+          <Radio.Button value="6">6</Radio.Button>
         </Radio.Group>
       </div>
     );
   };
   const genExtra = () => (
-    <div style={{ textAlign: "right", margin: "0 5px -5px 0" }}>
+    <div style={{ textAlign: "right", margin: "35px 5px -5px 0" }}>
       <Tooltip title="Create New">
         <Button
           type="primary"
@@ -476,13 +479,6 @@ const ModelEdit4 = (props) => {
       >
         <p>{ModalContent}</p>
       </Modal>
-      <Button
-        onClick={() => {
-          console.log(JSON.stringify(tempModel.resultsAuthor));
-        }}
-      >
-        tempModel
-      </Button>
     </>
   );
 };

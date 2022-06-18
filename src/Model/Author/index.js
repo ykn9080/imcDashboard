@@ -11,6 +11,7 @@ import EasyTable from "imcgridtable";
 import EasyChart from "imcchart";
 import Data from "../../Data";
 import AuthorHtml from "Model/Author/AuthorHtml";
+import DetailSetting from "Model/Author/DetailSetting";
 
 const Author = (props) => {
   const [authObj, setAuthObj] = useState();
@@ -42,6 +43,7 @@ const Author = (props) => {
       local1 = localStorage.getItem("modelchart");
     if (local1) {
       local = JSON.parse(local1);
+      console.log("modelchart", local);
       onChange(local);
     }
 
@@ -70,6 +72,7 @@ const Author = (props) => {
     },
   ];
   const onChange = (data) => {
+    console.log(data);
     let authorlist = tempModel?.resultsAuthor;
 
     let notexist = true;
@@ -90,8 +93,9 @@ const Author = (props) => {
       if (k.id === tempModel.id) {
         tempModelList.splice(i, 1, tempModel);
       }
+      return null;
     });
-    console.log("dashboard", tempModel);
+
     dispatch(globalVariable({ tempModelList: _.cloneDeep(tempModelList) }));
     dispatch(globalVariable({ tempModel: _.cloneDeep(tempModel) }));
   };
@@ -137,6 +141,8 @@ const Author = (props) => {
               );
             case "data":
               return <Data authObj={authObj} onChange={onChange} />;
+            case "detailsetting":
+              return <DetailSetting authObj={authObj} onChange={onChange} />;
             default:
               return null;
           }
